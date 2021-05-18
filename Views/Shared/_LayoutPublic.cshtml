@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template.">
+    <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+    <meta name="author" content="PIXINVENT">
+    <title>Archivio CL - Gestionale</title>
+
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    
+    <script src="../../../app-assets/vendors/js/extensions/sweetalert.min.js"></script>
+
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/icons/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/vendors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/ArchivioCL.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/charts/jquery-jvectormap-2.0.3.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/charts/morris.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/unslider.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/weather-icons/climacons.min.css">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN ROBUST CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/app.css">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+    <!-- END ROBUST CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/ArchivioCL.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/horizontal-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/calendars/clndr.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/meteocons/style.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="~/app-assets/images/logo/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/app-assets/images/logo/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/app-assets/images/logo/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/app-assets/images/logo/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/app-assets/images/logo/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/app-assets/images/logo/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/app-assets/images/logo/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/app-assets/images/logo/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/app-assets/images/logo/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/app-assets/images/logo/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/app-assets/images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/app-assets/images/logo/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/app-assets/images/logo/favicon-16x16.png">
+    <link rel="manifest" href="~/app-assets/images/logo/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/app-assets/images/logo/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- END Custom CSS-->
+    <!-- datatables-->
+    <style>
+
+
+        .ui-autocomplete-list {
+            max-height: 400px;
+            overflow-y: auto; /* prevent horizontal scrollbar */
+            overflow-x: hidden; /* add padding to account for vertical scrollbar */
+            z-index: 1000 !important;
+        }
+
+        .ui-autocomplete {
+            overflow-y: auto;
+            height: 300px;
+            overflow-x: hidden;
+        }
+
+        .form-control-sm {
+            color: #5a5a5a;
+            border: 1px solid #d4d4d4 !important;
+            font-size: unset;
+        }
+    </style>
+
+
+
+</head>
+<body class="horizontal-layout horizontal-menu horizontal-menu-padding 2-columns   menu-expanded"
+      data-open="hover" data-menu="horizontal-menu" data-col="2-columns" style="background-color:white">
+    <div class="app-content container center-layout mt-2" style="max-width:99%">
+        <!-- fixed-top-->
+        <!-- Sales stats -->
+        @RenderBody()
+</div>
+
+        <!-- ////////////////////////////////////////////////////////////////////////////-->
+        <!-- BEGIN VENDOR JS-->
+        <!-- BEGIN VENDOR JS-->
+        <!-- BEGIN PAGE VENDOR JS-->
+        <script src="../../../app-assets/vendors/js/ui/jquery.sticky.js"></script>
+
+        <script src="../../../app-assets/vendors/js/extensions/moment.min.js"></script>
+        <script src="../../../app-assets/vendors/js/extensions/underscore-min.js"></script>
+        <script src="../../../app-assets/vendors/js/extensions/clndr.min.js"></script>
+        <script src="../../../app-assets/vendors/js/extensions/unslider-min.js"></script>
+        <!-- END PAGE VENDOR JS-->
+        <!-- BEGIN ROBUST JS-->
+        <script src="../../../app-assets/js/core/app-menu.js"></script>
+        <script src="../../../app-assets/js/core/app.js"></script>
+        <!-- END ROBUST JS-->
+        <!-- BEGIN PAGE LEVEL JS-->
+        <!-- END PAGE LEVEL JS-->
+        @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+

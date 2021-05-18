@@ -1,0 +1,14 @@
+﻿.btnPrincipale {
+    background-color: #645fce;
+    color:white;
+}
+.btnPrincipale:hover {
+
+    color:black;
+}
+
+h5,h4 {
+    font-weight:bold;
+    text-decoration:underline
+}
+
