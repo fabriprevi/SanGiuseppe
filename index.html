@@ -3,49 +3,123 @@
 <head>
     <meta charset="utf-8">
     <title>FRATERNITA SAN GIUSEPPE</title>
+    <link href="//db.onlinewebfonts.com/c/3cf68a3f2881b0b45c60e1132c47ce98?family=EffraW01-Light" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <!--  JQUERY  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!--  END JQUERY  -->
-    <!-- <script type="text/javascript" src="js/funzionivarie.js"></script> -->
-    <link href="wwwroot/css/normalize.css" rel="stylesheet" type="text/css">
+    <!-- <script type="text/javascript" src="js/funzionivarie.js"></script>-->
+    <link href="wwwroot/css/normalize.css" rel="stylesheet" type="text/css"> 
     <link href="wwwroot/css/site.css" rel="stylesheet" type="text/css">
-
-
 </head>
 
 <body> 
+  <header> 
+    <div id="headerDefault">
+        <img id="logo" src="wwwroot/img/logo.svg" />
+        <div class="d-none d-lg-block">Profilo <img src="wwwroot/img/icon-profilo.svg" /></div>
+    </div>   
+    <nav id="headerMenu" class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>    
+  </header>
+  <p id="introText" class="d-lg-none" >L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.</p>
+  <div id="loginBox">
+    <span class="d-lg-none">Accesso al sito</span>
+    <span class="d-none d-lg-block">Entra nel sito della Fraternità</span>
+    <form>
+      <div>
+        <label for="emailLogin" class="form-label">Nome utente (la tua mail)</label>
+        <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelp">
+      </div>
+      <div>
+        <label for="pwLogin" class="form-label">Password</label>
+        <input type="password" class="form-control" id="pwLogin">
+        <div id="pwHelp" class="form-text">Non ricordi la password?</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Area riservata</button>
+      <span>Leggi l’ <a href="google">Informativa</a></span>
+    </form>
+    <span>Non sei registrato?</span>
+  </div>
       <section id="mainSection">
-        <header>
-            <div id="headerDefault">
-                <img src="wwwroot/img/logo.svg" />
-                <div>Profilo <img src="wwwroot/img/logo.svg" /></div>
-            </div>   
-            <nav id="headerMenu" class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>    
-                  </ul>
-                </div>  
-              </nav>     
-          </header>
-          <div id="loginBox">
-
-          </div>
+        <img src="wwwroot/img/bg-home.jpg" id="bgHome" /> 
+        <img src="wwwroot/img/payoff.svg" id="payoff" /> 
       </section>
+      <section id="sectionInfo">
+        <p class="d-none d-lg-block">La fraternità è una compagnia guidata al destino.</p>
+        <div>
+          <figure><img src="wwwroot/img/phone.svg" /> </figure>
+            Archivio documenti
+            lezioni, ritiri, appunti
+            pdf/ePub
+        </div>
+        <div>
+          <figure><img src="wwwroot/img/puzzle.svg" /> </figure>
+          Avvisi
+          della vita di Fraternità
+        </div>
+        <div>
+          <figure><img src="wwwroot/img/people.svg" /> </figure>
+          Bacheca
+          interscambio notizie
+          personali
+        </div>
+        <div>
+          <figure><img src="wwwroot/img/fulmine.svg" /> </figure>
+          Gli ultimi
+          aggiornamenti
+        </div>
+        <div>
+          <figure><img src="wwwroot/img/fiore.svg" /> </figure>
+          Ritiri, eventi,
+dirette streaming
+        </div>
+      </section>
+      <section id="textInfoHp">
+        L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, così come trasmessi dalla tradizione della Chiesa Cattolica e secondo l’accento di educazione alla fede proprio della Fraternità di Comunione e Liberazione, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.
+       </section>
+       <section id="descriptionBoxHp">
+        <div>
+          «Tutta la mia vita consiste nell’avvenimento della sua chiamata, nella carità del suo Essere che ha scelto la mia miseria per incarnarsi e rendere più lieta e luminosa la mia vita. Ogni mattina, quando mi sveglio, capisco che la vita mi è data per questo; la giornata, le ore, i minuti, mi sono dati per questo, perché il desiderio della sua compagnia, sperimentata come dono ineguagliabile, sia grido consapevole per una vita piena»
+          <button type="button" class="btn btn-primary">ENTRA</button>
+        </div>
+        <figure>
+          <img src="wwwroot/img/statue.jpg" /> 
+         </figure>
+       </section>
 
- 
 
+       <footer>
+         <span>Il sito è gestito e realizzato da</span> 
+         <div>
+              <img src="wwwroot/img/logoImage.svg" />
+              <span>ASSOCIAZIONE PER LO SVILUPPO
+              <br />           
+              CULTURALE E SOCIALE SAN GIUSEPPE</span>
+        </div>
+         <p>© 2021 /c.f. 97224720157 </p>
+       </footer>
+
+
+     <!--  JQUERY  -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <!--  END JQUERY  -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

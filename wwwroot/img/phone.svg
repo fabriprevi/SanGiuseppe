@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="54" viewBox="0 0 36 54">
+  <g id="phone" transform="translate(-166 -1355)">
+    <g id="Rettangolo_156" data-name="Rettangolo 156" transform="translate(166 1355)" fill="#fff" stroke="#6e4e45" stroke-width="2">
+      <rect width="36" height="54" rx="6" stroke="none"/>
+      <rect x="1" y="1" width="34" height="52" rx="5" fill="none"/>
+    </g>
+    <g id="Rettangolo_157" data-name="Rettangolo 157" transform="translate(170 1359)" fill="#fff" stroke="#6e4e45" stroke-width="2">
+      <rect width="28" height="39" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="26" height="37" rx="4" fill="none"/>
+    </g>
+    <g id="Ellisse_103" data-name="Ellisse 103" transform="translate(182 1400)" fill="#fff" stroke="#6e4e45" stroke-width="2">
+      <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+      <circle cx="2.5" cy="2.5" r="1.5" fill="none"/>
+    </g>
+  </g>
+</svg>

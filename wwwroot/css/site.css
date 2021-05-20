@@ -4,18 +4,292 @@ for details on configuring this project to bundle and minify static web assets. 
 html {
   font-size:16px;
 }
-
-body{
-
+:root{
+	--m_padding:0rem 2rem;
+  --text_color:#404040;
 }
+
+body{ 
+  font-family: "EffraW01-Light";
+  background:#fbfbfb;
+ }
+ footer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:var(--m_padding);
+  padding-top:4rem;
+  background: #fff;
+} 
+
+footer > span{
+  font-size: 2.8rem;
+  font-weight: 600;
+} 
+
+footer > div{
+  width: 100%;
+  display: flex;
+  color:#6E4E45;  
+  justify-content: center;
+  padding: 1rem;  
+}
+
+footer > div img{
+  width: 9.1rem;  
+}
+
+footer > div span{
+  flex: 1;
+  font-size: 2.3rem;
+  line-height: 2.7rem;
+  display: flex;
+  align-items: center;
+  padding-left: 2.2rem;
+}
+
+
+
+footer > p{
+  width: 100%;
+  font-size: 3rem; 
+  text-align: center; 
+  border-top: 2px solid #DBDBDB;
+  padding-bottom: 5rem;
+  margin-top: 1rem;
+}
+
+
+ /*******************************************/
+ /*  HOMEPAGE */
 
 #mainSection{
   width:100%;
-  min-height: 100vh;
-  background:url("../img/bg-home.jpg") #fff no-repeat bottom center;
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 6rem;
+  /*background:url("../img/bg-home.jpg") #fff no-repeat bottom center;*/
 }
+
+#bgHome{
+  width:100%;
+  max-width: 71.3rem;
+  margin: 0 auto;
+}
+
+#payoff{
+  position: relative;
+  width: 86%;
+  margin: 0 auto;
+}
+
+#introText{
+  position: relative;
+  color: #404040;
+  font-weight: 500;
+  font-size: 2.8rem;
+  line-height: 3.7rem;
+  text-align: center;
+  padding:var(--m_padding);
+}
+
+
+header{
+  display: flex;
+  width: 100%;
+  padding:var(--m_padding);
+}
+
+.btn-primary{
+  font-size: 3rem;
+  padding: 2.35rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  background: #6E4E45;
+  border: none;
+}
+
+#headerDefault{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 4.3rem;
+}
+
+#logo{  width: 100%; }
+
 
 #headerMenu{
   display: none;
+}
+
+
+#loginBox{
+  width:100%;
+  display: flex;
+  position: relative;  
+  flex-direction: column;
+  padding:var(--m_padding);
+  margin-top: 4rem;
+}
+
+#loginBox > span{
+  font-size: 3.6rem;
+  font-weight: 100;
+}
+
+#loginBox .form-control {
+  padding: 1.75rem 1.5rem;
+  font-size: 2.8rem;
+  border-radius: 0.9rem;
+}
+
+#loginBox > form{
+  padding-top: 1.4rem;
+}
+#loginBox .form-label {
+  font-size: 2.56rem;
+  margin-top: 1.66rem;
+}
+
+#loginBox .form-text {
+  font-size: 2.5rem;
+  color: #B4260D;
+}
+#loginBox .btn{
+  width: 100%;
+  margin-top: 2.6rem;
+}
+
+#loginBox .btn + span {
+  text-align: center;
+  font-size: 2.2rem;
+  display: block;
+  padding: 1rem;
+}
+
+#loginBox .btn + span > a {
+  color: #B4260D;
+  text-decoration: none;
+}
+
+#loginBox form + span {
+  text-align: center;
+}
+
+#sectionInfo{
+  background:url("../img/bg-dot.jpg") #fff repeat top left;
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  padding:var(--m_padding);
+  padding-top: 1.5rem;
+  padding-bottom: 6rem;
+
+}
+
+#sectionInfo > div{
+  display: flex;
+  background: #fff;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ddd;
+  flex: 48%;
+  margin: 4rem 1% 1rem 1%;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: #6E4E45;
+  max-width: 48%;
+}
+
+#sectionInfo > div figure{
+  background: #fff;
+  padding: 1rem;
+  margin-top: -5rem;
+}
+
+#textInfoHp{
+  background:#6E4E45;
+  display: flex;
+  width: 100%;
+  font-size: 2.9rem;
+  line-height: 3.8rem;
+  color: #fff;
+  padding: 4rem 3rem;
+}
+
+#descriptionBoxHp {
+  width:100%;
+  display: flex;
+  flex-direction: column-reverse; 
+  font-size: 2.9rem;
+  line-height: 3.8rem;
+}
+
+#descriptionBoxHp > div{
+  display: flex;
+  flex-direction: column; 
+  font-size: 2.8rem;
+  line-height: 3.7rem;
+  color: var(--text_color);
+  padding: 4rem 3rem;
+}
+#descriptionBoxHp  figure {
+  width:100%;
+  display: flex;
+  position: relative;  
+}
+
+#descriptionBoxHp figure > img{  width:100%; }
+#descriptionBoxHp  .btn-primary{  margin-top: 2.6rem; }
+
+/* lg Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+header{
+  position: absolute;
+  top: 0px;
+}
+#logo{  width: auto; }
+  #loginBox{
+    width:30%;
+    max-width:29rem;
+    background:rgba(242,233,215,0.8); 
+    position: fixed;
+    left:0px;
+    top: 30vh;
+    padding: 1rem 4rem;
+  }
+  
+  #payoff{
+    position: absolute;
+    top:11.6rem;
+    right:5rem;
+  }
+    
+  #headerDefault{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4.3rem;
+  }
+  #loginBox .form-control{  padding: .75rem .75rem; }
+
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+
+    /* #mainSection{  height: 55.6rem; } */
+
+
 }
 
