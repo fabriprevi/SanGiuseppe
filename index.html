@@ -10,7 +10,7 @@
     <link href="wwwroot/css/site.css" rel="stylesheet" type="text/css">
 </head>
 
-<body> 
+<body id="homepage"> 
   <header> 
     <div id="headerDefault">
         <img id="logo" src="wwwroot/img/logo.svg" />
@@ -57,48 +57,75 @@
     </form>
     <span>Non sei registrato?</span>
   </div>
+  <div id="languageBox">
+    <button onClick="changeLang('ita');">Italiano</button>
+    <button onClick="changeLang('ita');">Inglese</button>
+    <button onClick="changeLang('ita');">Spagnolo</button>
+
+    <button onClick="changeLang('ita');">Portoghese</button>
+    <button onClick="changeLang('ita');">Francese</button>
+    <button onClick="changeLang('ita');">Tedesco</button>
+
+    <button onClick="changeLang('ita');">Russo</button>
+    <button onClick="changeLang('ita');">Olandese</button>
+    <button onClick="changeLang('ita');">Croato</button>
+  </div>
       <section id="mainSection">
         <img src="wwwroot/img/bg-home.jpg" id="bgHome" /> 
-        <img src="wwwroot/img/payoff.svg" id="payoff" /> 
+        <img src="wwwroot/img/payoff.png" id="payoff" /> 
       </section>
       <section id="sectionInfo">
         <p class="d-none d-lg-block">La fraternità è una compagnia guidata al destino.</p>
-        <div>
-          <figure><img src="wwwroot/img/phone.svg" /> </figure>
-            Archivio documenti
-            lezioni, ritiri, appunti
-            pdf/ePub
-        </div>
-        <div>
-          <figure><img src="wwwroot/img/puzzle.svg" /> </figure>
-          Avvisi
-          della vita di Fraternità
-        </div>
-        <div>
-          <figure><img src="wwwroot/img/people.svg" /> </figure>
-          Bacheca
-          interscambio notizie
-          personali
-        </div>
-        <div>
-          <figure><img src="wwwroot/img/fulmine.svg" /> </figure>
-          Gli ultimi
-          aggiornamenti
-        </div>
-        <div>
-          <figure><img src="wwwroot/img/fiore.svg" /> </figure>
-          Ritiri, eventi,
-dirette streaming
+        <div id="sectionInfoElements">
+              <div>
+                <figure><img src="wwwroot/img/phone.svg" /> </figure>
+                  <span>
+                    Archivio documenti
+                    lezioni, ritiri, appunti 
+                    pdf/ePub
+                  </span>
+              </div>
+              <div>
+                <figure><img src="wwwroot/img/puzzle.svg" /> </figure>
+                  <span>
+                      Avvisi
+                      della vita di Fraternità
+                  </span>
+              </div>
+              <div>
+                <figure><img src="wwwroot/img/people.svg" /> </figure>
+                    <span>
+                          Bacheca
+                          interscambio notizie
+                          personali
+                    </span>
+              </div>
+              <div>
+                <figure><img src="wwwroot/img/fulmine.svg" /> </figure>
+                    <span>
+                        Gli ultimi<br />
+                        aggiornamenti
+                    </span>
+              </div>
+              <div>
+                <figure><img src="wwwroot/img/fiore.svg" /> </figure>
+                  <span>
+                        Ritiri, eventi,<br />
+                        dirette streaming
+                  </span>
+              </div>
         </div>
       </section>
       <section id="textInfoHp">
-        L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, così come trasmessi dalla tradizione della Chiesa Cattolica e secondo l’accento di educazione alla fede proprio della Fraternità di Comunione e Liberazione, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.
-       </section>
+        <p>
+          L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, così come trasmessi dalla tradizione della Chiesa Cattolica e secondo l’accento di educazione alla fede proprio della Fraternità di Comunione e Liberazione, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.
+        
+        </p> </section>
        <section id="descriptionBoxHp">
-        <div>
+        <p>
           «Tutta la mia vita consiste nell’avvenimento della sua chiamata, nella carità del suo Essere che ha scelto la mia miseria per incarnarsi e rendere più lieta e luminosa la mia vita. Ogni mattina, quando mi sveglio, capisco che la vita mi è data per questo; la giornata, le ore, i minuti, mi sono dati per questo, perché il desiderio della sua compagnia, sperimentata come dono ineguagliabile, sia grido consapevole per una vita piena»
           <button type="button" class="btn btn-primary">ENTRA</button>
-        </div>
+        </p>
         <figure>
           <img src="wwwroot/img/statue.jpg" /> 
          </figure>
@@ -113,7 +140,9 @@ dirette streaming
               <br />           
               CULTURALE E SOCIALE SAN GIUSEPPE</span>
         </div>
-         <p>© 2021 /c.f. 97224720157 </p>
+         <p class="d-lg-none">© 2021 /c.f. 97224720157 </p>
+         <p class="d-none d-lg-block">© 2021 Associazione per lo Sviluppo Culturale e Sociale San Giuseppe, sede in Milano via Caccialepori 23 - codice fiscale 97224720157  </p>
+
        </footer>
 
 

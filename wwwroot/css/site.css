@@ -42,7 +42,6 @@ footer > div img{
 }
 
 footer > div span{
-  flex: 1;
   font-size: 2.3rem;
   line-height: 2.7rem;
   display: flex;
@@ -65,11 +64,12 @@ footer > p{
  /*******************************************/
  /*  HOMEPAGE */
 
-#mainSection{
+#homepage #mainsection{
   width:100%;
   display: flex;
   flex-direction: column-reverse;
-  margin-top: 6rem;
+  padding-top: 6rem;
+  background: #fff;
   /*background:url("../img/bg-home.jpg") #fff no-repeat bottom center;*/
 }
 
@@ -111,6 +111,14 @@ header{
   border: none;
 }
 
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active:focus{
+  background: #533a32;
+  box-shadow:none;
+}
+
+
 #headerDefault{
   display: flex;
   justify-content: center;
@@ -133,6 +141,8 @@ header{
   flex-direction: column;
   padding:var(--m_padding);
   margin-top: 4rem;
+  background: #fff;
+  z-index:5;
 }
 
 #loginBox > span{
@@ -176,7 +186,37 @@ header{
 }
 
 #loginBox form + span {
-  text-align: center;
+    text-align: center;
+    color: #6E4E45;
+    font-weight: 600;
+}
+
+
+#languageBox{
+    width:30%;
+    max-width:29rem;
+    position: fixed;
+    right:3rem;
+    top: 30vh;
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    z-index:5;
+    display: none;
+  }
+
+  #languageBox > button {
+    text-align: center;
+    color: #6E4E45;
+    font-weight: 600;
+    background:#fff;
+    border: 1px solid #707070;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+    margin-top: 1rem;
+    width: 100%;
+    background: #fff;
+    font-size: 1.1rem;
 }
 
 #sectionInfo{
@@ -191,7 +231,16 @@ header{
 
 }
 
-#sectionInfo > div{
+#sectionInfoElements{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  max-width: 70rem;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+#sectionInfoElements > div{
   display: flex;
   background: #fff;
   flex-direction: column;
@@ -208,7 +257,7 @@ header{
   max-width: 48%;
 }
 
-#sectionInfo > div figure{
+#sectionInfoElements > div figure{
   background: #fff;
   padding: 1rem;
   margin-top: -5rem;
@@ -224,12 +273,19 @@ header{
   padding: 4rem 3rem;
 }
 
+#textInfoHp > p {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+}
+
 #descriptionBoxHp {
   width:100%;
   display: flex;
   flex-direction: column-reverse; 
   font-size: 2.9rem;
   line-height: 3.8rem;
+  background: #f7f7f7;
 }
 
 #descriptionBoxHp > div{
@@ -246,8 +302,77 @@ header{
   position: relative;  
 }
 
-#descriptionBoxHp figure > img{  width:100%; }
+#descriptionBoxHp figure > img{  
+  width:100%;
+  align-self: center;
+}
+#descriptionBoxHp > p {    
+  padding:var(--m_padding);
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+
+ }
 #descriptionBoxHp  .btn-primary{  margin-top: 2.6rem; }
+
+#introText,
+#textInfoHp,
+#descriptionBoxHp > div {  
+  text-align: center;
+}
+
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-device-width: 576px) { 
+
+  #introText,
+  #textInfoHp,
+  #descriptionBoxHp > p {
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    
+}
+#loginBox > span {
+  font-size: 2.5rem;
+}
+#loginBox .form-label {
+  font-size: 1.8rem;
+  margin-top: 1rem;
+}
+#loginBox .form-control {
+  padding: 1.5rem 1.5rem;
+  font-size: 2rem;
+}
+#loginBox .form-text {  font-size: 1.6rem; }
+.btn-primary {
+  font-size: 2.5rem;
+  padding: 2rem;
+} 
+#loginBox .btn + span {   font-size: 1.8rem; }
+
+#sectionInfoElements > div {
+  flex: 47%;
+  margin: 4rem 1.5% 1rem 1.5%;
+  font-size: 2rem;
+    line-height: 2.6rem;
+}
+
+footer > span {
+  font-size: 2rem;
+}
+
+footer > div span {
+  font-size: 1.7rem;
+  line-height: 2rem;
+}
+
+  footer > p {   font-size: 2rem; }
+
+
+}
 
 /* lg Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
@@ -256,40 +381,175 @@ header{
   position: absolute;
   top: 0px;
 }
-#logo{  width: auto; }
+#logo {  width: 23rem; }
+
   #loginBox{
     width:30%;
     max-width:29rem;
     background:rgba(242,233,215,0.8); 
-    position: fixed;
+    position: absolute;
     left:0px;
-    top: 30vh;
-    padding: 1rem 4rem;
+    top: 13vh;
+    padding: 1rem 1.4rem;
   }
   
-  #payoff{
+  #payoff {
     position: absolute;
-    top:11.6rem;
-    right:5rem;
-  }
+    top: 11.6rem;
+    right: 5rem;
+    width: 19rem;
+}
     
   #headerDefault{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 4.3rem;
+    padding: 3rem 4.3rem;
   }
-  #loginBox .form-control{  padding: .75rem .75rem; }
-
-    
+  #loginBox .form-control{  
+    padding: .75rem .75rem;     
+    font-size: 1.1rem;
+    border-radius: 0.4rem;
 }
+  #homepage #mainsection {   padding-top: 10rem;  }
+  #loginBox > span {
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+    color: #6E4E45;
+  }
+  #loginBox .form-label { 
+       font-size: 1.2rem; 
+       margin-top: 0.5rem;
+  }
+  
+  #loginBox .form-text {  font-size: 1.1rem; }  
+  .btn-primary {
+      font-size: 1.2rem;
+      padding: 0.6rem;
+      border-radius: 0.6rem;
+  } 
+  #loginBox .btn + span {    font-size: 1rem; }
+
+  #introText,
+  #textInfoHp,
+  #descriptionBoxHp > p,
+  #sectionInfo > p {
+      font-weight: 500;
+      font-size: 1.7rem;
+      line-height: 2.3rem;
+  }
+  #sectionInfo > p  { 
+    text-align: center;
+    width: 100%;
+    margin-top: 1rem;
+   }
+
+  #descriptionBoxHp {
+      font-size: 1.7rem;
+      line-height: 2.3rem;
+  }
+  #sectionInfoElements > div {
+    font-size: 1.45rem;
+    line-height: 1.8rem;
+    flex: 30%;
+    max-width: 23rem;
+  }  
+  #sectionInfoElements > div:nth-child(3) > figure {
+      margin-top: -4.5rem;
+      margin-bottom: 1.25rem;
+  }
+  #sectionInfoElements > div:nth-child(4) > figure,
+  #sectionInfoElements > div:nth-child(5) > figure {
+    margin-top: -4.5rem;
+  }
+
+  #headerDefault > div > img{  margin-left: 0.6rem; }
+   #descriptionBoxHp > p .btn-primary{   max-width:22rem;  }
+   footer > p {
+    font-size: 1.8rem;
+    padding-top: 0.6rem;
+}
+ 
+}
+
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
+  #loginBox{
+    padding: 2.8rem 3rem;
+    top: 19vh;
+  }
+      
+  #headerDefault{    padding: 4.3rem;   }
+  #logo {
+      width: 26.8rem;
+      max-width: 33%;
+  }
 
+  #payoff {     width: 23rem; }
+  
+  #homepage #mainsection {    padding-top: 1rem; }
+  #loginBox > form {    padding-top: 0.3rem; }  
+    #loginBox .btn {   margin-top: 1.2rem;  }
+    .btn-primary {    border-radius: 0.4rem;   }
+    #bgHome {      max-width: 57.3rem;  }
+    #loginBox > span {
+      line-height: 1.2rem;
+      font-size: 1.3rem;
+  }
+  #loginBox .form-label {
+    font-size: 1rem;
+}
+  #loginBox .form-text,
+  #loginBox .btn + span {  font-size: 0.92rem; }
+  #loginBox .btn + span{    padding-top: 0.4rem; }
 
+  #introText, #textInfoHp, #descriptionBoxHp > p, #sectionInfo > p {
+    font-weight: 500;
+    font-size: 1.44rem;
+    line-height: 2rem;
+}
+#textInfoHp {  padding: 4rem; }
     /* #mainSection{  height: 55.6rem; } */
 
+    #descriptionBoxHp {  
+      padding: 5rem 4rem;
+    flex-direction: row;
+    background: #f7f7f7;
+      }
+  #descriptionBoxHp figure { 
+    max-width: 571px;
+    flex-basis: 46%;
+     }
+  #descriptionBoxHp > p {
+    flex: 1;
+    font-size: 1.44rem;
+    line-height: 2rem;
+    padding-right: 7rem;
+}
+footer > span {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+footer > div span {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+footer > div img {
+  width: 3.8rem;
+}
+footer > p {
+  font-size: 1.16rem;
+  padding-top: 0.6rem;
+}
+
+
+}
+
+@media (min-width: 1440px) { 
+  #bgHome {    max-width: 71rem;  }
+  #loginBox{   padding: 2.8rem 4rem;     }
+  #payoff {    width: 29.8rem;  }
 
 }
 
