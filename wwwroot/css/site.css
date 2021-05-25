@@ -60,6 +60,20 @@ footer>p {
   margin-top: 1rem;
 }
 
+/* COLORE PER TESTO DEL PLACEHOLDER */
+#headerMenu .form-control::-webkit-input-placeholder { /* WebKit browsers */
+  color:#aaa !important;
+}
+#headerMenu .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:#888 !important;
+}
+#headerMenu .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:#888 !important;
+}
+#headerMenu .form-control:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:#aaa !important;
+}
+
 .inputBase {
   padding: 1.75rem 1.5rem;
   font-size: 2.8rem;
@@ -648,13 +662,14 @@ header {
       padding: 1rem;
   }
   #headerMenu .navbar-brand {
-    max-width: 21rem;
+    max-width: 17.4rem;
     margin-left: 2rem;
-  }
+}
+
   #headerMenu .nav-link {
-    font-size: 1rem;
-    padding: 0rem 2rem;
-    font-weight: 600;
+    font-size: 0.94rem;
+    padding: 0rem 1.5vw;
+    font-weight: 400;
   }
   #headerMenu .inputBase {
     padding: 0.6rem 1rem;
@@ -675,10 +690,21 @@ header {
     margin-top: 0rem;
   }
   #mainSection h2 {  font-size: 3.1rem; }
+  
+#navbarSupportedContent {
+  padding-right: 1rem;
+}
 
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1440px) {  
+
+  #headerMenu .nav-link {
+    font-size: 1rem;
+  }
+  #headerMenu .navbar-brand {
+    max-width: 21rem;
+  }
   #bgHome {
     max-width: 71rem;
   }
@@ -687,5 +713,16 @@ header {
   }
   #payoff {
     width: 29.8rem;
+  }
+  #navbarSupportedContent ul {
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1600px) {  
+
+  #headerMenu .nav-link {
+    padding: 0rem 2rem;
   }
 }

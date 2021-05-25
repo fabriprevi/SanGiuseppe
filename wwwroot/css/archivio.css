@@ -18,6 +18,22 @@ body{
   background: url("../img/bg-dot.jpg") #fff repeat top left;
 }
 
+/* COLORE PER TESTO DEL PLACEHOLDER */
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:#FFF !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:#FFF !important;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:#FFF !important;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:#FFF !important;
+}
+
+
 
 #mainSection {
   display: flex;
@@ -26,6 +42,7 @@ body{
   flex-wrap: wrap;
   padding: var(--m_padding);
   margin-top: 13.4rem;
+  justify-content: center;
 }
 
 
@@ -34,6 +51,13 @@ body{
   border-radius: 4rem;
   padding: 1rem 1.5rem;
   font-size: 2.8rem;
+}
+#mainSection .form-control {
+  background: #f4f4f4;
+  border-radius: 4rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
 }
 
 #mainSection .content{
@@ -50,22 +74,36 @@ body{
   margin-top: 3rem;
 }
 
+#documentSection > div:first-child{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 #filtersContainer{
   display: flex;
   width: 100%;
   flex-direction: column;
 }
 
-#filtersContainer .form-select{
+#filtersContainer .form-control{
   color: #fff;
   font-size: 2.6rem;
   padding: 1.4rem 3rem;
   border-radius: 4rem;
   font-weight: 500;
   background: #6E4E45;
-  border: none;
+  border:1px solid #6E4E45;
   margin: 0.6rem 0rem;
+  text-align: center;
 }
+#filtersContainer .form-control:focus{
+  color: #AD0E0E;
+  border:1px solid #AD0E0E;
+  background: #fff;
+  box-shadow: 0px 0px 7px 2px rgb(0 0 0 / 10%);
+}
+
 
 
 #filtersContainer .form-select option{
@@ -147,7 +185,7 @@ body{
 
 @media (min-device-width: 576px) {
 
-  #filtersContainer .form-select {
+  #filtersContainer .form-control {
     font-size: 1.7rem;
     padding: 1.2rem 2rem;
   }
@@ -171,9 +209,63 @@ body{
 }
 
 @media (min-width: 1200px) {
+  
   #headerMenu {
     min-height: auto;
     padding: 0.65rem 1rem;
   }
-  #mainSection {    margin-top: 4.8rem;   }
+  #mainSection {    margin-top: 6.5rem; }
+  #mainSection .form-control {
+      background: #f4f4f4;
+      border-radius: 4rem;
+      padding: 0.76rem 1.5rem;
+      font-size: 1.1rem;
+  }
+  #documentSection > div:first-child, #filtersContainer {  flex-direction: row;  }
+  #filtersContainer .form-control {
+      font-size: 0.96rem;
+      padding: 0.55rem 1rem;
+      margin: 0rem 0.4rem;
+  }  
+  #documentSection > div > span{   font-size: 1.24rem;
+    padding-right: 1.2rem;
+  }
+  #actualChoice {
+    font-size: 1.2rem;
+    padding: 0rem 0rem 0rem 2rem;
+    line-height: 1.4rem;
+    min-width: 22rem;
+  }
+  #actualChoice p{
+    text-align: left;
+  }
+
+  .textBase  {
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+  .cardCategory, .cardSelection {    width: 32%; }
+  .cardContent {   padding: 1.5rem 1.6rem;    
+      font-size: 2.1rem;
+      line-height: 2.45rem;
+  }
+  .cardText {
+    font-size: 1.16rem;
+    line-height: 1.7rem;
+  }
+  
+
+}
+
+
+@media (min-width: 1400px) {
+  #mainSection, #documentSection {
+      max-width: 1340px;
+      margin: 0 auto;
+      margin-top: 3rem;
+  }
+  #mainSection{  margin-top: 6.5rem;  } 
+
+
 }
