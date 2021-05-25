@@ -1,0 +1,179 @@
+﻿header.logged {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  padding: 0px;
+  z-index: 10;
+}
+
+header.logged #headerDefault {
+  display: none;
+}
+
+header.logged #headerMenu {
+  display: flex;
+  width: 100%;
+}
+body{
+  background: url("../img/bg-dot.jpg") #fff repeat top left;
+}
+
+
+#mainSection {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  padding: var(--m_padding);
+  margin-top: 13.4rem;
+}
+
+
+#mainSection .form-control{
+  background: #f4f4f4;
+  border-radius: 4rem;
+  padding: 1rem 1.5rem;
+  font-size: 2.8rem;
+}
+
+#mainSection .content{
+  text-align: center;
+}
+
+#mainSection .content > span{
+  color: #6E4E45;
+}
+#mainSection h2 {  font-size: 5rem; }
+
+#documentSection {
+  padding: var(--m_padding);
+  margin-top: 3rem;
+}
+
+#filtersContainer{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+#filtersContainer .form-select{
+  color: #fff;
+  font-size: 2.6rem;
+  padding: 1.4rem 3rem;
+  border-radius: 4rem;
+  font-weight: 500;
+  background: #6E4E45;
+  border: none;
+  margin: 0.6rem 0rem;
+}
+
+
+#filtersContainer .form-select option{
+  font-size: 1.2rem;
+}
+
+#filtersContainer > button{
+  margin: 1rem 0rem; 
+}
+
+#actualChoice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 0rem;
+  font-size: 3rem;
+}
+
+#actualChoice p > a{
+  color:  #AD0E0E;
+  text-decoration: none;
+}
+
+#actualChoice p > a:hover{   text-decoration: underline; }
+
+#cardsContainer{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.cardCategory,
+.cardSelection{
+  display: flex;
+  width: 48%;
+  flex-direction: column;
+  padding-top: 2.3rem;
+  align-items: center;
+}
+
+.cardContent{
+  color: #fff;
+  font-size: 3rem;
+  border-radius: 0.8rem;
+  padding: 2rem 3.2rem;
+  display: flex;
+  height: 20rem;
+  align-items: flex-end;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+}
+
+.cardSelection .cardContent{
+  font-size: 5rem;
+  border-radius: 20rem;
+  align-items: center;
+  background: #000;
+  width: 20rem;
+  justify-content: center;
+  font-weight: bold;
+}
+
+
+.red .cardContent{  background: #AD0E0E; }
+.green .cardContent{  background: #A9C087; }
+
+
+.cardText{
+  font-size: 2.48rem;
+  margin-top: 0.8rem;
+  line-height: 3.1rem;
+  padding-bottom: 0.3rem; 
+}
+
+
+
+@media (min-device-width: 576px) {
+
+  #filtersContainer .form-select {
+    font-size: 1.7rem;
+    padding: 1.2rem 2rem;
+  }
+  #actualChoice {
+      font-size: 2rem;
+  }
+  .cardText {
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+  }
+  .cardContent {
+    font-size: 2.4rem;
+    line-height: 3rem;    
+  }  
+
+}
+
+@media (min-width: 992px) {
+
+  
+}
+
+@media (min-width: 1200px) {
+  #headerMenu {
+    min-height: auto;
+    padding: 0.65rem 1rem;
+  }
+  #mainSection {    margin-top: 4.8rem;   }
+}

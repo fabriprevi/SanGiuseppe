@@ -1,47 +1,35 @@
-﻿header.logged{  
+﻿header.logged {
   position: fixed;
   left: 0px;
+  top: 0px;
   padding: 0px;
   z-index: 10;
 }
-header.logged #headerDefault{  display: none; }
+
+header.logged #headerDefault {
+  display: none;
+}
+
 header.logged #headerMenu {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
-#headerMenu{
-  background:#fff;
-  border-bottom: 2px solid #f1f1f1;
-  min-height: 8rem;
-  padding: 2rem 1rem;
-}
-
-#headerMenu .nav-link {
-    text-transform: uppercase;
-    color: #404040;
-    font-size: 2.2rem;
-    padding: 0.8rem 2.1rem;
-}
-
-#headerMenu .navbar-brand img{ width:100%; }
-
-#navbarSupportedContent{  justify-content: flex-end;
-  margin-top: 1rem;
-}
 
 #mainSection {
   display: flex;
   width: 100%;
   padding-bottom: 2rem;
 }
+
 #mainSection .content {
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
   align-items: center;
 }
-#mainSection .content > div{
+
+#mainSection .content>div {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -50,92 +38,164 @@ header.logged #headerMenu {
   padding-top: 2rem;
   text-align: center;
 }
-#mainSection .content > div h2{
+
+#mainSection .content>div h2 {
   font-size: 4.4rem;
   color: #6E4E45;
   font-weight: bold;
 }
-#mainSection .content > div p,
-#mainSection .content > div a{  font-size: 2.8rem;  }
-#mainSection .content > div a{  
+
+/* #mainSection .content > div p,
+#mainSection .content > div a{  font-size: 2.8rem;  } */
+
+#mainSection .content>div a {
   text-decoration: none;
-  color:#6E4E45;
-  }
-#mainSection .content > div p br {
+  color: #6E4E45;
+}
+
+#mainSection .content>div p br {
   display: none;
 }
 
-#registrationForm{
+#registrationForm {
   background: #FAFAFA;
   padding: var(--m_padding);
   padding-top: 2rem;
   text-align: center;
 }
- 
-#registrationForm > span, 
-#registrationForm .form-label,
-#registrationForm .form-check-label{
+
+#registrationForm>span, #registrationForm .form-label, #registrationForm .form-check-label {
   font-size: 2.8rem;
   width: 100%;
   text-align: left;
   padding: 0.8rem 0rem;
 }
- 
-#registrationForm > form{
+
+#registrationForm>form {
   padding: 2rem 0rem;
 }
 
-
+/* 
 #registrationForm .form-control {
   padding: 1.75rem 1.5rem;
   font-size: 2.8rem;
   border-radius: 0.9rem;
-}
+} */
 
-.checkboxRow{  display: flex; 
+.checkboxRow {
+  display: flex;
   padding: 2rem 0rem;
 }
 
-.form-check-input{
-  width:3rem;
-  height:3rem;
+.form-check-input {
+  width: 3rem;
+  height: 3rem;
 }
 
-#registrationForm .form-check-label{
+#registrationForm .form-check-label {
   padding: 0rem 0rem 0rem 2.2rem;
 }
 
 
-
-.navbar-brand {
-  width: 60%;
-  padding-left: 1rem;
-}
-.navbar-toggler {  font-size: 3.25rem;  }
-
 .btn-primary {
   width: 100%;
-  margin-top: 1rem;  
+  margin-top: 1rem;
   margin-bottom: 3.4rem;
 }
 
-
-@media (min-width: 1200px) { 
-
-  #headerMenu{
-    min-height: 5rem;
+@media (min-device-width: 576px) {
+  #registrationForm>span, #registrationForm .form-label, #registrationForm .form-check-label {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
   }
-  
-#mainSection {
-  margin-top: 5rem;
-}
-  #headerMenu .navbar-brand{ max-width:21rem; }
 
-  
-#headerMenu .nav-link {
-  font-size: 1rem;
-  padding:0rem 2.1rem;
 }
 
+@media (min-width: 992px) {
+  .btn-primary {
+    font-size: 1.9rem;
+    padding: 1rem;
+  }
+
+  .inputBase {
+    padding: 1rem 1rem;
+    font-size: 1.2rem;
+  }
+  #registrationForm>span, #registrationForm .form-label, #registrationForm .form-check-label {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+  #registrationForm .form-check-label {
+    padding: 0rem 0rem 0rem 1.3rem;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  #headerMenu {
+    min-height: auto;
+    padding: 0.65rem 1rem;
+  }
+  #mainSection {
+    margin-top: 4.8rem;
+    background: #fff;
+    height: 344px;
+    overflow: hidden;
+  }
+
+  #mainSection .content {
+    flex-direction: row;
+    max-width: 1130px;
+    margin: 0 auto;
+  }
+  #mainSection .content>div {
+    align-items: flex-start;
+  }
+  #mainSection .content>div .textBase {
+    text-align: left;
+    line-height: 1.8rem;
+  }
+  #registrationForm {
+    max-width: 59.3rem;
+    margin: 0 auto;
+    text-align: right;
+  }
+  #registrationForm>form {
+    padding: 1.8rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }  
+  
+  #registrationForm>form>div {
+    display: flex;
+    justify-content: space-between;
+}
+  
+#registrationForm>form>div > .form-label{  width: 48%; }
+
+.textBase, #sectionInfo>p {  font-size: 1.24em; }
+#registrationForm>span, #registrationForm .form-label, #registrationForm .form-check-label {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+}
+#registrationForm .inputBase {
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+}
+
+.form-check-input {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.8rem;
+}
+#registrationForm .form-check-label {  line-height: 1.4rem; }
+#registrationForm .btn-primary {
+  font-size: 1.1rem;
+  padding: 0.7rem;
+  width: 10rem;
+  align-self: flex-end;
+}
+#mainSection .content>div h2 {  font-size: 3.1rem; }
+.checkboxRow{  padding: 0.4rem 0rem; }
 
 }

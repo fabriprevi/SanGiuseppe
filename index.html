@@ -16,29 +16,43 @@
         <img id="logo" src="wwwroot/img/logo.svg" />
         <div class="d-none d-lg-block">Profilo <img src="wwwroot/img/icon-profilo.svg" /></div>
     </div>   
-    <nav id="headerMenu" class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav id="headerMenu" class="navbar navbar-expand-xl navbar-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#"><img src="wwwroot/img/logo.svg" /></a>
+        <div class="d-none d-lg-block" id="profiloBox"><span class="d-none d-xl-block">Profilo</span> <img src="wwwroot/img/icon-profilo.svg" /></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">chi siamo</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+              <a class="nav-link" href="#">avvisi</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#">bacheca</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#">news</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#">documenti</a>
+            </li>                             
           </ul>
+          <form class="d-flex">
+            <input class="form-control inputBase" type="search" placeholder="CERCA" aria-label="cerca">
+            <!-- <button class="btn btn-outline-success" type="submit">CERCA</button> -->
+          </form>
         </div>
       </div>
     </nav>    
   </header>
-  <p id="introText" class="d-lg-none" >L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.</p>
+  <p id="introText" class="d-lg-none textBase" >L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.</p>
   <div id="loginBox">
     <span class="d-lg-none">Accesso al sito</span>
     <span class="d-none d-lg-block">Entra nel sito della Fraternità</span>
@@ -117,12 +131,12 @@
         </div>
       </section>
       <section id="textInfoHp">
-        <p>
+        <p class="textBase">
           L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, così come trasmessi dalla tradizione della Chiesa Cattolica e secondo l’accento di educazione alla fede proprio della Fraternità di Comunione e Liberazione, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.
         
         </p> </section>
        <section id="descriptionBoxHp">
-        <p>
+        <p  class="textBase">
           «Tutta la mia vita consiste nell’avvenimento della sua chiamata, nella carità del suo Essere che ha scelto la mia miseria per incarnarsi e rendere più lieta e luminosa la mia vita. Ogni mattina, quando mi sveglio, capisco che la vita mi è data per questo; la giornata, le ore, i minuti, mi sono dati per questo, perché il desiderio della sua compagnia, sperimentata come dono ineguagliabile, sia grido consapevole per una vita piena»
           <button type="button" class="btn btn-primary">ENTRA</button>
         </p>

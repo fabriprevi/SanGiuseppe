@@ -5,15 +5,15 @@
     <title>FRATERNITA SAN GIUSEPPE</title>
     <link href="//db.onlinewebfonts.com/c/3cf68a3f2881b0b45c60e1132c47ce98?family=EffraW01-Light" rel="stylesheet" type="text/css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <!-- <script type="text/javascript" src="js/funzionivarie.js"></script>-->
     <link href="wwwroot/css/normalize.css" rel="stylesheet" type="text/css"> 
     <link href="wwwroot/css/site.css" rel="stylesheet" type="text/css">
-    <link href="wwwroot/css/registration.css" rel="stylesheet" type="text/css">
+    <link href="wwwroot/css/archivio.css" rel="stylesheet" type="text/css">
 </head>
 
-<body id="registration"> 
+<body id="archivio"> 
     <header class="logged"> 
       <div id="headerDefault">
           <img id="logo" src="wwwroot/img/logo.svg" />
@@ -56,50 +56,79 @@
       </nav>    
     </header> 
 
+
     <section id="mainSection">
       <div class="content">
-        <div>
-              <h2>Registrazione profilo</h2>
-              <p class="textBase">Completa i tuoi dati e accetta le condizioni di utilizzo della<br />
-                piattaforma per poter entrare dentro ai servizi del sito.</p>
-                <a href="#"  class="textBase">< Torna al login</a>
-        </div>
-        <img src="wwwroot/img/logo_registration.svg" /> 
+          <span class="textBase">Archivio documenti</span>
+              <h2>La fraternità: è una vita</h2>
+              <p class="textBase">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam. </p>  
+              <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp">
     </div>
     </section>
-    <div id="registrationForm">
-      <span>I campi contrassegnati con * sono obbligatori</span>
-      <form>
-        <div>
-          <label for="emailLogin" class="form-label">Nome *
-          <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
-          <label for="emailLogin" class="form-label">Cognome *
-            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
+    <section id="documentSection">
+      <div>
+        <span class="textBase">Documenti</span> 
+        <div id="filtersContainer">
+          <select class="form-select" id="anno_select" aria-label="Anno">
+            <option selected>ANNO</option>
+            <option value="1">2019</option>
+            <option value="2">2020</option>
+            <option value="3">2021</option>
+          </select>
+          <select class="form-select" id="anno_select" aria-label="Anno">
+            <option selected>ANNO</option>
+            <option value="1">2019</option>
+            <option value="2">2020</option>
+            <option value="3">2021</option>
+          </select>
+          <select class="form-select" id="anno_select" aria-label="Anno">
+            <option selected>ANNO</option>
+            <option value="1">2019</option>
+            <option value="2">2020</option>
+            <option value="3">2021</option>
+          </select>
+        </div> 
+        <div id="actualChoice" class="textBase"><small>Stavi leggendo</small>
+          <p>Ritiro di Quaresima 2021 <a href="#">Continua ></a> </p>          
         </div>
-        <div>
-          <label for="emailLogin" class="form-label">Username *
-          <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
-          <label for="pwLogin" class="form-label">Email *
-            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
-        </div>
-        <div>
-          <label for="pwLogin" class="form-label">Password *
-            <input type="password" class="form-control inputBase" id="pwLogin"></label>
-          <label for="pwLogin" class="form-label">Ripeti Password *
-          <input type="password" class="form-control inputBase" id="pwLogin"></label>
-        </div>
-        <div class="checkboxRow">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Lorem ipsum dolor sit amet, consectetur adipisci elit sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. </label>
-        </div>
-        <div class="checkboxRow">
-          <input type="checkbox" class="form-check-input" id="exampleCheck2">
-          <label class="form-check-label" for="exampleCheck1">Lorem ipsum dolor sit amet, consectetur adipisci elit sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. </label>
-        </div>
-        <button type="submit" class="btn btn-primary">Accedi</button>
-      </form>
-      
-    </div>
+      </div>
+      <article id="cardsContainer">
+             <div class="cardSelection">
+                  <div class="cardContent">
+                      <span>2021</span>
+                  </div>
+                  <div class="cardText">
+                    Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt.
+                  </div> 
+              </div>
+              <div class="cardCategory red">
+                <div class="cardContent">
+                    <span>Incontro don Berchi</span>
+                </div>
+                <div class="cardText">
+                  Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt.
+                </div> 
+            </div>
+              <div class="cardCategory green">
+                <div class="cardContent">
+                    <span>Incontro don Berchi</span>
+                </div>
+                <div class="cardText">
+                  Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt.
+                </div> 
+            </div>
+            <div class="cardCategory red">
+              <div class="cardContent">
+                  <span>Incontro don Berchi</span>
+              </div>
+              <div class="cardText">
+                Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt.
+              </div> 
+          </div>
+      </article>
+
+    </section>
+
 
     <footer>
       <span>Il sito è gestito e realizzato da</span> 
