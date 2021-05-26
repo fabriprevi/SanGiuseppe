@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Header {
+        <link href="../../../css/registration.css" rel="stylesheet" type="text/css">
+}
+
+ 
+     <section id="mainSection">
+      <div class="content">
+        <div>
+              <h2>Registrazione profilo</h2>
+              <p class="textBase">Completa i tuoi dati e accetta le condizioni di utilizzo della<br />
+                piattaforma per poter entrare dentro ai servizi del sito.</p>
+                <a href="#"  class="textBase">< Torna al login</a>
+        </div>
+        <img src="../../../img/logo_registration.svg" /> 
+    </div>
+    </section>
+    <div id="registrationForm">
+      <span>I campi contrassegnati con * sono obbligatori</span>
+      <form>
+        <div>
+          <label for="emailLogin" class="form-label">Nome *
+          <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
+          <label for="emailLogin" class="form-label">Cognome *
+            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
+        </div>
+        <div>
+          <label for="emailLogin" class="form-label">Username *
+          <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
+          <label for="pwLogin" class="form-label">Email *
+            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
+        </div>
+        <div>
+          <label for="pwLogin" class="form-label">Password *
+            <input type="password" class="form-control inputBase" id="pwLogin"></label>
+          <label for="pwLogin" class="form-label">Ripeti Password *
+          <input type="password" class="form-control inputBase" id="pwLogin"></label>
+        </div>
+        <div class="checkboxRow">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Lorem ipsum dolor sit amet, consectetur adipisci elit sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. </label>
+        </div>
+        <div class="checkboxRow">
+          <input type="checkbox" class="form-check-input" id="exampleCheck2">
+          <label class="form-check-label" for="exampleCheck1">Lorem ipsum dolor sit amet, consectetur adipisci elit sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Accedi</button>
+      </form>
+      
+    </div>
+
+

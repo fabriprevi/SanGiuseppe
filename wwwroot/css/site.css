@@ -5,13 +5,22 @@ html {
   font-size: 16px;
 }
 
+@font-face {
+  font-family: 'effralight';
+  src: url('../fonts/effra_light-webfont.woff2') format('woff2'),
+       url('../fonts/effra_light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --m_padding: 0rem 2rem;
+  --m_padding: 0rem 0.8rem;
   --text_color: #404040;
 }
 
 body {
-  font-family: "EffraW01-Light";
+  /*font-family: "EffraW01-Light";*/
+  font-family: 'effralight';
   background: #fbfbfb;
 }
 
@@ -22,12 +31,12 @@ footer {
   justify-content: center;
   align-items: center;
   padding: var(--m_padding);
-  padding-top: 4rem;
+  padding-top: 1.6rem;
   background: #fff;
 }
 
 footer>span {
-  font-size: 2.8rem;
+  font-size: 1.12rem;
   font-weight: 600;
 }
 
@@ -36,28 +45,29 @@ footer>div {
   display: flex;
   color: #6E4E45;
   justify-content: center;
-  padding: 1rem;
+  padding: 0.4rem;
 }
 
 footer>div img {
-  width: 9.1rem;
+  width: 3.6rem;
 }
 
 footer>div span {
-  font-size: 2.3rem;
-  line-height: 2.7rem;
+  font-size: 0.92rem;
+  line-height: 1rem;
   display: flex;
   align-items: center;
-  padding-left: 2.2rem;
+  padding-left: 0.88rem;
 }
 
 footer>p {
   width: 100%;
-  font-size: 3rem;
+  font-size: 1.2rem;
   text-align: center;
   border-top: 2px solid #DBDBDB;
-  padding-bottom: 5rem;
-  margin-top: 1rem;
+  padding-bottom: 2rem;
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
 }
 
 /* COLORE PER TESTO DEL PLACEHOLDER */
@@ -74,10 +84,16 @@ footer>p {
   color:#aaa !important;
 }
 
+header.logged #headerMenu {
+  display: flex;
+  width: 100%;
+  min-height: 2rem; 
+}
+
 .inputBase {
-  padding: 1.75rem 1.5rem;
-  font-size: 2.8rem;
-  border-radius: 0.9rem;
+  padding: 0.7rem 0.6rem;
+  font-size: 1.1rem;
+  border-radius: 0.36rem;
 }
 .inputBase:focus {
   border-color: #C1C1C1;
@@ -87,8 +103,8 @@ footer>p {
 
 .textBase {
   font-weight: 500;
-  font-size: 2.84rem;
-  line-height: 3.7rem;
+  font-size: 1.13rem;
+  line-height: 1.48rem;
   text-align: center;
 }
 
@@ -100,14 +116,14 @@ footer>p {
   background: #fff;
   border-bottom: 2px solid #f1f1f1;
   min-height: 8rem;
-  padding: 2.5rem 1rem;
+  padding: 1rem 0.4rem;
 }
 
 #headerMenu .nav-link {
   text-transform: uppercase;
   color: #404040;
-  font-size: 2.6rem;
-  padding: 2rem 0rem;
+  font-size: 1rem;
+  padding: 0.8rem 0rem;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -117,55 +133,24 @@ footer>p {
 
 #navbarSupportedContent {
   justify-content: flex-end;
-  margin-top: 1rem;
+  margin-top: 0.4rem;
 }
 #mainSection h2 {
-  font-size: 4.4rem;
+  font-size: 1.7rem;
   color: #6E4E45;
   font-weight: bold;
 }
 
-
 .navbar-brand {
-  width: 60%;
+  width: 63%;
 }
 
 .navbar-toggler {
-  font-size: 3.25rem;
+  font-size: 1rem;
 }
 
  
 /*******************************************/
-
-/*  HOMEPAGE */
-
-#homepage #mainSection {
-  width: 100%;
-  display: flex;
-  flex-direction: column-reverse;
-  padding-top: 6rem;
-  background: #fff;
-  /*background:url("../img/bg-home.jpg") #fff no-repeat bottom center;*/
-}
-
-#bgHome {
-  width: 100%;
-  max-width: 71.3rem;
-  margin: 0 auto;
-}
-
-#payoff {
-  position: relative;
-  width: 86%;
-  margin: 0 auto;
-}
-
-#introText {
-  position: relative;
-  color: #404040;
-  text-align: center;
-  padding: var(--m_padding);
-}
 
 header {
   display: flex;
@@ -174,12 +159,16 @@ header {
 }
 
 .btn-primary {
-  font-size: 3rem;
-  padding: 2.35rem;
-  border-radius: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
   font-weight: 600;
   background: #6E4E45;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.4rem;
+  line-height: initial;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
@@ -191,7 +180,7 @@ header {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 4.3rem;
+  padding: 1.4rem;
 }
 
 #logo {
@@ -202,74 +191,16 @@ header {
   display: none;
 }
 
-#loginBox {
-  width: 100%;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  padding: var(--m_padding);
-  margin-top: 4rem;
-  background: #fff;
-  z-index: 5;
-}
-
-#loginBox>span {
-  font-size: 3.6rem;
-  font-weight: 100;
-}
-
-#loginBox .form-control {
-  padding: 1.75rem 1.5rem;
-  font-size: 2.8rem;
-  border-radius: 0.9rem;
-}
-
-#loginBox>form {
-  padding-top: 1.4rem;
-}
-
-#loginBox .form-label {
-  font-size: 2.56rem;
-  margin-top: 1.66rem;
-}
-
-#loginBox .form-text {
-  font-size: 2.5rem;
-  color: #B4260D;
-}
-
-#loginBox .btn {
-  width: 100%;
-  margin-top: 2.6rem;
-}
-
-#loginBox .btn+span {
-  text-align: center;
-  font-size: 2.5rem;
-  display: block;
-  padding: 1rem;
-}
-
-#loginBox .btn+span>a {
-  color: #B4260D;
-  text-decoration: none;
-}
-
-#loginBox form+span {
-  text-align: center;
-  color: #6E4E45;
-  font-weight: 600;
-}
 
 #languageBox {
   width: 30%;
-  max-width: 29rem;
+  max-width: 11.6rem;
   position: fixed;
-  right: 3rem;
+  right: 1.2rem;
   top: 30vh;
   display: flex;
   flex-direction: column;
-  width: 10rem;
+  width: 4rem;
   z-index: 5;
   display: none;
 }
@@ -280,152 +211,44 @@ header {
   font-weight: 600;
   background: #fff;
   border: 1px solid #707070;
-  border-radius: 0.5rem;
-  padding: 0.4rem;
-  margin-top: 1rem;
+  border-radius: 0.2rem;
+  padding: 0.08rem;
+  margin-top: 0.4rem;
   width: 100%;
   background: #fff;
-  font-size: 1.1rem;
+  font-size: 0.5rem;
+}
+.navbar-toggler:focus {  box-shadow: 0 0 0 0.04rem; }
+.navbar-light .navbar-toggler {
+  color: rgb(42 42 42 / 25%);
+  border-color: rgba(0,0,0,.1);
 }
 
-#sectionInfo {
-  background: url("../img/bg-dot.jpg") #fff repeat top left;
-  display: flex;
-  width: 100%;
-  height: auto;
-  flex-wrap: wrap;
-  padding: var(--m_padding);
-  padding-top: 1.5rem;
-  padding-bottom: 6rem;
-}
-
-#sectionInfoElements {
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  max-width: 70rem;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-#sectionInfoElements>div {
-  display: flex;
-  background: #fff;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid #ddd;
-  flex: 48%;
-  margin: 4rem 1% 1rem 1%;
-  font-size: 2.5rem;
-  line-height: 3rem;
-  border-radius: 1rem;
-  padding: 2rem;
-  text-align: center;
-  color: #6E4E45;
-  max-width: 48%;
-}
-
-#sectionInfoElements>div figure {
-  background: #fff;
-  padding: 1rem;
-  margin-top: -5rem;
-}
-
-#textInfoHp {
-  background: #6E4E45;
-  display: flex;
-  width: 100%;
-  color: #fff;
-  padding: 4rem 3rem;
-}
-
-#textInfoHp>p {
-  display: flex;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-#descriptionBoxHp {
-  width: 100%;
-  display: flex;
-  flex-direction: column-reverse;
-  background: #f7f7f7;
-}
-
-#descriptionBoxHp>div {
-  display: flex;
-  flex-direction: column;
-  font-size: 2.8rem;
-  line-height: 3.7rem;
-  color: var(--text_color);
-  padding: 4rem 3rem;
-}
-
-#descriptionBoxHp figure {
-  width: 100%;
-  display: flex;
-  position: relative;
-}
-
-#descriptionBoxHp figure>img {
-  width: 100%;
-  align-self: center;
-}
-
-#descriptionBoxHp>p {
-  padding: var(--m_padding);
-  padding-top: 4rem;
-  padding-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
-}
-
-#descriptionBoxHp .btn-primary {
-  margin-top: 2.6rem;
-}
 
 /* Small devices (landscape phones, 576px and up)*/
 
 @media (min-device-width: 576px) {
   .textBase {
     font-weight: 500;
-    font-size: 1.8rem;
-    line-height: 2.4rem;
-  }
-  #loginBox>span {
-    font-size: 2.5rem;
-  }
-  #loginBox .form-label {
-    font-size: 1.8rem;
-    margin-top: 1rem;
-  }
-  #loginBox .form-control {
-    padding: 1.5rem 1.5rem;
-    font-size: 2rem;
-  }
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
   
 .inputBase {
   padding: 1.5rem 1.5rem;
   font-size: 2rem;
 }
+#headerMenu .inputBase {
+  padding: 1.4rem 1.5rem;
+  font-size: 1.4rem;
+  line-height: initial;
+}
 
-  #loginBox .form-text {
-    font-size: 1.6rem;
+.btn-primary {
+  font-size: 1.5rem;
+  height: 4.3rem;
   }
-  .btn-primary {
-    font-size: 2.5rem;
-    padding: 2rem;
-  }
-  #loginBox .btn+span {
-    font-size: 1.8rem;
-  }
-  #sectionInfoElements>div {
-    flex: 47%;
-    margin: 4rem 1.5% 1rem 1.5%;
-    font-size: 2rem;
-    line-height: 2.6rem;
-  }
+
   footer>span {
     font-size: 2rem;
   }
@@ -441,7 +264,7 @@ header {
     padding: 1.3rem 0rem;
   }
   .navbar-toggler {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 }
@@ -456,81 +279,20 @@ header {
   #logo {
     width: 23rem;
   }
-  #loginBox {
-    width: 30%;
-    max-width: 29rem;
-    background: rgba(242, 233, 215, 0.8);
-    position: absolute;
-    left: 0px;
-    top: 13vh;
-    padding: 1rem 1.4rem;
-  }
-  #payoff {
-    position: absolute;
-    top: 11.6rem;
-    right: 5rem;
-    width: 19rem;
-  }
   #headerDefault {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 3rem 4.3rem;
   }
-  #loginBox .form-control {
-    padding: .75rem .75rem;
-    font-size: 1.1rem;
-    border-radius: 0.4rem;
-  }
-  #homepage #mainSection {
-    padding-top: 10rem;
-  }
-  #loginBox>span {
-    line-height: 1.8rem;
-    font-size: 1.4rem;
-    color: #6E4E45;
-  }
-  #loginBox .form-label {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-  }
-  #loginBox .form-text {
-    font-size: 1.1rem;
-  }
   .btn-primary {
-    font-size: 1.2rem;
-    padding: 0.6rem;
-    border-radius: 0.6rem;
-  }
-  #loginBox .btn+span {
-    font-size: 1rem;
+    border-radius: 0.34rem;
+    height: 3.6rem;
   }
   .textBase, #sectionInfo>p {
     font-weight: 500;
     font-size: 1.7rem;
     line-height: 2.3rem;
-  }
-  #sectionInfo>p {
-    text-align: center;
-    width: 100%;
-    margin-top: 1rem;
-  }
-  #descriptionBoxHp {
-    font-size: 1.7rem;
-    line-height: 2.3rem;
-  }
-  #sectionInfoElements>div {
-    font-size: 1.45rem;
-    line-height: 1.8rem;
-    flex: 30%;
-    max-width: 23rem;
-  }
-  #sectionInfoElements>div:nth-child(3)>figure {
-    margin-top: -4.5rem;
-    margin-bottom: 1.25rem;
-  }
-  #sectionInfoElements>div:nth-child(4)>figure, #sectionInfoElements>div:nth-child(5)>figure {
-    margin-top: -4.5rem;
   }
   #headerDefault>div>img {
     margin-left: 0.6rem;
@@ -543,10 +305,7 @@ header {
     width: 100%;
     padding: 0.8rem;
   }
-  footer>p {
-    font-size: 1.8rem;
-    padding-top: 0.6rem;
-  }
+
 
   .inputBase{
     padding: .75rem .75rem;
@@ -570,6 +329,22 @@ header {
     font-size: 2rem;
     margin-left: 1.6rem;
   }
+  footer{
+    padding-top: 3.6rem;
+  }
+  footer>p {
+    font-size: 1.4rem;
+    padding-top: 0.6rem;
+    margin-top: 1rem;
+}
+  footer>div span {
+      font-size: 1.5rem;
+      line-height: 2rem;
+  }
+  footer>span {
+    font-size: 1.6rem;
+  }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -586,17 +361,8 @@ header {
     width: 26.8rem;
     max-width: 33%;
   }
-  #payoff {
-    width: 23rem;
-  }
   #homepage #mainSection {
     padding-top: 1rem;
-  }
-  #loginBox>form {
-    padding-top: 0.3rem;
-  }
-  #loginBox .btn {
-    margin-top: 1.2rem;
   }
   .btn-primary {
     border-radius: 0.4rem;
@@ -604,44 +370,12 @@ header {
   #bgHome {
     max-width: 57.3rem;
   }
-  #loginBox>span {
-    line-height: 1.2rem;
-    font-size: 1.3rem;
-  }
-  #loginBox .form-label {
-    font-size: 1rem;
-  }
-  #loginBox .form-text, #loginBox .btn+span {
-    font-size: 0.92rem;
-  }
-  #loginBox .btn+span {
-    padding-top: 0.4rem;
-  }
   .textBase, #sectionInfo>p {
     font-weight: 500;
     font-size: 1.44rem;
     line-height: 2rem;
   }
-  #textInfoHp {
-    padding: 4rem;
-  }
-  #descriptionBoxHp {
-    padding: 5rem 4rem;
-    flex-direction: row;
-    background: #f7f7f7;
-  }
-  #descriptionBoxHp figure {
-    max-width: 571px;
-    flex-basis: 46%;
-  }
-  #descriptionBoxHp>p {
-    flex: 1;
-    padding-right: 7rem;
-    text-align: left;
-  }
-  #descriptionBoxHp>p .btn-primary {
-    margin-left: 0px;
-  }
+
   footer>span {
     font-size: 1.3rem;
     font-weight: 500;
@@ -661,10 +395,11 @@ header {
       font-size: 1.2rem;
       padding: 1rem;
   }
+
   #headerMenu .navbar-brand {
-    max-width: 17.4rem;
-    margin-left: 2rem;
-}
+      max-width: 17.4rem;
+      margin-left: 2rem;
+  }
 
   #headerMenu .nav-link {
     font-size: 0.94rem;
@@ -704,15 +439,6 @@ header {
   }
   #headerMenu .navbar-brand {
     max-width: 21rem;
-  }
-  #bgHome {
-    max-width: 71rem;
-  }
-  #loginBox {
-    padding: 2.8rem 4rem;
-  }
-  #payoff {
-    width: 29.8rem;
   }
   #navbarSupportedContent ul {
     flex: 1;

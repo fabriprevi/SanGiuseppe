@@ -10,16 +10,15 @@ header.logged #headerDefault {
   display: none;
 }
 
-header.logged #headerMenu {
-  display: flex;
-  width: 100%;
-}
-
-
 #mainSection {
   display: flex;
   width: 100%;
-  padding-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  margin-top: 4.3rem;
+}
+
+#mainSection .content img{
+  height: 8rem;
 }
 
 #mainSection .content {
@@ -27,6 +26,9 @@ header.logged #headerMenu {
   width: 100%;
   flex-direction: column-reverse;
   align-items: center;
+  background: #fff;
+    padding-bottom: 1.2rem;
+    padding-top: 0.74rem;
 }
 
 #mainSection .content>div {
@@ -35,12 +37,12 @@ header.logged #headerMenu {
   flex-direction: column;
   align-items: center;
   padding: var(--m_padding);
-  padding-top: 2rem;
+  padding-top: 0.8rem;
   text-align: center;
 }
 
 #mainSection .content>div h2 {
-  font-size: 4.4rem;
+  font-size: 1.8rem;
   color: #6E4E45;
   font-weight: bold;
 }
@@ -60,19 +62,19 @@ header.logged #headerMenu {
 #registrationForm {
   background: #FAFAFA;
   padding: var(--m_padding);
-  padding-top: 2rem;
+  padding-top: 0.8rem;
   text-align: center;
 }
 
 #registrationForm>span, #registrationForm .form-label, #registrationForm .form-check-label {
-  font-size: 2.8rem;
+  font-size: 0.97rem;
   width: 100%;
   text-align: left;
-  padding: 0.8rem 0rem;
+  padding: 0.4rem 0rem;
 }
 
 #registrationForm>form {
-  padding: 2rem 0rem;
+  padding: 0.8rem 0rem;
 }
 
 /* 
@@ -84,30 +86,42 @@ header.logged #headerMenu {
 
 .checkboxRow {
   display: flex;
-  padding: 2rem 0rem;
+  padding: 0.8rem 0rem;
 }
 
 .form-check-input {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 #registrationForm .form-check-label {
-  padding: 0rem 0rem 0rem 2.2rem;
+  padding: 0rem 0rem 0rem 1rem;
 }
 
 
 .btn-primary {
   width: 100%;
-  margin-top: 1rem;
-  margin-bottom: 3.4rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1.3rem;
 }
 
 @media (min-device-width: 576px) {
   #registrationForm>span, #registrationForm .form-label, #registrationForm .form-check-label {
-    font-size: 1.8rem;
-    line-height: 2.6rem;
+    font-size: 1rem;
+    line-height: 1rem;
   }
+  #mainSection {
+
+    margin-top: 6.4rem;
+
+}
+  #mainSection .content img {
+    height: 20rem;
+}
+.inputBase {
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+}
 
 }
 
@@ -115,6 +129,7 @@ header.logged #headerMenu {
   .btn-primary {
     font-size: 1.9rem;
     padding: 1rem;
+    max-width: 14.4rem;
   }
 
   .inputBase {
@@ -128,6 +143,17 @@ header.logged #headerMenu {
   #registrationForm .form-check-label {
     padding: 0rem 0rem 0rem 1.3rem;
   }
+
+  #registrationForm>form>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+  #registrationForm>form>div > .form-label{  width: 48%; }
+  #mainSection {
+    margin-top: 7.8rem;
+}
 
 }
 
@@ -150,6 +176,7 @@ header.logged #headerMenu {
   }
   #mainSection .content>div {
     align-items: flex-start;
+    padding-right: 8rem;
   }
   #mainSection .content>div .textBase {
     text-align: left;
@@ -165,17 +192,13 @@ header.logged #headerMenu {
     display: flex;
     flex-direction: column;
   }  
+
   
-  #registrationForm>form>div {
-    display: flex;
-    justify-content: space-between;
-}
-  
-#registrationForm>form>div > .form-label{  width: 48%; }
+
 
 .textBase, #sectionInfo>p {  font-size: 1.24em; }
 #registrationForm>span, #registrationForm .form-label, #registrationForm .form-check-label {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6rem;
 }
 #registrationForm .inputBase {
@@ -194,8 +217,13 @@ header.logged #headerMenu {
   padding: 0.7rem;
   width: 10rem;
   align-self: flex-end;
+  margin-top: 3.4rem;
 }
 #mainSection .content>div h2 {  font-size: 3.1rem; }
 .checkboxRow{  padding: 0.4rem 0rem; }
+#mainSection .content img {
+  height: 27.5rem;
+}
+
 
 }

@@ -10,10 +10,6 @@ header.logged #headerDefault {
   display: none;
 }
 
-header.logged #headerMenu {
-  display: flex;
-  width: 100%;
-}
 body{
   background: url("../img/bg-dot.jpg") #fff repeat top left;
 }
@@ -41,7 +37,7 @@ body{
   height: auto;
   flex-wrap: wrap;
   padding: var(--m_padding);
-  margin-top: 13.4rem;
+  margin-top: 6.3rem;
   justify-content: center;
 }
 
@@ -49,13 +45,18 @@ body{
 #mainSection .form-control{
   background: #f4f4f4;
   border-radius: 4rem;
-  padding: 1rem 1.5rem;
-  font-size: 2.8rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 1.1rem;
 }
+#mainSection p.textBase {
+  font-size: 1.08rem;
+  padding: 0.1rem 0rem 0.4rem 0rem;
+}
+
 #mainSection .form-control {
   background: #f4f4f4;
-  border-radius: 4rem;
-  padding: 0.8rem 1.5rem;
+  border-radius: 1.6rem;
+  padding: 0.7rem 1rem;
   font-size: 1.1rem;
   border: none;
 }
@@ -67,11 +68,11 @@ body{
 #mainSection .content > span{
   color: #6E4E45;
 }
-#mainSection h2 {  font-size: 5rem; }
+#mainSection h2 {  font-size: 2rem; }
 
 #documentSection {
   padding: var(--m_padding);
-  margin-top: 3rem;
+  margin-top: 1.2rem;
 }
 
 #documentSection > div:first-child{
@@ -86,17 +87,19 @@ body{
   flex-direction: column;
 }
 
-#filtersContainer .form-control{
+#filtersContainer .form-control {
   color: #fff;
-  font-size: 2.6rem;
-  padding: 1.4rem 3rem;
-  border-radius: 4rem;
+  font-size: 1rem;
+  padding: 0rem 1.4rem;
+  border-radius: 1.6rem;
   font-weight: 500;
   background: #6E4E45;
-  border:1px solid #6E4E45;
-  margin: 0.6rem 0rem;
+  border: 1px solid #6E4E45;
+  margin: 0.24rem 0rem;
+  height: 2.6rem;
   text-align: center;
 }
+
 #filtersContainer .form-control:focus{
   color: #AD0E0E;
   border:1px solid #AD0E0E;
@@ -104,22 +107,20 @@ body{
   box-shadow: 0px 0px 7px 2px rgb(0 0 0 / 10%);
 }
 
-
-
 #filtersContainer .form-select option{
   font-size: 1.2rem;
 }
 
 #filtersContainer > button{
-  margin: 1rem 0rem; 
+  margin: 0.4rem 0rem; 
 }
 
 #actualChoice {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1rem 0rem;
-  font-size: 3rem;
+  padding: 0.57rem 0rem;
+  font-size: 1.2rem;
 }
 
 #actualChoice p > a{
@@ -129,13 +130,13 @@ body{
 
 #actualChoice p > a:hover{   text-decoration: underline; }
 
-#cardsContainer{
+#cardsContainer {
   display: flex;
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-bottom: 2rem;
+  padding-bottom: 3.3rem;
 }
 
 .cardCategory,
@@ -143,28 +144,28 @@ body{
   display: flex;
   width: 48%;
   flex-direction: column;
-  padding-top: 2.3rem;
+  padding-top: 0.92rem;
   align-items: center;
 }
 
 .cardContent{
   color: #fff;
-  font-size: 3rem;
+  font-size: 1.2rem;
   border-radius: 0.8rem;
-  padding: 2rem 3.2rem;
+  padding: 0.8rem 1rem;
   display: flex;
-  height: 20rem;
+  height: 8rem;
   align-items: flex-end;
   font-family: 'Roboto', sans-serif;
   width: 100%;
 }
 
 .cardSelection .cardContent{
-  font-size: 5rem;
-  border-radius: 20rem;
+  font-size: 2rem;
+  border-radius: 8rem;
   align-items: center;
-  background: #000;
-  width: 20rem;
+  background: #000; 
+  width: 8rem;
   justify-content: center;
   font-weight: bold;
 }
@@ -175,10 +176,10 @@ body{
 
 
 .cardText{
-  font-size: 2.48rem;
+  font-size: 0.9rem;
   margin-top: 0.8rem;
-  line-height: 3.1rem;
-  padding-bottom: 0.3rem; 
+  line-height: 1.1rem;
+  padding-bottom: 0.24rem;
 }
 
 
@@ -186,25 +187,67 @@ body{
 @media (min-device-width: 576px) {
 
   #filtersContainer .form-control {
-    font-size: 1.7rem;
-    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+    padding: 0rem 2rem;
+    margin: 0.3rem 0rem;
+    height: 3.2rem;
   }
+  .navbar-toggler-icon {
+    width: 1em;
+    height: 1em;
+  }
+
   #actualChoice {
-      font-size: 2rem;
+      font-size: 1.4rem;
   }
   .cardText {
-    font-size: 1.7rem;
-    line-height: 2.4rem;
-  }
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+}
   .cardContent {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     line-height: 3rem;    
+    height: 12rem;
   }  
+  .cardSelection .cardContent {
+    font-size: 3rem;
+    border-radius: 12rem;
+    width: 12rem;
+}
+  
+
+  #mainSection {   margin-top: 9rem; }
+  #mainSection h2 {   font-size: 3.8rem; }
+  #mainSection p.textBase {
+    font-size: 1.2rem;
+    line-height: 1.6rem; 
+  }
+  .textBase {    font-size: 1.3rem; }
 
 }
 
 @media (min-width: 992px) {
-
+  .cardContent {
+    font-size: 1.8rem;
+    line-height: 3rem;    
+    height: 19rem;
+  }  
+  .cardSelection .cardContent {
+    font-size: 3rem;
+    border-radius: 19rem;
+    width: 19rem;
+}
+#filtersContainer .form-control {
+  font-size: 1.3rem;
+  padding: 0rem 2rem;
+  margin: 0.3rem 0rem;
+  height: 3.6rem;
+}
+#headerMenu .navbar-brand img {  max-width: 429px; }
+#mainSection p.textBase {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+}
   
 }
 
@@ -215,18 +258,19 @@ body{
     padding: 0.65rem 1rem;
   }
   #mainSection {    margin-top: 6.5rem; }
-  #mainSection .form-control {
+  #mainSection .form-control { 
       background: #f4f4f4;
       border-radius: 4rem;
-      padding: 0.76rem 1.5rem;
+      padding: 0.76rem 1.5rem; 
       font-size: 1.1rem;
   }
   #documentSection > div:first-child, #filtersContainer {  flex-direction: row;  }
   #filtersContainer .form-control {
-      font-size: 0.96rem;
-      padding: 0.55rem 1rem;
-      margin: 0rem 0.4rem;
-  }  
+    font-size: 0.96rem;
+    padding: 0rem 1rem;
+    margin: 0rem 0.4rem;
+    height: 2.6rem;
+}
   #documentSection > div > span{   font-size: 1.24rem;
     padding-right: 1.2rem;
   }
@@ -254,7 +298,8 @@ body{
     font-size: 1.16rem;
     line-height: 1.7rem;
   }
-  
+  .cardSelection .cardContent {    font-size: 4.5rem; }
+  #documentSection {    margin-top: 2.1rem; }
 
 }
 
