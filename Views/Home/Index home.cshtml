@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Header {
+        <link href="../../../css/homepage.css" rel="stylesheet" type="text/css">
+}
+
+  <p id="introText" class="d-lg-none textBase" >L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.</p>
+  <div id="loginBox">
+    <span class="d-lg-none">Accesso al sito</span>
+    <span class="d-none d-lg-block">Entra nel sito della Fraternità</span>
+    <form>
+      <div>
+        <label for="emailLogin" class="form-label">Nome utente (la tua mail)</label>
+        <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelp">
+      </div>
+      <div>
+        <label for="pwLogin" class="form-label">Password</label>
+        <input type="password" class="form-control" id="pwLogin">
+        <div id="pwHelp" class="form-text">Non ricordi la password?</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Area riservata</button>
+      <span>Leggi l’ <a href="google">Informativa</a></span>
+    </form>
+    <span>Non sei registrato?</span>
+  </div>
+  <div id="languageBox">
+    <button onClick="changeLang('ita');">Italiano</button>
+    <button onClick="changeLang('ita');">Inglese</button>
+    <button onClick="changeLang('ita');">Spagnolo</button>
+
+    <button onClick="changeLang('ita');">Portoghese</button>
+    <button onClick="changeLang('ita');">Francese</button>
+    <button onClick="changeLang('ita');">Tedesco</button>
+
+    <button onClick="changeLang('ita');">Russo</button>
+    <button onClick="changeLang('ita');">Olandese</button>
+    <button onClick="changeLang('ita');">Croato</button>
+  </div>
+      <section id="mainSection">
+        <img src="../../../img/bg-home.jpg" id="bgHome" /> 
+        <img src="../../../img/payoff.png" id="payoff" /> 
+      </section>
+      <section id="sectionInfo">
+        <p class="d-none d-lg-block">La fraternità è una compagnia guidata al destino.</p>
+        <div id="sectionInfoElements">
+              <div>
+                <figure><img src="../../../img/phone.svg" /> </figure>
+                  <span>
+                    Archivio documenti
+                    lezioni, ritiri, appunti 
+                    pdf/ePub
+                  </span>
+              </div>
+              <div>
+                <figure><img src="../../../img/puzzle.svg" /> </figure>
+                  <span>
+                      Avvisi
+                      della vita di Fraternità
+                  </span>
+              </div>
+              <div>
+                <figure><img src="../../../img/people.svg" /> </figure>
+                    <span>
+                          Bacheca
+                          interscambio notizie
+                          personali
+                    </span>
+              </div>
+              <div>
+                <figure><img src="../../../img/fulmine.svg" /> </figure>
+                    <span>
+                        Gli ultimi<br />
+                        aggiornamenti
+                    </span>
+              </div>
+              <div>
+                <figure><img src="../../../img/fiore.svg" /> </figure>
+                  <span>
+                        Ritiri, eventi,<br />
+                        dirette streaming
+                  </span>
+              </div>
+        </div>
+      </section>
+      <section id="textInfoHp">
+        <p class="textBase">
+          L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, così come trasmessi dalla tradizione della Chiesa Cattolica e secondo l’accento di educazione alla fede proprio della Fraternità di Comunione e Liberazione, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.
+        
+        </p> </section>
+       <section id="descriptionBoxHp">
+        <p  class="textBase">
+          «Tutta la mia vita consiste nell’avvenimento della sua chiamata, nella carità del suo Essere che ha scelto la mia miseria per incarnarsi e rendere più lieta e luminosa la mia vita. Ogni mattina, quando mi sveglio, capisco che la vita mi è data per questo; la giornata, le ore, i minuti, mi sono dati per questo, perché il desiderio della sua compagnia, sperimentata come dono ineguagliabile, sia grido consapevole per una vita piena»
+          <button type="button" class="btn btn-primary">ENTRA</button>
+        </p>
+        <figure>
+          <img src="../../../img/statue.jpg" /> 
+         </figure>
+       </section>
+

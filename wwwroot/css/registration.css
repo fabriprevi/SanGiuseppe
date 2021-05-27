@@ -1,15 +1,4 @@
-﻿header.logged {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  padding: 0px;
-  z-index: 10;
-}
-
-header.logged #headerDefault {
-  display: none;
-}
-
+﻿
 #mainSection {
   display: flex;
   width: 100%;
