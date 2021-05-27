@@ -116,7 +116,7 @@ header {
 .logged header #headerMenu {
   display: flex;
   width: 100%;
-  min-height: 2rem; 
+  min-height: 2rem;
 }
 
 .inputBase {
@@ -180,7 +180,7 @@ header {
   font-size: 1rem;
 }
 
- 
+
 /*******************************************/
 
 
@@ -217,34 +217,43 @@ header {
 #headerMenu {
   display: none;
 }
-
-
 #languageBox {
-  width: 30%;
-  max-width: 11.6rem;
-  position: fixed;
-  right: 1.2rem;
-  top: 30vh;
-  display: flex;
-  flex-direction: column;
-  width: 4rem;
-  z-index: 5;
   display: none;
+}
+ 
+.logged #languageBox{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding:var(--m_padding);
 }
 
 #languageBox>button {
-  text-align: center;
+  justify-content: center;
+  border: 1px solid #707070;
+  border-radius: 0.5rem;
+  margin-top: 0.8rem;
+  width: 48%;
+  background: #fff;
+  font-size: 1.15rem;
   color: #6E4E45;
   font-weight: 600;
-  background: #fff;
-  border: 1px solid #707070;
-  border-radius: 0.2rem;
-  padding: 0.08rem;
-  margin-top: 0.4rem;
-  width: 100%;
-  background: #fff;
-  font-size: 0.5rem;
+  align-items: center;
+  display: flex;
+  height: 2rem;
+  line-height: 2rem;
+  cursor: pointer;
 }
+
+#languageBox>button:hover{
+  /* opacity: 0.8; */
+  transition: all 0.2s linear;
+  transform: translateX(4px);
+}
+
+
 .navbar-toggler:focus {  box-shadow: 0 0 0 0.04rem; }
 .navbar-light .navbar-toggler {
   color: rgb(42 42 42 / 25%);
@@ -262,7 +271,7 @@ header {
     font-size: 1.5rem;
     line-height: 2rem;
 }
-  
+
 .inputBase {
   padding: 1.5rem 1.5rem;
   font-size: 2rem;
@@ -297,11 +306,36 @@ header {
 }
   #introText {    margin-top: 8.2rem; }
 
+#languageBox {
+  justify-content: flex-start;
+}
+
+#languageBox>button {  width: 8.8rem;
+margin-right: 0.4rem; }
+
 }
 
 /* lg Large devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
+
+#languageBox {
+  width: 30%;
+  max-width: 11.6rem;
+  position: fixed;
+  left: 1.2rem;
+  top: 30vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 10rem;
+  z-index: 5;
+  display: none;
+}
+
+#languageBox>button {
+  width: 100%;
+}
+
   header {
     position: absolute;
     top: 0px;
@@ -448,23 +482,23 @@ header {
     align-items: center;
     cursor: pointer;
   }
-  
+
   #profiloBox>span {
     margin-right: 0.5rem;
   }
-  
+
   #navbarSupportedContent {
     margin-top: 0rem;
   }
   #mainSection h2 {  font-size: 3.1rem; }
-  
+
 #navbarSupportedContent {
   padding-right: 1rem;
 }
 
 }
 
-@media (min-width: 1440px) {  
+@media (min-width: 1440px) {
 
   #headerMenu .nav-link {
     font-size: 1rem;
@@ -478,7 +512,7 @@ header {
   }
 }
 
-@media (min-width: 1600px) {  
+@media (min-width: 1600px) {
 
   #headerMenu .nav-link {
     padding: 0rem 2rem;
