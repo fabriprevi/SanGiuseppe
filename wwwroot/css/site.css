@@ -228,6 +228,7 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   padding:var(--m_padding);
+  padding-bottom: 1rem;
 }
 
 #languageBox>button {
@@ -408,6 +409,8 @@ margin-right: 0.4rem; }
   footer>span {
     font-size: 1.6rem;
   }
+
+  .logged #languageBox {   position: absolute;   }
 
 }
 

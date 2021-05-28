@@ -20,36 +20,35 @@
     </section>
     <div id="registrationForm">
       <span>I campi contrassegnati con * sono obbligatori</span>
-      <form>
+      <form oninput='pwLoginconfirm.setCustomValidity(pwLogin.value != pwLoginconfirm.value ? "Le password inserite non corrispondono." : "")'>
         <div>
-          <label for="emailLogin" class="form-label">Nome *
-          <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
-          <label for="emailLogin" class="form-label">Cognome *
-            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
+          <label for="name" class="form-label">Nome *
+          <input type="text" class="form-control inputBase" id="name" aria-describedby="name" required></label>
+          <label for="surname" class="form-label">Cognome *
+            <input type="text" class="form-control inputBase" id="surname" aria-describedby="surname" required></label>
         </div>
         <div>
-          <label for="emailLogin" class="form-label">Username *
-          <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
-          <label for="pwLogin" class="form-label">Email *
-            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp"></label>
+          <label for="username" class="form-label">Username *
+          <input type="text" class="form-control inputBase" id="username" aria-describedby="username" required></label>
+          <label for="emailLogin" class="form-label">Email *
+            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailLogin" required></label>
         </div>
         <div>
           <label for="pwLogin" class="form-label">Password *
-            <input type="password" class="form-control inputBase" id="pwLogin"></label>
-          <label for="pwLogin" class="form-label">Ripeti Password *
-          <input type="password" class="form-control inputBase" id="pwLogin"></label>
+            <input type="password" class="form-control inputBase" id="pwLogin" name="pwLogin" required></label>
+          <label for="pwLoginconfirm" class="form-label">Ripeti Password *
+          <input type="password" class="form-control inputBase" id="pwLoginconfirm" name="pwLoginconfirm" required></label>
         </div>
         <div class="checkboxRow">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <input type="checkbox" class="form-check-input" id="privacy" required>
           <label class="form-check-label" for="exampleCheck1">Lorem ipsum dolor sit amet, consectetur adipisci elit sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. </label>
         </div>
         <div class="checkboxRow">
-          <input type="checkbox" class="form-check-input" id="exampleCheck2">
+          <input type="checkbox" class="form-check-input" id="privacy2">
           <label class="form-check-label" for="exampleCheck1">Lorem ipsum dolor sit amet, consectetur adipisci elit sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. </label>
         </div>
         <button type="submit" class="btn btn-primary">Accedi</button>
       </form>
-      
     </div>
 
 
