@@ -18,6 +18,7 @@ namespace SanGuseppeNuovoSito.Controllers
             _logger = logger;
         }
         [HttpGet("/Home/Index")]
+         [HttpGet("/")]
         public IActionResult Index()
         {
             return View();
