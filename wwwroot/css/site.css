@@ -185,16 +185,16 @@ header {
 
 
 .btn-primary {
-  font-size: 1.2rem;
-  border-radius: 0.4rem;
-  font-weight: 600;
-  background: #6E4E45;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3.4rem;
-  line-height: initial;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    background: #6E4E45;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.4rem;
+    line-height: initial;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
@@ -215,13 +215,10 @@ header {
 }
 
 #headerMenu {
-  display: none;
-}
-#languageBox {
-  display: none;
+  display: none; 
 }
  
-.logged #languageBox{
+#languageBox{
   position: relative;
   width: 100%;
   display: flex;
@@ -261,7 +258,7 @@ header {
   border-color: rgba(0,0,0,.1);
 }
 
-#introText {  margin-top: 6rem; }
+.logged #introText {  margin-top: 6rem; }
 
 
 /* Small devices (landscape phones, 576px and up)*/
@@ -305,7 +302,9 @@ header {
   .navbar-toggler {
     font-size: 2rem;
 }
-  #introText {    margin-top: 8.2rem; }
+  .logged #introText {    
+    margin-top: 8.2rem;
+  }
 
 #languageBox {
   justify-content: flex-start;
@@ -324,13 +323,12 @@ margin-right: 0.4rem; }
   width: 30%;
   max-width: 11.6rem;
   position: fixed;
-  left: 1.2rem;
-  top: 30vh;
+  right: 1.2rem;
+  top: 44vh;
   display: flex;
   flex-direction: column;
   max-width: 10rem;
   z-index: 5;
-  display: none;
 }
 
 #languageBox>button {
@@ -410,7 +408,7 @@ margin-right: 0.4rem; }
     font-size: 1.6rem;
   }
 
-  .logged #languageBox {   position: absolute;   }
+  #languageBox {   position: absolute;   }
 
 }
 
@@ -497,6 +495,10 @@ margin-right: 0.4rem; }
 
 #navbarSupportedContent {
   padding-right: 1rem;
+}
+
+#languageBox {
+  top: 40vh;
 }
 
 }
