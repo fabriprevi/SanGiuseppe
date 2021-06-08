@@ -3,11 +3,19 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace SanGuseppeNuovoSito.Models
+namespace SanGiuseppe.Models
 {
     public partial class Anagrafica
     {
-        public int Idsocio { get; set; }
+        public Anagrafica()
+        {
+            AnagraficaRuoli = new HashSet<AnagraficaRuoli>();
+            CapiGruppetto = new HashSet<CapiGruppetto>();
+            FondoComune = new HashSet<FondoComune>();
+            Utenti = new HashSet<Utenti>();
+        }
+
+        public int Idanagrafica { get; set; }
         public short? NumeroIscrizione { get; set; }
         public bool SanGiuseppe { get; set; }
         public string Cognome { get; set; }
@@ -61,5 +69,11 @@ namespace SanGuseppeNuovoSito.Models
         public bool? Selezionato { get; set; }
         public bool? InviaEmail { get; set; }
         public string Lingua { get; set; }
+
+        public virtual Visitor Visitor { get; set; }
+        public virtual ICollection<AnagraficaRuoli> AnagraficaRuoli { get; set; }
+        public virtual ICollection<CapiGruppetto> CapiGruppetto { get; set; }
+        public virtual ICollection<FondoComune> FondoComune { get; set; }
+        public virtual ICollection<Utenti> Utenti { get; set; }
     }
 }

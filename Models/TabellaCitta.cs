@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SanGiuseppe.Models
 {
-    public partial class TabellaCittum
+    public partial class TabellaCitta
     {
         public int Idcitta { get; set; }
         public string Citta { get; set; }

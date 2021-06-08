@@ -5,12 +5,11 @@ using System.Collections.Generic;
 
 namespace SanGiuseppe.Models
 {
-    public partial class Traduzioni
+    public partial class Dizionario
     {
         public int Id { get; set; }
         public string Chiave { get; set; }
-        public string Lingua { get; set; }
         public string Traduzione { get; set; }
-        public string Pagina { get; set; }
+        public string Lingua { get; set; }
     }
 }

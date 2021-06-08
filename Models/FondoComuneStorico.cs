@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace SanGuseppeNuovoSito.Models
+namespace SanGiuseppe.Models
 {
     public partial class FondoComuneStorico
     {
         public int Id { get; set; }
-        public int Idsocio { get; set; }
+        public int Idanagrafica { get; set; }
         public int Anno { get; set; }
         public double? Quota01 { get; set; }
         public double? Quota02 { get; set; }
@@ -71,5 +71,7 @@ namespace SanGuseppeNuovoSito.Models
         public string Valuta11 { get; set; }
         public string Valuta12 { get; set; }
         public string Note { get; set; }
+
+        public virtual AnagraficaStorico IdanagraficaNavigation { get; set; }
     }
 }

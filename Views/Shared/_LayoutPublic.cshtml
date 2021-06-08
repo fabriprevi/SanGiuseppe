@@ -18,35 +18,40 @@
 
 </head>
 <body>
-    <header> 
-      <div id="headerDefault">
-          <img id="logo" src="../../../img/logo.svg" />
-          <div class="d-none d-lg-block">Profilo <img src="../../../img/icon-profilo.svg" /></div>
-      </div>      
-    </header> 
+    <header>
+        <div id="headerDefault">
+            <img id="logo" src="../../../img/logo.svg" />
+            <div class="d-none d-lg-block">Profilo <img src="../../../img/icon-profilo.svg" /></div>
+        </div>
+    </header>
 
-        <!-- Sales stats -->
-        @RenderBody()
+    <!-- Sales stats -->
+    @RenderBody()
 
 
-        @await RenderSectionAsync("Scripts", required: false)
-        
+    @await RenderSectionAsync("Scripts", required: false)
+
     <footer>
-        <span>Il sito è gestito e realizzato da</span> 
+        <span>Il sito è gestito e realizzato da</span>
         <div>
-                <img src="../../../img/logoImage.svg" />
-                <span>ASSOCIAZIONE PER LO SVILUPPO
-                <br />           
-                CULTURALE E SOCIALE SAN GIUSEPPE</span>
+            <img src="../../../img/logoImage.svg" />
+            <span>
+                ASSOCIAZIONE PER LO SVILUPPO
+                <br />
+                CULTURALE E SOCIALE SAN GIUSEPPE
+            </span>
         </div>
         <p class="d-lg-none">© 2021 /c.f. 97224720157 </p>
         <p class="d-none d-lg-block">© 2021 Associazione per lo Sviluppo Culturale e Sociale San Giuseppe, sede in Milano via Caccialepori 23 - codice fiscale 97224720157  </p>
-    </footer> 
+    </footer>
 
-     <!--  JQUERY  -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-     <!--  END JQUERY  -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!--  JQUERY  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--  END JQUERY  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    @await RenderSectionAsync("Script", required: false)
+
 </body>
 </html>
 

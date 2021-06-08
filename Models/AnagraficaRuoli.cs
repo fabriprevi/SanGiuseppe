@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace SanGuseppeNuovoSito.Models
+namespace SanGiuseppe.Models
 {
     public partial class AnagraficaRuoli
     {
@@ -12,5 +12,7 @@ namespace SanGuseppeNuovoSito.Models
         public string CodiceRuolo { get; set; }
         public DateTime? DataInizio { get; set; }
         public DateTime? Scadenza { get; set; }
+
+        public virtual Anagrafica IdanagraficaNavigation { get; set; }
     }
 }

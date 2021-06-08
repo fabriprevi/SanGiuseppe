@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace SanGuseppeNuovoSito.Models
+namespace SanGiuseppe.Models
 {
     public partial class CapiGruppetto
     {
@@ -12,5 +12,8 @@ namespace SanGuseppeNuovoSito.Models
         public int? Idgruppetto { get; set; }
         public DateTime? DataInizio { get; set; }
         public DateTime? Scadenza { get; set; }
+
+        public virtual Anagrafica IdanagraficaNavigation { get; set; }
+        public virtual TabellaGruppetti IdcapoGruppettoNavigation { get; set; }
     }
 }

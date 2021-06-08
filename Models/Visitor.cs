@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace SanGuseppeNuovoSito.Models
+namespace SanGiuseppe.Models
 {
     public partial class Visitor
     {
@@ -11,5 +11,11 @@ namespace SanGuseppeNuovoSito.Models
         public int? Idanagrafica { get; set; }
         public DateTime? DataInizio { get; set; }
         public DateTime? Scadenza { get; set; }
+        public string SiglaNazione { get; set; }
+        public int Idgruppetto { get; set; }
+
+        public virtual TabellaGruppetti IdgruppettoNavigation { get; set; }
+        public virtual Anagrafica IdvisitorNavigation { get; set; }
+        public virtual TabellaNazioni SiglaNazioneNavigation { get; set; }
     }
 }

@@ -4,55 +4,56 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace SanGuseppeNuovoSito.Models
+namespace SanGiuseppe.Models
 {
-    public partial class SanGiuseppeNuovoSitoContext : DbContext
+    public partial class SanGiuseppeContext : DbContext
     {
-        public SanGiuseppeNuovoSitoContext()
+        public SanGiuseppeContext()
         {
         }
 
-        public SanGiuseppeNuovoSitoContext(DbContextOptions<SanGiuseppeNuovoSitoContext> options)
+        public SanGiuseppeContext(DbContextOptions<SanGiuseppeContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<Anagrafica> Anagraficas { get; set; }
-        public virtual DbSet<AnagraficaPrimaDelleModifiche> AnagraficaPrimaDelleModifiches { get; set; }
-        public virtual DbSet<AnagraficaRuoli> AnagraficaRuolis { get; set; }
-        public virtual DbSet<AnagraficaSospesi> AnagraficaSospesis { get; set; }
-        public virtual DbSet<AnagraficaStorico> AnagraficaStoricos { get; set; }
-        public virtual DbSet<Avvisi> Avvisis { get; set; }
-        public virtual DbSet<CapiGruppetto> CapiGruppettos { get; set; }
-        public virtual DbSet<FondoComune> FondoComunes { get; set; }
-        public virtual DbSet<FondoComuneSospesi> FondoComuneSospesis { get; set; }
-        public virtual DbSet<FondoComuneStorico> FondoComuneStoricos { get; set; }
-        public virtual DbSet<Help> Helps { get; set; }
-        public virtual DbSet<Menu> Menus { get; set; }
-        public virtual DbSet<RegistroAccessi> RegistroAccessis { get; set; }
-        public virtual DbSet<SpedizioneEmailSito> SpedizioneEmailSitos { get; set; }
-        public virtual DbSet<TabellaCittum> TabellaCitta { get; set; }
-        public virtual DbSet<TabellaCodiciRuolo> TabellaCodiciRuolos { get; set; }
-        public virtual DbSet<TabellaGruppetti> TabellaGruppettis { get; set; }
-        public virtual DbSet<TabellaGruppi> TabellaGruppis { get; set; }
-        public virtual DbSet<TabellaGruppiAccesso> TabellaGruppiAccessos { get; set; }
-        public virtual DbSet<TabellaLingue> TabellaLingues { get; set; }
-        public virtual DbSet<TabellaNazioni> TabellaNazionis { get; set; }
-        public virtual DbSet<TabellaParametri> TabellaParametris { get; set; }
-        public virtual DbSet<TabellaProfessioni> TabellaProfessionis { get; set; }
-        public virtual DbSet<TabellaRegioni> TabellaRegionis { get; set; }
-        public virtual DbSet<TabellaValute> TabellaValutes { get; set; }
-        public virtual DbSet<TabellaZone> TabellaZones { get; set; }
-        public virtual DbSet<Traduzioni> Traduzionis { get; set; }
-        public virtual DbSet<Utenti> Utentis { get; set; }
-        public virtual DbSet<Visitor> Visitors { get; set; }
+        public virtual DbSet<Anagrafica> Anagrafica { get; set; }
+        public virtual DbSet<AnagraficaPrimaDelleModifiche> AnagraficaPrimaDelleModifiche { get; set; }
+        public virtual DbSet<AnagraficaRuoli> AnagraficaRuoli { get; set; }
+        public virtual DbSet<AnagraficaSospesi> AnagraficaSospesi { get; set; }
+        public virtual DbSet<AnagraficaStorico> AnagraficaStorico { get; set; }
+        public virtual DbSet<Avvisi> Avvisi { get; set; }
+        public virtual DbSet<CapiGruppetto> CapiGruppetto { get; set; }
+        public virtual DbSet<Dizionario> Dizionario { get; set; }
+        public virtual DbSet<FondoComune> FondoComune { get; set; }
+        public virtual DbSet<FondoComuneSospesi> FondoComuneSospesi { get; set; }
+        public virtual DbSet<FondoComuneStorico> FondoComuneStorico { get; set; }
+        public virtual DbSet<Help> Help { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+        public virtual DbSet<RegistroAccessi> RegistroAccessi { get; set; }
+        public virtual DbSet<SpedizioneEmailSito> SpedizioneEmailSito { get; set; }
+        public virtual DbSet<TabellaCitta> TabellaCitta { get; set; }
+        public virtual DbSet<TabellaCodiciRuolo> TabellaCodiciRuolo { get; set; }
+        public virtual DbSet<TabellaGruppetti> TabellaGruppetti { get; set; }
+        public virtual DbSet<TabellaGruppi> TabellaGruppi { get; set; }
+        public virtual DbSet<TabellaGruppiAccesso> TabellaGruppiAccesso { get; set; }
+        public virtual DbSet<TabellaLingue> TabellaLingue { get; set; }
+        public virtual DbSet<TabellaNazioni> TabellaNazioni { get; set; }
+        public virtual DbSet<TabellaParametri> TabellaParametri { get; set; }
+        public virtual DbSet<TabellaProfessioni> TabellaProfessioni { get; set; }
+        public virtual DbSet<TabellaRegioni> TabellaRegioni { get; set; }
+        public virtual DbSet<TabellaValute> TabellaValute { get; set; }
+        public virtual DbSet<TabellaZone> TabellaZone { get; set; }
+        public virtual DbSet<Traduzioni> Traduzioni { get; set; }
+        public virtual DbSet<Utenti> Utenti { get; set; }
+        public virtual DbSet<Visitor> Visitor { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=192.168.0.13;Database=SanGiuseppeNuovoSito;User=sangtest;password=!vadoalmare");
+                optionsBuilder.UseSqlServer("Server=192.168.0.13;Database=SanGiuseppeNuovoSito;User id=sa; Password=G1us3pp3;");
             }
         }
 
@@ -62,9 +63,11 @@ namespace SanGuseppeNuovoSito.Models
 
             modelBuilder.Entity<Anagrafica>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Idanagrafica);
 
-                entity.ToTable("Anagrafica");
+                entity.Property(e => e.Idanagrafica)
+                    .ValueGeneratedNever()
+                    .HasColumnName("IDAnagrafica");
 
                 entity.Property(e => e.Camera).HasMaxLength(50);
 
@@ -95,8 +98,6 @@ namespace SanGuseppeNuovoSito.Models
                 entity.Property(e => e.Email).HasMaxLength(50);
 
                 entity.Property(e => e.Gruppo).HasMaxLength(50);
-
-                entity.Property(e => e.Idsocio).HasColumnName("IDSocio");
 
                 entity.Property(e => e.IndirizzoDomicilio).HasMaxLength(50);
 
@@ -150,8 +151,6 @@ namespace SanGuseppeNuovoSito.Models
             modelBuilder.Entity<AnagraficaPrimaDelleModifiche>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("AnagraficaPrimaDelleModifiche");
 
                 entity.Property(e => e.CapDomicilio).HasMaxLength(50);
 
@@ -234,8 +233,6 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasKey(e => e.IdanafraficaIncarico);
 
-                entity.ToTable("AnagraficaRuoli");
-
                 entity.Property(e => e.IdanafraficaIncarico).HasColumnName("IDAnafraficaIncarico");
 
                 entity.Property(e => e.CodiceRuolo).HasMaxLength(50);
@@ -245,13 +242,20 @@ namespace SanGuseppeNuovoSito.Models
                 entity.Property(e => e.Idanagrafica).HasColumnName("IDAnagrafica");
 
                 entity.Property(e => e.Scadenza).HasColumnType("date");
+
+                entity.HasOne(d => d.IdanagraficaNavigation)
+                    .WithMany(p => p.AnagraficaRuoli)
+                    .HasForeignKey(d => d.Idanagrafica)
+                    .HasConstraintName("FK_AnagraficaRuoli_Anagrafica");
             });
 
             modelBuilder.Entity<AnagraficaSospesi>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Idanagrafica);
 
-                entity.ToTable("AnagraficaSospesi");
+                entity.Property(e => e.Idanagrafica)
+                    .ValueGeneratedNever()
+                    .HasColumnName("IDAnagrafica");
 
                 entity.Property(e => e.Camera).HasMaxLength(50);
 
@@ -290,8 +294,6 @@ namespace SanGuseppeNuovoSito.Models
                     .HasColumnName("email");
 
                 entity.Property(e => e.Gruppo).HasMaxLength(50);
-
-                entity.Property(e => e.Idsocio).HasColumnName("IDSocio");
 
                 entity.Property(e => e.IndirizzoDomicilio).HasMaxLength(50);
 
@@ -352,9 +354,11 @@ namespace SanGuseppeNuovoSito.Models
 
             modelBuilder.Entity<AnagraficaStorico>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Idanagrafica);
 
-                entity.ToTable("AnagraficaStorico");
+                entity.Property(e => e.Idanagrafica)
+                    .ValueGeneratedNever()
+                    .HasColumnName("IDAnagrafica");
 
                 entity.Property(e => e.Camera).HasMaxLength(50);
 
@@ -393,8 +397,6 @@ namespace SanGuseppeNuovoSito.Models
                     .HasColumnName("email");
 
                 entity.Property(e => e.Gruppo).HasMaxLength(50);
-
-                entity.Property(e => e.Idsocio).HasColumnName("IDSocio");
 
                 entity.Property(e => e.IndirizzoDomicilio).HasMaxLength(50);
 
@@ -455,17 +457,15 @@ namespace SanGuseppeNuovoSito.Models
 
             modelBuilder.Entity<Avvisi>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Idavviso);
 
-                entity.ToTable("Avvisi");
+                entity.Property(e => e.Idavviso).HasColumnName("IDAvviso");
 
                 entity.Property(e => e.Categoria).HasMaxLength(50);
 
                 entity.Property(e => e.Contenuto).HasMaxLength(4000);
 
                 entity.Property(e => e.Data).HasColumnType("datetime");
-
-                entity.Property(e => e.Idavviso).HasColumnName("IDAvviso");
 
                 entity.Property(e => e.Link).HasColumnType("ntext");
 
@@ -478,8 +478,6 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasKey(e => e.IdcapoGruppetto);
 
-                entity.ToTable("CapiGruppetto");
-
                 entity.Property(e => e.IdcapoGruppetto)
                     .ValueGeneratedNever()
                     .HasColumnName("IDCapoGruppetto");
@@ -491,13 +489,22 @@ namespace SanGuseppeNuovoSito.Models
                 entity.Property(e => e.Idgruppetto).HasColumnName("IDGruppetto");
 
                 entity.Property(e => e.Scadenza).HasColumnType("date");
+
+                entity.HasOne(d => d.IdanagraficaNavigation)
+                    .WithMany(p => p.CapiGruppetto)
+                    .HasForeignKey(d => d.Idanagrafica)
+                    .HasConstraintName("FK_CapiGruppetto_Anagrafica");
+
+                entity.HasOne(d => d.IdcapoGruppettoNavigation)
+                    .WithOne(p => p.CapiGruppetto)
+                    .HasForeignKey<CapiGruppetto>(d => d.IdcapoGruppetto)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CapiGruppetto_Gruppetti");
             });
 
             modelBuilder.Entity<FondoComune>(entity =>
             {
-                entity.HasNoKey();
-
-                entity.ToTable("FondoComune");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.DataPagamento01).HasColumnType("datetime");
 
@@ -523,9 +530,7 @@ namespace SanGuseppeNuovoSito.Models
 
                 entity.Property(e => e.DataPagamento12).HasColumnType("datetime");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Idsocio).HasColumnName("IDsocio");
+                entity.Property(e => e.Idanagrafica).HasColumnName("IDAnagrafica");
 
                 entity.Property(e => e.Note).HasMaxLength(255);
 
@@ -576,13 +581,16 @@ namespace SanGuseppeNuovoSito.Models
                 entity.Property(e => e.Valuta11).HasMaxLength(3);
 
                 entity.Property(e => e.Valuta12).HasMaxLength(3);
+
+                entity.HasOne(d => d.IdanagraficaNavigation)
+                    .WithMany(p => p.FondoComune)
+                    .HasForeignKey(d => d.Idanagrafica)
+                    .HasConstraintName("FK_FondoComune_FondoComune");
             });
 
             modelBuilder.Entity<FondoComuneSospesi>(entity =>
             {
-                entity.HasNoKey();
-
-                entity.ToTable("FondoComuneSospesi");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.DataPagamento01).HasColumnType("datetime");
 
@@ -608,9 +616,7 @@ namespace SanGuseppeNuovoSito.Models
 
                 entity.Property(e => e.DataPagamento12).HasColumnType("datetime");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Idsocio).HasColumnName("IDsocio");
+                entity.Property(e => e.Idanagrafica).HasColumnName("IDAnagrafica");
 
                 entity.Property(e => e.Note).HasMaxLength(255);
 
@@ -661,13 +667,17 @@ namespace SanGuseppeNuovoSito.Models
                 entity.Property(e => e.Valuta11).HasMaxLength(3);
 
                 entity.Property(e => e.Valuta12).HasMaxLength(3);
+
+                entity.HasOne(d => d.IdanagraficaNavigation)
+                    .WithMany(p => p.FondoComuneSospesi)
+                    .HasForeignKey(d => d.Idanagrafica)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_FondoComuneSospesi_AnagraficaSospesi");
             });
 
             modelBuilder.Entity<FondoComuneStorico>(entity =>
             {
-                entity.HasNoKey();
-
-                entity.ToTable("FondoComuneStorico");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.DataPagamento01).HasColumnType("datetime");
 
@@ -693,9 +703,7 @@ namespace SanGuseppeNuovoSito.Models
 
                 entity.Property(e => e.DataPagamento12).HasColumnType("datetime");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Idsocio).HasColumnName("IDsocio");
+                entity.Property(e => e.Idanagrafica).HasColumnName("IDAnagrafica");
 
                 entity.Property(e => e.Note).HasMaxLength(255);
 
@@ -746,13 +754,17 @@ namespace SanGuseppeNuovoSito.Models
                 entity.Property(e => e.Valuta11).HasMaxLength(3);
 
                 entity.Property(e => e.Valuta12).HasMaxLength(3);
+
+                entity.HasOne(d => d.IdanagraficaNavigation)
+                    .WithMany(p => p.FondoComuneStorico)
+                    .HasForeignKey(d => d.Idanagrafica)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_FondoComuneStorico_AnagraficaStorico");
             });
 
             modelBuilder.Entity<Help>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("Help");
 
                 entity.Property(e => e.NomeCampo)
                     .IsRequired()
@@ -768,8 +780,6 @@ namespace SanGuseppeNuovoSito.Models
             modelBuilder.Entity<Menu>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("Menu");
 
                 entity.Property(e => e.Description)
                     .HasMaxLength(255)
@@ -793,8 +803,6 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasNoKey();
 
-                entity.ToTable("RegistroAccessi");
-
                 entity.Property(e => e.Data).HasColumnType("datetime");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -813,8 +821,6 @@ namespace SanGuseppeNuovoSito.Models
             modelBuilder.Entity<SpedizioneEmailSito>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("SpedizioneEmailSito");
 
                 entity.Property(e => e.Camera).HasMaxLength(50);
 
@@ -917,7 +923,7 @@ namespace SanGuseppeNuovoSito.Models
                 entity.Property(e => e.Zona).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<TabellaCittum>(entity =>
+            modelBuilder.Entity<TabellaCitta>(entity =>
             {
                 entity.HasNoKey();
 
@@ -941,8 +947,6 @@ namespace SanGuseppeNuovoSito.Models
                 entity.HasKey(e => e.CodiceRuolo)
                     .HasName("PK_TabellaCodiciIncarico");
 
-                entity.ToTable("TabellaCodiciRuolo");
-
                 entity.Property(e => e.CodiceRuolo).HasMaxLength(50);
 
                 entity.Property(e => e.Descrizione).HasMaxLength(50);
@@ -950,8 +954,6 @@ namespace SanGuseppeNuovoSito.Models
 
             modelBuilder.Entity<TabellaGruppetti>(entity =>
             {
-                entity.ToTable("TabellaGruppetti");
-
                 entity.HasIndex(e => e.Gruppetto, "IX_Table_Gruppetto");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -966,8 +968,6 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasNoKey();
 
-                entity.ToTable("TabellaGruppi");
-
                 entity.Property(e => e.Gruppo)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -978,8 +978,6 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasNoKey();
 
-                entity.ToTable("TabellaGruppiAccesso");
-
                 entity.Property(e => e.Descrizione).HasMaxLength(50);
             });
 
@@ -987,20 +985,16 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasKey(e => e.Lingua);
 
-                entity.ToTable("TabellaLingue");
-
                 entity.Property(e => e.Lingua).HasMaxLength(50);
             });
 
             modelBuilder.Entity<TabellaNazioni>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.SiglaNazione);
 
-                entity.ToTable("TabellaNazioni");
+                entity.Property(e => e.SiglaNazione).HasMaxLength(3);
 
                 entity.Property(e => e.CodiceValuta).HasMaxLength(10);
-
-                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Nazione).HasMaxLength(50);
 
@@ -1017,17 +1011,11 @@ namespace SanGuseppeNuovoSito.Models
                     .HasColumnName("NazioneUK");
 
                 entity.Property(e => e.PrefissoInternazionale).HasMaxLength(10);
-
-                entity.Property(e => e.SiglaNazione)
-                    .IsRequired()
-                    .HasMaxLength(3);
             });
 
             modelBuilder.Entity<TabellaParametri>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("TabellaParametri");
 
                 entity.Property(e => e.Contenuto).HasMaxLength(255);
 
@@ -1045,8 +1033,6 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasNoKey();
 
-                entity.ToTable("TabellaProfessioni");
-
                 entity.Property(e => e.Professione)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -1055,8 +1041,6 @@ namespace SanGuseppeNuovoSito.Models
             modelBuilder.Entity<TabellaRegioni>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("TabellaRegioni");
 
                 entity.Property(e => e.CodiceNazione)
                     .HasMaxLength(3)
@@ -1080,8 +1064,6 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasNoKey();
 
-                entity.ToTable("TabellaValute");
-
                 entity.Property(e => e.CodiceValuta)
                     .IsRequired()
                     .HasMaxLength(3)
@@ -1094,8 +1076,6 @@ namespace SanGuseppeNuovoSito.Models
             {
                 entity.HasNoKey();
 
-                entity.ToTable("TabellaZone");
-
                 entity.Property(e => e.Zona)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -1104,8 +1084,6 @@ namespace SanGuseppeNuovoSito.Models
             modelBuilder.Entity<Traduzioni>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("Traduzioni");
 
                 entity.Property(e => e.Chiave).HasMaxLength(255);
 
@@ -1122,9 +1100,12 @@ namespace SanGuseppeNuovoSito.Models
 
             modelBuilder.Entity<Utenti>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Idutente);
 
-                entity.ToTable("Utenti");
+                entity.HasIndex(e => e.Idutente, "IX_Utenti_IDAnagrafica")
+                    .IsUnique();
+
+                entity.Property(e => e.Idutente).HasColumnName("IDUtente");
 
                 entity.Property(e => e.DataultimaModificaPassword).HasColumnType("date");
 
@@ -1135,21 +1116,50 @@ namespace SanGuseppeNuovoSito.Models
                 entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.Username).HasMaxLength(50);
+
+                entity.Property(e => e.VecchiaUsername).HasMaxLength(50);
+
+                entity.HasOne(d => d.IdanagraficaNavigation)
+                    .WithMany(p => p.Utenti)
+                    .HasForeignKey(d => d.Idanagrafica)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Utenti_Anagrafica");
             });
 
             modelBuilder.Entity<Visitor>(entity =>
             {
                 entity.HasKey(e => e.Idvisitor);
 
-                entity.ToTable("Visitor");
-
-                entity.Property(e => e.Idvisitor).HasColumnName("IDVisitor");
+                entity.Property(e => e.Idvisitor)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("IDVisitor");
 
                 entity.Property(e => e.DataInizio).HasColumnType("date");
 
                 entity.Property(e => e.Idanagrafica).HasColumnName("IDAnagrafica");
 
+                entity.Property(e => e.Idgruppetto).HasColumnName("IDGruppetto");
+
                 entity.Property(e => e.Scadenza).HasColumnType("date");
+
+                entity.Property(e => e.SiglaNazione).HasMaxLength(3);
+
+                entity.HasOne(d => d.IdgruppettoNavigation)
+                    .WithMany(p => p.Visitor)
+                    .HasForeignKey(d => d.Idgruppetto)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Visitor_Gruppetti");
+
+                entity.HasOne(d => d.IdvisitorNavigation)
+                    .WithOne(p => p.Visitor)
+                    .HasForeignKey<Visitor>(d => d.Idvisitor)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Visitor_Anagrafica");
+
+                entity.HasOne(d => d.SiglaNazioneNavigation)
+                    .WithMany(p => p.Visitor)
+                    .HasForeignKey(d => d.SiglaNazione)
+                    .HasConstraintName("FK_Visitor_Nazioni");
             });
 
             OnModelCreatingPartial(modelBuilder);

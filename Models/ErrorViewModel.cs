@@ -1,6 +1,6 @@
 using System;
 
-namespace SanGuseppeNuovoSito.Models
+namespace SanGiuseppe.Models
 {
     public class ErrorViewModel
     {

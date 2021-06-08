@@ -3,11 +3,16 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace SanGuseppeNuovoSito.Models
+namespace SanGiuseppe.Models
 {
     public partial class AnagraficaSospesi
     {
-        public int Idsocio { get; set; }
+        public AnagraficaSospesi()
+        {
+            FondoComuneSospesi = new HashSet<FondoComuneSospesi>();
+        }
+
+        public int Idanagrafica { get; set; }
         public short? NumeroIscrizione { get; set; }
         public bool SanGiuseppe { get; set; }
         public string Cognome { get; set; }
@@ -61,5 +66,7 @@ namespace SanGuseppeNuovoSito.Models
         public string Note { get; set; }
         public int? AnnoDiInizio { get; set; }
         public string DataLettera { get; set; }
+
+        public virtual ICollection<FondoComuneSospesi> FondoComuneSospesi { get; set; }
     }
 }

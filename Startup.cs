@@ -8,8 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SanGiuseppe.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using SanGiuseppe.helpers;
 
-namespace SanGuseppeNuovoSito
+namespace SanGiuseppe
 {
     public class Startup
     {
@@ -23,7 +27,24 @@ namespace SanGuseppeNuovoSito
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddRazorRuntimeCompilation(); 
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddDbContext<SanGiuseppeContext>(options =>
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<Funzioni>();
+
+            services.AddAuthentication("CookieAuthentication")
+                .AddCookie("CookieAuthentication", config =>
+                {
+                    config.Cookie.Name = "SanGiuseppe.Cookie";
+                    config.LoginPath = "/Login";
+                    config.AccessDeniedPath = "/Login";
+
+                });
+
+          
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
