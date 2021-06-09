@@ -1,0 +1,7 @@
+﻿.logged > main > section{
+    padding: var(--m_padding);
+}
+
+footer {
+    display:none;
+}

@@ -119,6 +119,41 @@ header {
   min-height: 2rem;
 }
 
+.logged > main{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 4.3rem;
+  padding-top: 0.74rem;
+}
+
+
+#profiloButton{  box-shadow: none;   
+  padding: 0.7rem 0rem 0rem 0rem;
+}
+
+#profiloButton > img{  
+  height: 49px;
+  width: 49px;
+  overflow: hidden;
+  border-radius: 49px;
+}
+#profiloButton::after {  display: none; }
+.dropdown-item.active, .dropdown-item:active {  background-color: #533a32; }
+#profiloBox .dropdown-item{  
+  padding: .5rem 0.7rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+
+}
+
+ .titleBase{
+  font-size: 1.8rem;
+  color: #6E4E45;
+  font-weight: bold;
+ }
+
+
 .inputBase {
   padding: 0.7rem 0.6rem;
   font-size: 1.1rem;
@@ -297,7 +332,7 @@ header {
   }
   #headerMenu .nav-link {
     font-size: 1.6rem;
-    padding: 1.3rem 0rem;
+    padding: 1rem 0rem;
   }
   .navbar-toggler {
     font-size: 2rem;
@@ -312,6 +347,9 @@ header {
 
 #languageBox>button {  width: 8.8rem;
 margin-right: 0.4rem; }
+
+  .logged > main{  margin-top: 6.4rem; }
+  #profiloBox .dropdown-item{      font-size: 1.2rem; }
 
 }
 
@@ -360,7 +398,7 @@ margin-right: 0.4rem; }
   #headerDefault>div>img {
     margin-left: 0.6rem;
   }
-  #descriptionBoxHp>p .btn-primary {
+  #descriptionBoxHp_content>p .btn-primary {
     max-width: 22rem;
     text-align: center;
     margin: 0 auto;
@@ -410,11 +448,22 @@ margin-right: 0.4rem; }
 
   #languageBox {   position: absolute;   }
 
+  .logged > main{   margin-top: 7.8rem; }
+
+}
+
+
+@media (max-width: 1200px) {
+  #profiloBox .dropdown-menu{
+    position: relative;
+    border: none; 
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 
 @media (min-width: 1200px) {
+  .titleBase {  font-size: 3.1rem; }
   #loginBox {
     padding: 2.8rem 3rem;
     top: 19vh;
@@ -500,6 +549,11 @@ margin-right: 0.4rem; }
 #languageBox {
   top: 40vh;
 }
+
+.logged > main{
+  margin-top: 4.4rem;
+}
+#profiloBox .dropdown-item {  font-size: 1rem; }
 
 }
 
