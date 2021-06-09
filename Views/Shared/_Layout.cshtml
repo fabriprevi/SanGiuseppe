@@ -26,7 +26,6 @@
       <nav id="headerMenu" class="navbar navbar-expand-xl navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"><img src="../../../img/logo.svg" /></a>
-          <div class="d-none d-lg-block" id="profiloBox"><span class="d-none">Profilo</span> <img src="../../../img/icon-profilo.svg" /></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -55,6 +54,18 @@
               <input class="form-control inputBase" type="search" placeholder="CERCA" aria-label="cerca">
               <!-- <button class="btn btn-outline-success" type="submit">CERCA</button> -->
             </form>
+            <div id="profiloBox">
+              <span class="d-none">Profilo</span> 
+              <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="profiloButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="../../../img/profilo/avatar.jpg" /> 
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profiloButton">
+                  <li><a class="dropdown-item" href="#">Modifica profilo</a></li>
+                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+              </div>
+          </div>
           </div>
         </div>
       </nav>    
