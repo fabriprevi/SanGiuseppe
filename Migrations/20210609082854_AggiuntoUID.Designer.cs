@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SanGiuseppe.Models;
 
 namespace SanGiuseppe.Migrations
 {
     [DbContext(typeof(SanGiuseppeContext))]
-    partial class SanGiuseppeContextModelSnapshot : ModelSnapshot
+    [Migration("20210609082854_AggiuntoUID")]
+    partial class AggiuntoUID
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,6 +154,10 @@ namespace SanGiuseppe.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Provincia")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("ProvinciaDomicilio")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -201,7 +207,11 @@ namespace SanGiuseppe.Migrations
                         .HasMaxLength(1)
                         .HasColumnType("nvarchar(1)");
 
-                    b.Property<string>("Telefono")
+                    b.Property<string>("Telefono1")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Telefono2")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -2215,11 +2225,6 @@ namespace SanGiuseppe.Migrations
                     b.Property<string>("Password")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<Guid>("UID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(NewID())");
 
                     b.Property<string>("Username")
                         .HasMaxLength(50)

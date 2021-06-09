@@ -3,13 +3,16 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace SanGiuseppe.Models
+namespace SanGiuseppe.Models.Dto
 {
-    public partial class AnagraficaSospesi
+    public partial class dtoAnagrafica
     {
-        public AnagraficaSospesi()
+        public dtoAnagrafica()
         {
-            FondoComuneSospesi = new HashSet<FondoComuneSospesi>();
+            AnagraficaRuoli = new HashSet<AnagraficaRuoli>();
+            CapiGruppetto = new HashSet<CapiGruppetto>();
+            FondoComune = new HashSet<FondoComune>();
+            Utenti = new HashSet<Utenti>();
         }
 
         public int Idanagrafica { get; set; }
@@ -23,8 +26,7 @@ namespace SanGiuseppe.Models
         public string Cittadinanza { get; set; }
         public string Nazione { get; set; }
         public string Provincia { get; set; }
-        public string Telefono1 { get; set; }
-        public string Telefono2 { get; set; }
+        public string Telefono { get; set; }
         public string Cellulare { get; set; }
         public string Email { get; set; }
         public string NumeroIscrizioneFraternità { get; set; }
@@ -43,9 +45,6 @@ namespace SanGiuseppe.Models
         public string ProvinciaResidenza { get; set; }
         public string NazioneResidenza { get; set; }
         public string Professione { get; set; }
-        public string DescrizioneProfessione { get; set; }
-        public string LuogoDiLavoro { get; set; }
-        public bool? Responsabile { get; set; }
         public bool? PartecipaRitiro { get; set; }
         public DateTime? PartecipaRitiroData { get; set; }
         public int? Albergo { get; set; }
@@ -59,16 +58,21 @@ namespace SanGiuseppe.Models
         public string RitiroPagamentoIdtransazione { get; set; }
         public string RitiroPagamentoCro { get; set; }
         public double? QuotaFondoComune { get; set; }
-        public double? QuotaFondoCarita { get; set; }
+        public double? QuotaFondoComuneValuta { get; set; }
         public bool? EsenteFondoComune { get; set; }
         public string TipoPagamento { get; set; }
-        public double? FondoCarità { get; set; }
         public string Note { get; set; }
         public int? AnnoDiInizio { get; set; }
         public string DataLettera { get; set; }
-
+        public bool? Nuovo { get; set; }
+        public bool? Selezionato { get; set; }
+        public bool? InviaEmail { get; set; }
+        public string Lingua { get; set; }
         public Guid UID { get; set; }
-
-        public virtual ICollection<FondoComuneSospesi> FondoComuneSospesi { get; set; }
+        public virtual Visitor Visitor { get; set; }
+        public virtual ICollection<AnagraficaRuoli> AnagraficaRuoli { get; set; }
+        public virtual ICollection<CapiGruppetto> CapiGruppetto { get; set; }
+        public virtual ICollection<FondoComune> FondoComune { get; set; }
+        public virtual ICollection<Utenti> Utenti { get; set; }
     }
 }

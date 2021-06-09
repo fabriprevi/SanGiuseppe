@@ -67,6 +67,7 @@ namespace SanGiuseppe.Models
         public int? AnnoDiInizio { get; set; }
         public string DataLettera { get; set; }
 
+        public Guid UID { get; set; }
         public virtual ICollection<FondoComuneStorico> FondoComuneStorico { get; set; }
     }
 }

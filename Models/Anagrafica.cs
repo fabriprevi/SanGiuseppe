@@ -24,10 +24,9 @@ namespace SanGiuseppe.Models
         public string LuogodiNascita { get; set; }
         public string DatadiNascita { get; set; }
         public string Cittadinanza { get; set; }
+
         public string Nazione { get; set; }
-        public string Provincia { get; set; }
-        public string Telefono1 { get; set; }
-        public string Telefono2 { get; set; }
+        public string Telefono { get; set; }
         public string Cellulare { get; set; }
         public string Email { get; set; }
         public string NumeroIscrizioneFraternità { get; set; }
@@ -70,6 +69,7 @@ namespace SanGiuseppe.Models
         public bool? InviaEmail { get; set; }
         public string Lingua { get; set; }
 
+        public Guid UID { get; set; }
         public virtual Visitor Visitor { get; set; }
         public virtual ICollection<AnagraficaRuoli> AnagraficaRuoli { get; set; }
         public virtual ICollection<CapiGruppetto> CapiGruppetto { get; set; }

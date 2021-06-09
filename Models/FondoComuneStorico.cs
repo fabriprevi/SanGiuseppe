@@ -72,6 +72,7 @@ namespace SanGiuseppe.Models
         public string Valuta12 { get; set; }
         public string Note { get; set; }
 
+        public Guid UID { get; set; }
         public virtual AnagraficaStorico IdanagraficaNavigation { get; set; }
     }
 }

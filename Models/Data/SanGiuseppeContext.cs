@@ -121,7 +121,6 @@ namespace SanGiuseppe.Models
 
                 entity.Property(e => e.Professione).HasMaxLength(50);
 
-                entity.Property(e => e.Provincia).HasMaxLength(50);
 
                 entity.Property(e => e.ProvinciaDomicilio).HasMaxLength(50);
 
@@ -139,13 +138,14 @@ namespace SanGiuseppe.Models
 
                 entity.Property(e => e.Sesso).HasMaxLength(1);
 
-                entity.Property(e => e.Telefono1).HasMaxLength(50);
+                entity.Property(e => e.Telefono).HasMaxLength(50);
 
-                entity.Property(e => e.Telefono2).HasMaxLength(50);
 
                 entity.Property(e => e.TipoPagamento).HasMaxLength(50);
 
                 entity.Property(e => e.Zona).HasMaxLength(50);
+
+                entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
             });
 
             modelBuilder.Entity<AnagraficaPrimaDelleModifiche>(entity =>
@@ -350,6 +350,8 @@ namespace SanGiuseppe.Models
                 entity.Property(e => e.TipoPagamento).HasMaxLength(50);
 
                 entity.Property(e => e.Zona).HasMaxLength(50);
+
+                entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
             });
 
             modelBuilder.Entity<AnagraficaStorico>(entity =>
@@ -453,6 +455,8 @@ namespace SanGiuseppe.Models
                 entity.Property(e => e.TipoPagamento).HasMaxLength(50);
 
                 entity.Property(e => e.Zona).HasMaxLength(50);
+
+                entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
             });
 
             modelBuilder.Entity<Avvisi>(entity =>
@@ -582,6 +586,8 @@ namespace SanGiuseppe.Models
 
                 entity.Property(e => e.Valuta12).HasMaxLength(3);
 
+                entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
+
                 entity.HasOne(d => d.IdanagraficaNavigation)
                     .WithMany(p => p.FondoComune)
                     .HasForeignKey(d => d.Idanagrafica)
@@ -667,6 +673,8 @@ namespace SanGiuseppe.Models
                 entity.Property(e => e.Valuta11).HasMaxLength(3);
 
                 entity.Property(e => e.Valuta12).HasMaxLength(3);
+
+                entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
 
                 entity.HasOne(d => d.IdanagraficaNavigation)
                     .WithMany(p => p.FondoComuneSospesi)
@@ -754,6 +762,8 @@ namespace SanGiuseppe.Models
                 entity.Property(e => e.Valuta11).HasMaxLength(3);
 
                 entity.Property(e => e.Valuta12).HasMaxLength(3);
+
+                entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
 
                 entity.HasOne(d => d.IdanagraficaNavigation)
                     .WithMany(p => p.FondoComuneStorico)
@@ -1118,6 +1128,8 @@ namespace SanGiuseppe.Models
                 entity.Property(e => e.Username).HasMaxLength(50);
 
                 entity.Property(e => e.VecchiaUsername).HasMaxLength(50);
+
+                entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
 
                 entity.HasOne(d => d.IdanagraficaNavigation)
                     .WithMany(p => p.Utenti)

@@ -16,6 +16,7 @@ namespace SanGiuseppe.Models
         public int? Comunità { get; set; }
         public DateTime? DataultimaModificaPassword { get; set; }
 
+        public Guid UID { get; set; }
         public virtual Anagrafica IdanagraficaNavigation { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace SanGiuseppe
                    Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<Funzioni>();
-
+            services.AddHttpContextAccessor();
             services.AddAuthentication("CookieAuthentication")
                 .AddCookie("CookieAuthentication", config =>
                 {
@@ -43,7 +43,7 @@ namespace SanGiuseppe
 
                 });
 
-          
+            services.AddSession();
 
         }
 
@@ -65,13 +65,17 @@ namespace SanGiuseppe
 
             app.UseRouting();
 
+
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                
             });
         }
     }

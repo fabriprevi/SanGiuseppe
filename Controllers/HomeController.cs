@@ -47,7 +47,7 @@ namespace SanGiuseppe.Controllers
         [HttpPost("/Login")]
         public async Task<IActionResult> Login([FromForm] string Username, string Password)
         {
-            return Redirect("/Home/IndexLogged");
+            
 
             var utente = _context.Utenti
                 .Select(a => new
@@ -55,7 +55,9 @@ namespace SanGiuseppe.Controllers
                     IDAnagrafica = a.Idanagrafica,
                     Nominativo = a.IdanagraficaNavigation.Cognome + " " + a.IdanagraficaNavigation.Nome,
                     Username = a.Username,
-                    Password = a.Password
+                    Password = a.Password,
+                    UIDAnagrafica = a.IdanagraficaNavigation.UID,
+                    UIDUtente = a.UID
 
                 }).SingleOrDefault(a => a.Username == Username && a.Password == Password);
 
@@ -74,12 +76,17 @@ namespace SanGiuseppe.Controllers
             await HttpContext.SignInAsync("CookieAuthentication", userPrincipal);
 
             CookieOptions options = new CookieOptions();
-            options.Expires = DateTime.Now.AddDays(1);
+            options.Expires = DateTime.Now.AddDays(1) ;
+            options.HttpOnly = true;
             HttpContext.Response.Cookies.Append("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString(), options);
            HttpContext.Response.Cookies.Append("SanGiuseppeNominativo", utente.Nominativo, options);
 
+            HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString());
+              HttpContext.Session.SetString("SanGiuseppeNominativo", utente.Nominativo.ToString());
+             HttpContext.Session.SetString("SanGiuseppeUIDAnagrafica", utente.UIDAnagrafica.ToString());
+            HttpContext.Session.SetString("SanGiuseppeUIDUtente", utente.UIDUtente.ToString());
 
-            
+            return Redirect("/Home/IndexLogged");
         }
 
 

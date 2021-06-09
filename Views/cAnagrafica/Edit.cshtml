@@ -1,0 +1,189 @@
+﻿@model SanGiuseppe.Models.Dto.dtoAnagrafica
+@using SanGiuseppe.helpers;
+@inject Funzioni funzioni
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Anagrafica</h4>
+<hr />
+<div class="card">
+    <div class="body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Idanagrafica" />
+                    <div class="form-group">
+                        <label asp-for="NumeroIscrizione" class="control-label">@funzioni.GetWord("Numero iscrizione")</label>
+                        @Model.NumeroIscrizione
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Cognome" class="control-label">@funzioni.GetWord("Cognome")</label>
+                        <input asp-for="Cognome" class="form-control" />
+                        <span asp-validation-for="Cognome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Nome" class="control-label">@funzioni.GetWord("Nome")</label>
+                        <input asp-for="Nome" class="form-control" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sesso" class="control-label">@funzioni.GetWord("Sesso")</label>
+                        <select asp-for="Sesso" class="form-control">
+                            <option value="M">Uomo</option>
+                            <option value="F">Donna</option>
+                        </select>
+                        <span asp-validation-for="Sesso" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LuogodiNascita" class="control-label">@funzioni.GetWord("Luogo di nascita")</label>
+                        <input asp-for="LuogodiNascita" class="form-control" />
+                        <span asp-validation-for="LuogodiNascita" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DatadiNascita" class="control-label">@funzioni.GetWord("Data di nascita")</label>
+                        <input asp-for="DatadiNascita" class="form-control" />
+                        <span asp-validation-for="DatadiNascita" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cittadinanza" class="control-label">@funzioni.GetWord("Cittadinanza")</label>
+                        <input asp-for="Cittadinanza" class="form-control" />
+                        <span asp-validation-for="Cittadinanza" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Nazione" class="control-label">@funzioni.GetWord("Nazione")</label>
+                        <input asp-for="Nazione" class="form-control" />
+                        <span asp-validation-for="Nazione" class="text-danger"></span>
+                    </div>
+                 
+                    <div class="form-group">
+                        <label asp-for="Telefono" class="control-label">@funzioni.GetWord("Telefono") </label>
+                        <input asp-for="Telefono" class="form-control" />
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Cellulare" class="control-label">@funzioni.GetWord("Cellulare")</label>
+                        <input asp-for="Cellulare" class="form-control" />
+                        <span asp-validation-for="Cellulare" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label">@funzioni.GetWord("Email")</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NumeroIscrizioneFraternità" class="control-label">@funzioni.GetWord("Numero iscrizione fraternità")</label>
+                        <input asp-for="NumeroIscrizioneFraternità" class="form-control" />
+                        <span asp-validation-for="NumeroIscrizioneFraternità" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Codfisc" class="control-label">@funzioni.GetWord("Codice fiscale")</label>
+                        <input asp-for="Codfisc" class="form-control" />
+                        <span asp-validation-for="Codfisc" class="text-danger"></span>
+                    </div>
+                    <h3>Domicilio</h3>
+                    <div class="form-group">
+                        <label asp-for="IndirizzoDomicilio" class="control-label">@funzioni.GetWord("Indirizzo")</label>
+                        <input asp-for="IndirizzoDomicilio" class="form-control" />
+                        <span asp-validation-for="IndirizzoDomicilio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CapDomicilio" class="control-label">@funzioni.GetWord("Cap")</label>
+                        <input asp-for="CapDomicilio" class="form-control" />
+                        <span asp-validation-for="CapDomicilio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CittàDomicilio" class="control-label">@funzioni.GetWord("Città")</label>
+                        <input asp-for="CittàDomicilio" class="form-control" />
+                        <span asp-validation-for="CittàDomicilio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProvinciaDomicilio" class="control-label">@funzioni.GetWord("Provincia")</label>
+                        <input asp-for="ProvinciaDomicilio" class="form-control" />
+                        <span asp-validation-for="ProvinciaDomicilio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NazioneDomicilio" class="control-label">@funzioni.GetWord("Nazione")</label>
+                        <input asp-for="NazioneDomicilio" class="form-control" />
+                        <span asp-validation-for="NazioneDomicilio" class="text-danger"></span>
+                    </div>
+                    <h3>Residenza</h3>
+                    <div class="form-group">
+                        <label asp-for="IndirizzoResidenza" class="control-label">@funzioni.GetWord("Indirizzo")</label>
+                        <input asp-for="IndirizzoResidenza" class="form-control" />
+                        <span asp-validation-for="IndirizzoResidenza" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CapResidenza" class="control-label">@funzioni.GetWord("Cap")</label>
+                        <input asp-for="CapResidenza" class="form-control" />
+                        <span asp-validation-for="CapResidenza" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CittàResidenza" class="control-label">@funzioni.GetWord("Città")</label>
+                        <input asp-for="CittàResidenza" class="form-control" />
+                        <span asp-validation-for="CittàResidenza" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProvinciaResidenza" class="control-label">@funzioni.GetWord("Provincia")</label>
+                        <input asp-for="ProvinciaResidenza" class="form-control" />
+                        <span asp-validation-for="ProvinciaResidenza" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NazioneResidenza" class="control-label">@funzioni.GetWord("Nazione")</label>
+                        <input asp-for="NazioneResidenza" class="form-control" />
+                        <span asp-validation-for="NazioneResidenza" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Professione" class="control-label">@funzioni.GetWord("Professione")</label>
+                        <input asp-for="Professione" class="form-control" />
+                        <span asp-validation-for="Professione" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="QuotaFondoComune" class="control-label">@funzioni.GetWord("Quota fondo comune")</label>
+                        <input asp-for="QuotaFondoComune" class="form-control" />
+                        <span asp-validation-for="QuotaFondoComune" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="QuotaFondoComuneValuta" class="control-label">@funzioni.GetWord("Valuta")</label>
+                        <select asp-for="QuotaFondoComuneValuta" class="form-control" style="width:100%"
+                                asp-items="@(new SelectList(ViewBag.valuta,"CodiceValuta","DescrizioneValuta"))">
+                            <option></option>
+                            </select>
+
+
+                            <span asp-validation-for="QuotaFondoComuneValuta" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Lingua" class="control-label">@funzioni.GetWord("Lingua")</label>
+                        <select asp-for="Lingua" class="form-control" style="width:100%"
+                                asp-items="@(new SelectList(ViewBag.lingua,"Lingua","Lingua"))">
+                            <option></option>
+                        </select>
+
+                        <span asp-validation-for="Lingua" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
