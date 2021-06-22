@@ -47,7 +47,7 @@ namespace SanGiuseppe.Controllers
         [HttpPost("/Login")]
         public async Task<IActionResult> Login([FromForm] string Username, string Password)
         {
-            
+
 
             var utente = _context.Utenti
                 .Select(a => new
@@ -57,7 +57,10 @@ namespace SanGiuseppe.Controllers
                     Username = a.Username,
                     Password = a.Password,
                     UIDAnagrafica = a.IdanagraficaNavigation.UID,
-                    UIDUtente = a.UID
+                    UIDUtente = a.UID,
+                    Foto = a.IdanagraficaNavigation.UID.ToString().Replace("-","") + "_" + 
+                           "000000".Substring(0, 6 - a.IdanagraficaNavigation.NumeroIscrizione.ToString().Length) + a.IdanagraficaNavigation.NumeroIscrizione + ".jpg"
+
 
                 }).SingleOrDefault(a => a.Username == Username && a.Password == Password);
 
@@ -85,6 +88,7 @@ namespace SanGiuseppe.Controllers
               HttpContext.Session.SetString("SanGiuseppeNominativo", utente.Nominativo.ToString());
              HttpContext.Session.SetString("SanGiuseppeUIDAnagrafica", utente.UIDAnagrafica.ToString());
             HttpContext.Session.SetString("SanGiuseppeUIDUtente", utente.UIDUtente.ToString());
+            HttpContext.Session.SetString("SanGiuseppeFoto", utente.Foto.ToString());
 
             return Redirect("/Home/IndexLogged");
         }

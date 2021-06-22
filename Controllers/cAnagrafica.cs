@@ -155,7 +155,7 @@ namespace SanGiuseppe.Controllers
         // POST: cAnagrafica/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost("/Anagrafica/Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit([FromForm] dtoAnagrafica anagrafica)
         {
@@ -168,10 +168,6 @@ namespace SanGiuseppe.Controllers
                     var anagraficadamodificare = await _context.Anagrafica.SingleOrDefaultAsync(a => a.UID == anagrafica.UID);
                     if(anagraficadamodificare!=null)
                     {
-                        anagraficadamodificare.Albergo = anagrafica.Albergo;
-                        anagraficadamodificare.AnnoDiInizio = anagrafica.AnnoDiInizio;
-                        anagraficadamodificare.Camera = anagrafica.Camera;
-                        anagraficadamodificare.CameraSingola = anagrafica.CameraSingola;
                         anagraficadamodificare.CapDomicilio = anagrafica.CapDomicilio;
                         anagraficadamodificare.CapResidenza = anagrafica.CapResidenza;
                         anagraficadamodificare.Cellulare = anagrafica.Cellulare;
@@ -181,63 +177,40 @@ namespace SanGiuseppe.Controllers
                         anagraficadamodificare.Codfisc = anagrafica.Codfisc;
                         anagraficadamodificare.Cognome = anagrafica.Cognome;
                         anagraficadamodificare.DatadiNascita = anagrafica.DatadiNascita;
-                        anagraficadamodificare.DataInizio = anagrafica.DataInizio;
-                        anagraficadamodificare.DataLettera = anagrafica.DataLettera;
                         anagraficadamodificare.Email = anagrafica.Email;
-                        anagraficadamodificare.EsenteFondoComune = anagrafica.EsenteFondoComune;
-                        anagraficadamodificare.Gruppo = anagrafica.Gruppo;
-                        anagraficadamodificare.Idanagrafica = anagrafica.Idanagrafica;
                         anagraficadamodificare.IndirizzoDomicilio = anagrafica.IndirizzoDomicilio;
                         anagraficadamodificare.IndirizzoResidenza = anagrafica.IndirizzoResidenza;
-                        anagraficadamodificare.InviaEmail = anagrafica.InviaEmail;
                         anagraficadamodificare.Lingua = anagrafica.Lingua;
                         anagraficadamodificare.LuogodiNascita = anagrafica.LuogodiNascita;
                         anagraficadamodificare.Nazione = anagrafica.Nazione;
                         anagraficadamodificare.NazioneDomicilio = anagrafica.NazioneDomicilio;
                         anagraficadamodificare.NazioneResidenza = anagrafica.NazioneResidenza;
                         anagraficadamodificare.Nome = anagrafica.Nome;
-                        anagraficadamodificare.Note = anagrafica.Note;
-                        anagraficadamodificare.NumeroIscrizione = anagrafica.NumeroIscrizione;
                         anagraficadamodificare.NumeroIscrizioneFraternità = anagrafica.NumeroIscrizioneFraternità;
-                        anagraficadamodificare.Nuovo = anagrafica.Nuovo;
-                        anagraficadamodificare.PartecipaRitiro = anagrafica.PartecipaRitiro;
-                        anagraficadamodificare.PartecipaRitiroData = anagrafica.PartecipaRitiroData;
-                        anagraficadamodificare.Professione = anagrafica.Professione;
+                            anagraficadamodificare.Professione = anagrafica.Professione;
                         anagraficadamodificare.ProvinciaDomicilio = anagrafica.ProvinciaDomicilio;
                         anagraficadamodificare.ProvinciaResidenza = anagrafica.ProvinciaResidenza;
                         anagraficadamodificare.QuotaFondoComune = anagrafica.QuotaFondoComune;
                         anagraficadamodificare.QuotaFondoComuneValuta = anagrafica.QuotaFondoComuneValuta;
-                        anagraficadamodificare.RitiroImporto = anagrafica.RitiroImporto;
-                        anagraficadamodificare.RitiroPagamentoCro = anagrafica.RitiroPagamentoCro;
-                        anagraficadamodificare.RitiroPagamentoData = anagrafica.RitiroPagamentoData;
-                        anagraficadamodificare.RitiroPagamentoIdtransazione = anagrafica.RitiroPagamentoIdtransazione;
-                        anagraficadamodificare.RitiroPagamentoImporto = anagrafica.RitiroPagamentoImporto;
-                        anagraficadamodificare.RitiroQuota = anagrafica.RitiroQuota;
-                        anagraficadamodificare.RitiroSupplentoSingola = anagrafica.RitiroSupplentoSingola;
-                        anagraficadamodificare.SanGiuseppe = anagrafica.SanGiuseppe;
-                        anagraficadamodificare.Selezionato = anagrafica.Selezionato;
                         anagraficadamodificare.Sesso = anagrafica.Sesso;
                         anagraficadamodificare.Telefono = anagrafica.Telefono;
-                        anagraficadamodificare.TipoPagamento = anagrafica.TipoPagamento;
                         anagraficadamodificare.UID = anagrafica.UID;
-                        anagraficadamodificare.Zona = anagrafica.Zona;
+                        _context.Update(anagraficadamodificare);
+
+                        await _context.SaveChangesAsync();
 
                     }
-                    _context.Update(anagrafica);
-                    await _context.SaveChangesAsync();
+                  
+                    RiempiViewBag();
+                    ViewBag.msg = funzioni.GetWord("Dati aggiornati");
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (Exception ex)
                 {
-                    if (!AnagraficaExists(anagrafica.Idanagrafica))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+
+                        ViewBag.msg = ex.Message + " " + ex.InnerException;
+
                 }
-                return RedirectToAction(nameof(Index));
+             
             }
             return View(anagrafica);
         }
@@ -278,7 +251,7 @@ namespace SanGiuseppe.Controllers
 
         private string RiempiViewBag()
         {
-
+            ViewBag.msg = "";
             var valute = _context.TabellaValute
                 .Select(a => new { a.CodiceValuta, a.DescrizioneValuta })
                 .OrderBy(b => b.DescrizioneValuta).ToList();

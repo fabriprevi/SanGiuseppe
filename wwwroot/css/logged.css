@@ -5,3 +5,56 @@
 footer {
     display:none;
 }
+
+
+#sectionInfo {
+    background: url("../img/bg-dot.jpg") #fff repeat top left;
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    padding: var(--m_padding);
+    padding-top: 0.6rem;
+    padding-bottom: 2.4rem;
+}
+
+#sectionInfoElements {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    max-width: 32rem;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+    #sectionInfoElements > div {
+        display: flex;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid #ddd;
+        flex: 48%;
+        margin: 2.4rem 1% 0.5rem 1%;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        border-radius: 0.4rem;
+        padding: 0.8rem;
+        text-align: center;
+        color: #6E4E45;
+        max-width: 48%;
+    }
+
+        #sectionInfoElements > div figure {
+            background: #fff;
+            padding: 1rem;
+            margin-top: -3.6rem;
+        }
+
+        #sectionInfoElements > div:nth-child(3) > figure {
+            margin-top: -3rem;
+        }
+
+        #sectionInfoElements > div:nth-child(4) > figure, #sectionInfoElements > div:nth-child(5) > figure {
+            margin-top: -3rem;
+        } 
+

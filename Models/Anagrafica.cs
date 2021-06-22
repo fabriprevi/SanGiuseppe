@@ -58,7 +58,7 @@ namespace SanGiuseppe.Models
         public string RitiroPagamentoIdtransazione { get; set; }
         public string RitiroPagamentoCro { get; set; }
         public double? QuotaFondoComune { get; set; }
-        public double? QuotaFondoComuneValuta { get; set; }
+        public string QuotaFondoComuneValuta { get; set; }
         public bool? EsenteFondoComune { get; set; }
         public string TipoPagamento { get; set; }
         public string Note { get; set; }

@@ -231,6 +231,12 @@ header {
     height: 3.4rem;
     line-height: initial;
 }
+.btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+    height: 1.4rem!important;
+}
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
   background: #533a32;

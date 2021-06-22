@@ -146,6 +146,24 @@ namespace SanGiuseppe.Models
                 entity.Property(e => e.Zona).HasMaxLength(50);
 
                 entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
+
+
+                entity.HasOne(a => a.Visitor)
+                    .WithOne(a=>a.IdvisitorNavigation)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+              entity.HasMany(a => a.CapiGruppetto)
+                    .WithOne(a=>a.IdanagraficaNavigation)
+                    .HasForeignKey(a=>a.Idanagrafica)
+                    .OnDelete(DeleteBehavior.Cascade);
+              entity.HasMany(a => a.FondoComune)
+                    .WithOne(a=>a.IdanagraficaNavigation)
+                    .HasForeignKey(a=>a.Idanagrafica)
+                    .OnDelete(DeleteBehavior.Cascade);
+              entity.HasMany(a => a.Utenti)
+                    .WithOne(a=>a.IdanagraficaNavigation)
+                    .HasForeignKey(a=>a.Idanagrafica)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<AnagraficaPrimaDelleModifiche>(entity =>

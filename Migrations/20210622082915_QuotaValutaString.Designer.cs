@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SanGiuseppe.Models;
 
 namespace SanGiuseppe.Migrations
 {
     [DbContext(typeof(SanGiuseppeContext))]
-    partial class SanGiuseppeContextModelSnapshot : ModelSnapshot
+    [Migration("20210622082915_QuotaValutaString")]
+    partial class QuotaValutaString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2289,8 +2291,7 @@ namespace SanGiuseppe.Migrations
                     b.HasOne("SanGiuseppe.Models.Anagrafica", "IdanagraficaNavigation")
                         .WithMany("CapiGruppetto")
                         .HasForeignKey("Idanagrafica")
-                        .HasConstraintName("FK_CapiGruppetto_Anagrafica")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_CapiGruppetto_Anagrafica");
 
                     b.HasOne("SanGiuseppe.Models.TabellaGruppetti", "IdcapoGruppettoNavigation")
                         .WithOne("CapiGruppetto")
@@ -2308,8 +2309,7 @@ namespace SanGiuseppe.Migrations
                     b.HasOne("SanGiuseppe.Models.Anagrafica", "IdanagraficaNavigation")
                         .WithMany("FondoComune")
                         .HasForeignKey("Idanagrafica")
-                        .HasConstraintName("FK_FondoComune_FondoComune")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_FondoComune_FondoComune");
 
                     b.Navigation("IdanagraficaNavigation");
                 });
