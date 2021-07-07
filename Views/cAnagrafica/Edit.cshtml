@@ -6,12 +6,39 @@
 }
 
 @section Header {
-    <link href="../../../css/logged.css" rel="stylesheet" type="text/css">
-<style>
-    .form-group {
-        padding-bottom:10px;
-    }
-</style>
+    <link href="~/css/logged.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/cropper.min.css">
+    <style>
+        .form-group {
+            padding-bottom: 10px;
+        }
+    </style>
+    <style>
+        .label {
+            cursor: pointer;
+        }
+
+        .progress {
+            display: none;
+            margin-bottom: 1rem;
+        }
+
+        .alert {
+            display: none;
+        }
+
+        .img-container img {
+            max-width: 100%;
+        }
+
+        .card {
+            margin-left: auto;
+            margin-right: auto;
+            float: none; /* Added */
+            margin-bottom: 10px; /* Added */
+        }
+    </style>
 }
 <main>
     <section>
@@ -19,12 +46,51 @@
             Anagrafica
         </h1>
         <h2>Controlla e aggiorna i tuoi dati</h2>
-        <span style="color:red!important; font-weight:bold!important">@ViewBag.msg</span>
+      
         <div class="card">
-
+            <div class="card-header">
+                <span style="color:red!important; font-weight:bold!important">@ViewBag.msg</span>
+            </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin:auto">
+
+                        <div id="divAvatar">
+
+                            <label class="label" data-toggle="tooltip" title="Cambia la tua foto">
+                                <img class="rounded" width="150" id="avatar" src="@Model.PercorsoFoto" alt="avatar">
+
+                                <input type="file" class="sr-only" id="input" name="image" accept="image/*">
+                            </label>
+
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                            <div class="alert" role="alert"></div>
+                            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalLabel">@funzioni.GetWord("Inquadra l'immagine")</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="img-container">
+                                                <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">@funzioni.GetWord("Cancel")</button>
+                                            <button type="button" class="btn btn-secondary" id="crop">@funzioni.GetWord("Conferma")</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h7>Clicca sulla foto per cambiarla</h7>
+                        <p></p>
                         <form asp-action="Edit">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="Idanagrafica" />
@@ -141,79 +207,202 @@
                                 <button type="button" id="CopiaDomicilio" class="btn btn-primary" style="width:100%">CLICCA QUI SE LA RESIDENZA<br /> E' UGUALE AL DOMICILIO</button>
                             </div>
 
-                                <h3>Residenza</h3>
-                                <div class="form-group">
-                                    <label asp-for="IndirizzoResidenza" class="control-label">@funzioni.GetWord("Indirizzo")</label>
-                                    <input id="IndirizzoResidenza" asp-for="IndirizzoResidenza" class="form-control" />
-                                    <span asp-validation-for="IndirizzoResidenza" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="CapResidenza" class="control-label">@funzioni.GetWord("Cap")</label>
-                                    <input id="CapResidenza" asp-for="CapResidenza" class="form-control" />
-                                    <span asp-validation-for="CapResidenza" class="text-danger"></span>
-                                </div>
+                            <h3>Residenza</h3>
+                            <div class="form-group">
+                                <label asp-for="IndirizzoResidenza" class="control-label">@funzioni.GetWord("Indirizzo")</label>
+                                <input id="IndirizzoResidenza" asp-for="IndirizzoResidenza" class="form-control" />
+                                <span asp-validation-for="IndirizzoResidenza" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CapResidenza" class="control-label">@funzioni.GetWord("Cap")</label>
+                                <input id="CapResidenza" asp-for="CapResidenza" class="form-control" />
+                                <span asp-validation-for="CapResidenza" class="text-danger"></span>
+                            </div>
 
-                                <div class="form-group">
-                                    <label asp-for="CittàResidenza" class="control-label">@funzioni.GetWord("Città")</label>
-                                    <input id="CittaResidenza" asp-for="CittàResidenza" class="form-control" />
-                                    <span asp-validation-for="CittàResidenza" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="ProvinciaResidenza" class="control-label">@funzioni.GetWord("Provincia")</label>
-                                    <input id="ProvinciaResidenza" asp-for="ProvinciaResidenza" class="form-control" />
-                                    <span asp-validation-for="ProvinciaResidenza" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="NazioneResidenza" class="control-label">@funzioni.GetWord("Nazione")</label>
-                                    <input id="NazioneResidenza" asp-for="NazioneResidenza" class="form-control" />
-                                    <span asp-validation-for="NazioneResidenza" class="text-danger"></span>
-                                </div>
+                            <div class="form-group">
+                                <label asp-for="CittàResidenza" class="control-label">@funzioni.GetWord("Città")</label>
+                                <input id="CittaResidenza" asp-for="CittàResidenza" class="form-control" />
+                                <span asp-validation-for="CittàResidenza" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ProvinciaResidenza" class="control-label">@funzioni.GetWord("Provincia")</label>
+                                <input id="ProvinciaResidenza" asp-for="ProvinciaResidenza" class="form-control" />
+                                <span asp-validation-for="ProvinciaResidenza" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="NazioneResidenza" class="control-label">@funzioni.GetWord("Nazione")</label>
+                                <input id="NazioneResidenza" asp-for="NazioneResidenza" class="form-control" />
+                                <span asp-validation-for="NazioneResidenza" class="text-danger"></span>
+                            </div>
 
-                                <br /><br />
-                                <h3>Fondo comune</h3>
-                                <div class="form-group">
-                                    <label asp-for="QuotaFondoComune" class="control-label">@funzioni.GetWord("Quota fondo comune")</label>
-                                    <input asp-for="QuotaFondoComune" class="form-control" />
-                                    <span asp-validation-for="QuotaFondoComune" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="QuotaFondoComuneValuta" class="control-label">@funzioni.GetWord("Valuta")</label>
-                                    <select asp-for="QuotaFondoComuneValuta" class="form-control" style="width:100%"
-                                            asp-items="@(new SelectList(ViewBag.valuta,"CodiceValuta","DescrizioneValuta"))">
-                                        <option></option>
-                                    </select>
-
-
-                                    <span asp-validation-for="QuotaFondoComuneValuta" class="text-danger"></span>
-                                </div>
+                            <br /><br />
+                            <h3>Fondo comune</h3>
+                            <div class="form-group">
+                                <label asp-for="QuotaFondoComune" class="control-label">@funzioni.GetWord("Quota fondo comune")</label>
+                                <input asp-for="QuotaFondoComune" class="form-control" />
+                                <span asp-validation-for="QuotaFondoComune" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="QuotaFondoComuneValuta" class="control-label">@funzioni.GetWord("Valuta")</label>
+                                <select asp-for="QuotaFondoComuneValuta" class="form-control" style="width:100%"
+                                        asp-items="@(new SelectList(ViewBag.valuta,"CodiceValuta","DescrizioneValuta"))">
+                                    <option></option>
+                                </select>
 
 
-                                <div class="form-group">
-                                    <input type="submit" value='@funzioni.GetWord("Conferma")' class="btn btn-primary">
-                                </div>
+                                <span asp-validation-for="QuotaFondoComuneValuta" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="submit" value='@funzioni.GetWord("Conferma")' class="btn btn-primary">
+                            </div>
                         </form>
+
+
+
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 </main>
 
 @section Scripts {
 
+
+  
+    <script src="~/js/cropper.min.js"></script>
+    <script>
+
+        window.addEventListener('DOMContentLoaded', function () {
+            var avatar = document.getElementById('avatar');
+            var image = document.getElementById('image');
+            var input = document.getElementById('input');
+            var $progress = $('.progress');
+            var $progressBar = $('.progress-bar');
+            var $alert = $('.alert');
+            var $modal = $('#modal');
+            var cropper;
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            input.addEventListener('change', function (e) {
+                var files = e.target.files;
+                var done = function (url) {
+                    input.value = '';
+                    image.src = url;
+                    $alert.hide();
+                    $modal.modal('show');
+                };
+                var reader;
+                var file;
+                var url;
+
+                if (files && files.length > 0) {
+                    file = files[0];
+
+                    if (URL) {
+                        done(URL.createObjectURL(file));
+                    } else if (FileReader) {
+                        reader = new FileReader();
+                        reader.onload = function (e) {
+                            done(reader.result);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                }
+            });
+
+            $modal.on('shown.bs.modal', function () {
+                cropper = new Cropper(image, {
+                    aspectRatio: 1,
+                    cropBoxResizable: false,
+                    toggleDragModeOnDblclick: false,
+                    dragMode: 'move',
+                });
+            }).on('hidden.bs.modal', function () {
+                cropper.destroy();
+                cropper = null;
+            });
+
+            document.getElementById('crop').addEventListener('click', function () {
+                var initialAvatarURL;
+                var canvas;
+
+                $modal.modal('hide');
+
+                if (cropper) {
+                    canvas = cropper.getCroppedCanvas({
+                        width: 250,
+                        height: 250,
+                    });
+                    initialAvatarURL = avatar.src;
+                    avatar.src = canvas.toDataURL();
+                    $progress.show();
+                    $alert.removeClass('alert-success alert-warning');
+                    canvas.toBlob(function (blob) {
+                        var formData = new FormData();
+
+                        formData.append('foto', blob, 'avatar.jpg');
+                        $.ajax('/Anagrafica/UploadFoto', {
+                            method: 'POST',
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+
+                            xhr: function () {
+                                var xhr = new XMLHttpRequest();
+
+                                xhr.upload.onprogress = function (e) {
+                                    var percent = '0';
+                                    var percentage = '0%';
+
+                                    if (e.lengthComputable) {
+                                        percent = Math.round((e.loaded / e.total) * 100);
+                                        percentage = percent + '%';
+                                        $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                                    }
+                                };
+
+                                return xhr;
+                            },
+
+                            success: function () {
+                                $alert.show().addClass('alert-success').text('Caricamento effettuato con successo');
+                            },
+
+                            error: function (message) {
+                                avatar.src = initialAvatarURL;
+                                $alert.show().addClass('alert-warning').text('Problema nel caricamento');
+                            },
+
+                            complete: function () {
+                                $progress.hide();
+                            },
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-<script>
+    <script>
 
-    $("#CopiaDomicilio").click(function () {
+        $("#CopiaDomicilio").click(function () {
 
-        $("#IndirizzoResidenza").val($("#IndirizzoDomicilio").val());
-        $("#CapResidenza").val($("#CapDomicilio").val());
-        $("#CittaResidenza").val($("#CittaDomicilio").val());
-        $("#ProvinciaResidenza").val($("#ProvinciaDomicilio").val());
-        $("#NazioneResidenza").val($("#NazioneDomicilio").val());
+            $("#IndirizzoResidenza").val($("#IndirizzoDomicilio").val());
+            $("#CapResidenza").val($("#CapDomicilio").val());
+            $("#CittaResidenza").val($("#CittaDomicilio").val());
+            $("#ProvinciaResidenza").val($("#ProvinciaDomicilio").val());
+            $("#NazioneResidenza").val($("#NazioneDomicilio").val());
 
 
-    })
+        })
 
-</script>
+    </script>
 }

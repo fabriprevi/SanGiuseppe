@@ -58,8 +58,7 @@ namespace SanGiuseppe.Controllers
                     Password = a.Password,
                     UIDAnagrafica = a.IdanagraficaNavigation.UID,
                     UIDUtente = a.UID,
-                    Foto = a.IdanagraficaNavigation.UID.ToString().Replace("-","") + "_" + 
-                           "000000".Substring(0, 6 - a.IdanagraficaNavigation.NumeroIscrizione.ToString().Length) + a.IdanagraficaNavigation.NumeroIscrizione + ".jpg"
+                    Foto = a.IdanagraficaNavigation.UID.ToString() + ".jpg"
 
 
                 }).SingleOrDefault(a => a.Username == Username && a.Password == Password);
@@ -86,7 +85,7 @@ namespace SanGiuseppe.Controllers
 
             HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString());
               HttpContext.Session.SetString("SanGiuseppeNominativo", utente.Nominativo.ToString());
-             HttpContext.Session.SetString("SanGiuseppeUIDAnagrafica", utente.UIDAnagrafica.ToString());
+            HttpContext.Session.SetString("SanGiuseppeUIDAnagrafica", utente.UIDAnagrafica.ToString());
             HttpContext.Session.SetString("SanGiuseppeUIDUtente", utente.UIDUtente.ToString());
             HttpContext.Session.SetString("SanGiuseppeFoto", utente.Foto.ToString());
 

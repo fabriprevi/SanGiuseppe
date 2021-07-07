@@ -10,10 +10,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SanGiuseppe.helpers;
 using SanGiuseppe.Models;
+using SanGiuseppe.Models;
+
 using Microsoft.Extensions.Configuration;
 using SanGiuseppe.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Session;
+using System.IO;
 
 namespace SanGiuseppe.Controllers
 {
@@ -74,7 +77,10 @@ namespace SanGiuseppe.Controllers
         [HttpGet("/Anagrafica/Edit")]
         public async Task<IActionResult> Edit()
         {
+            // true
+            // false
 
+    
             string UID = "";
             if (HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica") != null)
             {
@@ -149,6 +155,21 @@ namespace SanGiuseppe.Controllers
             {
                 return NotFound();
             }
+            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg";
+            var esisteFoto = System.IO.File.Exists(percorsoFoto);
+
+            if (esisteFoto)
+            {
+                var lunghezza = new System.IO.FileInfo(percorsoFoto).Length;
+                if (lunghezza > 0)
+                {
+                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg?k=" + DateTime.Now;
+                }
+                else
+                {
+                    anagrafica.PercorsoFoto = "/img/placeholder.png";
+                }
+            }
             return View(anagrafica);
         }
 
@@ -159,8 +180,9 @@ namespace SanGiuseppe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit([FromForm] dtoAnagrafica anagrafica)
         {
-           
+          
 
+    
             if (ModelState.IsValid)
             {
                 try
@@ -212,7 +234,73 @@ namespace SanGiuseppe.Controllers
                 }
              
             }
+            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg";
+            var esisteFoto = System.IO.File.Exists(percorsoFoto);
+
+            if (esisteFoto)
+            {
+                var lunghezza = new System.IO.FileInfo(percorsoFoto).Length;
+                if (lunghezza > 0)
+                {
+                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg?k=" + DateTime.Now;
+                }
+                else
+                {
+                    anagrafica.PercorsoFoto = "/img/placeholder.png";
+                }
+            }
             return View(anagrafica);
+        }
+       [HttpPost("/Anagrafica/UploadFoto")]
+       
+        public string UploadFoto([FromForm] UploadFoto foto)
+        {
+
+
+            try
+            {
+
+                   if (foto.foto!=null)
+                {
+                    var esisteFoto = System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg");
+
+                    if (esisteFoto)
+                    {
+                     System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg");
+
+                    }
+
+
+
+                    ViewBag.msg = "Foto caricato";
+                    var filePath = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg" ;
+                   
+                    using (var stream = System.IO.File.Create(filePath))
+                    {
+                        foto.foto.CopyTo(stream);
+                        //await pvm.attachment.CopyToAsync(stream);
+                    }
+                }
+
+
+             
+
+
+
+
+
+                //return Redirect("/Medico/Details/" + medicodocumentoallegato.UID);
+                ViewBag.msg = "Documento caricato";
+                return "";
+                //return View();
+            }
+            catch (Exception ex)
+            {
+                return (ex.Message);
+                //return View();
+            }
+
+
         }
 
         // GET: cAnagrafica/Delete/5
