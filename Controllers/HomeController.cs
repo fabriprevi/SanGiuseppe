@@ -105,7 +105,7 @@ namespace SanGiuseppe.Controllers
 
 
         [HttpGet("/SetLanguage/{language}")]
-        public void setLanguage(string? language)
+        public IActionResult setLanguage(string? language)
         {
             CookieOptions options = new CookieOptions();
             _contextAccessor.HttpContext.Response.Cookies.Delete("SanGiuseppeLingua");
@@ -121,7 +121,8 @@ namespace SanGiuseppe.Controllers
             }
             options.Expires = DateTime.Now.AddDays(1D);
             _contextAccessor.HttpContext.Response.Cookies.Append("SanGiuseppeLingua", language, options);
-           
+
+            return Redirect("/");
         }
         [HttpGet("/Home/RecuperoPassword")]
         public IActionResult RecuperoPassword()
@@ -203,7 +204,7 @@ namespace SanGiuseppe.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
+     
         public string RiempiViewBag()
         {
             ViewBag.msg = "";

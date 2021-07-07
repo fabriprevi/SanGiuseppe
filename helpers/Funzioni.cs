@@ -38,8 +38,8 @@ namespace SanGiuseppe.helpers
 
         public string ImpostaLingua()
         {
-            var lingua = _contextAccessor.HttpContext.Request.Cookies["CLCentenarioLingua"];
-            if (lingua != "" || lingua == null) { lingua = "it-IT"; }
+            var lingua = _contextAccessor.HttpContext.Request.Cookies["SanGiuseppeLingua"];
+            if (lingua == "" || lingua == null) { lingua = "ITA"; }
 
             return lingua;
         }

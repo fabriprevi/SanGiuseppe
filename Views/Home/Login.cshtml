@@ -1,4 +1,6 @@
-﻿@{
+﻿@using SanGiuseppe.helpers;
+@inject Funzioni funzioni
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_LayoutPublic.cshtml";
 }
@@ -7,39 +9,39 @@
 
 }
 
-<p id="introText" class="d-lg-none textBase">L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.</p>
+<p id="introText" class="d-lg-none textBase">@funzioni.GetWord("DescrizioneAssociazioneHome")</p>
 <div id="loginBox">
-    <span class="d-lg-none">Accesso al sito</span>
-    <span class="d-none d-lg-block">Entra nel sito della Fraternità</span>
+    <span class="d-lg-none">@funzioni.GetWord("Accesso al sito")</span>
+    <span class="d-none d-lg-block">@funzioni.GetWord("Entra nel sito della Fraternità")</span>
     <form action="/Login" method="post">
         <div>
-            <label for="emailLogin" class="form-label">Nome utente (la tua mail)</label>
+            <label for="emailLogin" class="form-label">@funzioni.GetWord("Nome utente (la tua mail)")</label>
             <input type="email" class="form-control" id="emailLogin" name="username" aria-describedby="emailHelp" required>
         </div>
         <div>
-            <label for="pwLogin" class="form-label">Password</label>
+            <label for="pwLogin" class="form-label">@funzioni.GetWord("Password")</label>
             <input type="password" class="form-control" id="pwLogin" required name="password">
             <span class="error">@ViewBag.msg</span>
-            <div id="pwHelp" class="form-text"><a href="/Home/RecuperoPassword" class="form-text">Non ricordi la password?</a></div>
-        </div>
-        <button type="submit" class="btn btn-primary">Area riservata</button>
+            <div id="pwHelp" class="form-text"><a href="/Home/RecuperoPassword" class="form-text">@funzioni.GetWord("Non ricordi la password?")</a></div>
+</div>
+        <button type="submit" class="btn btn-primary">@funzioni.GetWord("Area riservata")</button>
         <!--  <span>Leggi l’ <a href="google">Informativa</a></span>-->
 
     </form>
 
 </div>
 <div id="languageBox">
-    <button onclick="SetLanguage('it-IT')">Inglese</button>
-    <button asp-action="/SetLanguage/it-IT">Inglese</button>
-    <button asp-action="/SetLanguage/it-IT">Spagnolo</button>
+    <button onclick="SetLanguage('ITA')">Italiano</button>
+    <button onclick="SetLanguage('ING')">English</button>
+    <button onclick="SetLanguage('SPA')">Español</button>
 
-    <button asp-action="/SetLanguage/it-IT">Portoghese</button>
-    <button asp-action="/SetLanguage/it-IT">Francese</button>
-    <button asp-action="/SetLanguage/it-IT">Tedesco</button>
+    <button onclick="SetLanguage('POR')">Português</button>
+    <button onclick="SetLanguage('FRA')">Français</button>
+    <button onclick="SetLanguage('TED')">Deutsche</button>
 
-    <button asp-action="/SetLanguage/it-IT">Russo</button>
-    <button asp-action="/SetLanguage/it-IT">Olandese</button>
-    <button asp-action="/SetLanguage/it-IT">Croato</button>
+    <button onclick="SetLanguage('RUS')">Pусский</button>
+    <button onclick="SetLanguage('OLA')">Nederlands</button>
+    <button onclick="SetLanguage('CRO')">Hrvatski</button>
 </div>
 <section id="mainSection">
     <img src="../../../img/bg-home.jpg" id="bgHome" />
@@ -89,7 +91,7 @@
 </section>
 <section id="textInfoHp">
     <p class="textBase">
-        L’Associazione ha lo scopo di rendere presenti e permanenti nella società i valori della fede e della carità cristiana, così come trasmessi dalla tradizione della Chiesa Cattolica e secondo l’accento di educazione alla fede proprio della Fraternità di Comunione e Liberazione, attraverso la pratica e la testimonianza dei propri associati, secondo i compiti e le opere che intendono svolgere.
+        @funzioni.GetWord("DescrizioneAssociazioneHome")
     </p>
 </section>
 <section id="descriptionBoxHp">
