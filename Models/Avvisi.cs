@@ -15,8 +15,14 @@ namespace SanGiuseppe.Models
         public string Link { get; set; }
         public int? Visibile { get; set; }
         public int? Homepage { get; set; }
-        public DateTime? Data { get; set; }
-        public int? Anno { get; set; }
+        public DateTime Data { get; set; }
+        public int Anno { get; set; }
+
+        public Guid UID { get; set; }
         public string Categoria { get; set; }
+       public string Colore { get; set; }
+
+
+        public virtual ICollection<AvvisiPermessi> AvvisiPermessi { get; set; }
     }
 }

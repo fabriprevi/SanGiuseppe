@@ -41,12 +41,13 @@
     </style>
 }
 <main>
-    <section>
-        <h1 class="titleBase">
-            Anagrafica
-        </h1>
-        <h2>Controlla e aggiorna i tuoi dati</h2>
-       
+    <div class="container">
+        <section>
+            <h1 class="titleBase">
+                Anagrafica
+            </h1>
+            <h2>Controlla e aggiorna i tuoi dati</h2>
+
             <div class="card">
                 <div class="card-header">
                     <span style="color:red!important; font-weight:bold!important">@ViewBag.msg</span>
@@ -265,14 +266,15 @@
                     </div>
                 </div>
             </div>
-       
+
         </section>
+    </div>
 </main>
 
 @section Scripts {
 
 
-  
+
     <script src="~/js/cropper.min.js"></script>
     <script>
 

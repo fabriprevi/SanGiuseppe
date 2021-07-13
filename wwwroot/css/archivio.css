@@ -164,16 +164,45 @@
   font-weight: bold;
 }
 
-
+.orange .cardContent {
+    background: #EAAC61;
+}
+.green .cardContent {
+    background: #A9C087;
+}
+.yellow .cardContent {
+    background: #EFCE84;
+}
+.turquois .cardContent {
+    background: #8EBAAE;
+}
+.purple .cardContent {
+    background: #C86964;
+}
+.grey .cardContent {
+    background: #97A4AF;
+}
+.brown .cardContent {
+    background: #AA8162;
+}
 .red .cardContent{  background: #AD0E0E; }
-.green .cardContent{  background: #A9C087; }
 
 
-.cardText{
-  font-size: 0.9rem;
-  margin-top: 0.8rem;
-  line-height: 1.1rem;
-  padding-bottom: 0.24rem;
+
+
+
+
+
+
+
+
+
+
+.cardText {
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    line-height: 1.1rem;
+    padding-bottom: 0.24rem;
 }
 
 

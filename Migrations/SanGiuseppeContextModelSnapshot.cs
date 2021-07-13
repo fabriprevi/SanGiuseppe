@@ -839,25 +839,29 @@ namespace SanGiuseppe.Migrations
                         .HasColumnName("IDAvviso")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Anno")
+                    b.Property<int>("Anno")
                         .HasColumnType("int");
 
                     b.Property<string>("Categoria")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Colore")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Contenuto")
                         .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
-                    b.Property<DateTime?>("Data")
+                    b.Property<DateTime>("Data")
                         .HasColumnType("datetime");
 
                     b.Property<int?>("Homepage")
                         .HasColumnType("int");
 
                     b.Property<string>("Link")
-                        .HasColumnType("ntext");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int?>("Ordinamento")
                         .HasColumnType("int");
@@ -865,6 +869,11 @@ namespace SanGiuseppe.Migrations
                     b.Property<string>("Titolo")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid>("UID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(NewID())");
 
                     b.Property<int?>("Visibile")
                         .HasColumnType("int");
@@ -876,6 +885,26 @@ namespace SanGiuseppe.Migrations
                     b.HasKey("Idavviso");
 
                     b.ToTable("Avvisi");
+                });
+
+            modelBuilder.Entity("SanGiuseppe.Models.AvvisiPermessi", b =>
+                {
+                    b.Property<int>("IdAvvisPermesso")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Idavviso")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Permesso")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdAvvisPermesso");
+
+                    b.HasIndex("Idavviso");
+
+                    b.ToTable("AvvisiPermessi");
                 });
 
             modelBuilder.Entity("SanGiuseppe.Models.CapiGruppetto", b =>
@@ -2240,6 +2269,29 @@ namespace SanGiuseppe.Migrations
                     b.ToTable("Utenti");
                 });
 
+            modelBuilder.Entity("SanGiuseppe.Models.UtentiPermessi", b =>
+                {
+                    b.Property<int>("IdUtentePermesso")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Idutente")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Permesso")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UtentiIdutente")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdUtentePermesso");
+
+                    b.HasIndex("UtentiIdutente");
+
+                    b.ToTable("UtentiPermessi");
+                });
+
             modelBuilder.Entity("SanGiuseppe.Models.Visitor", b =>
                 {
                     b.Property<int>("Idvisitor")
@@ -2282,6 +2334,17 @@ namespace SanGiuseppe.Migrations
                         .HasConstraintName("FK_AnagraficaRuoli_Anagrafica");
 
                     b.Navigation("IdanagraficaNavigation");
+                });
+
+            modelBuilder.Entity("SanGiuseppe.Models.AvvisiPermessi", b =>
+                {
+                    b.HasOne("SanGiuseppe.Models.Avvisi", "Avvisi")
+                        .WithMany("AvvisiPermessi")
+                        .HasForeignKey("Idavviso")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Avvisi");
                 });
 
             modelBuilder.Entity("SanGiuseppe.Models.CapiGruppetto", b =>
@@ -2347,6 +2410,16 @@ namespace SanGiuseppe.Migrations
                     b.Navigation("IdanagraficaNavigation");
                 });
 
+            modelBuilder.Entity("SanGiuseppe.Models.UtentiPermessi", b =>
+                {
+                    b.HasOne("SanGiuseppe.Models.Utenti", "Utenti")
+                        .WithMany("UtentiPermessi")
+                        .HasForeignKey("UtentiIdutente")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Utenti");
+                });
+
             modelBuilder.Entity("SanGiuseppe.Models.Visitor", b =>
                 {
                     b.HasOne("SanGiuseppe.Models.TabellaGruppetti", "IdgruppettoNavigation")
@@ -2396,6 +2469,11 @@ namespace SanGiuseppe.Migrations
                     b.Navigation("FondoComuneStorico");
                 });
 
+            modelBuilder.Entity("SanGiuseppe.Models.Avvisi", b =>
+                {
+                    b.Navigation("AvvisiPermessi");
+                });
+
             modelBuilder.Entity("SanGiuseppe.Models.TabellaGruppetti", b =>
                 {
                     b.Navigation("CapiGruppetto");
@@ -2406,6 +2484,11 @@ namespace SanGiuseppe.Migrations
             modelBuilder.Entity("SanGiuseppe.Models.TabellaNazioni", b =>
                 {
                     b.Navigation("Visitor");
+                });
+
+            modelBuilder.Entity("SanGiuseppe.Models.Utenti", b =>
+                {
+                    b.Navigation("UtentiPermessi");
                 });
 #pragma warning restore 612, 618
         }

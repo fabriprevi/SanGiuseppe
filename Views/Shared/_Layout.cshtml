@@ -64,11 +64,11 @@
                             </ul>
                         </li>
 
-                        <!--
-    <li class="nav-item">
-        <a class="nav-link" href="#">avvisi</a>
-    </li>
-    <li class="nav-item">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Avvisi/Index">avvisi</a>
+                        </li>
+                        <!-- <li class="nav-item">
         <a class="nav-link" href="#">bacheca</a>
     </li>
     <li class="nav-item">
@@ -90,7 +90,7 @@
                                     <img src="~/Allegati/Foto/@(HttpContextAccessor.HttpContext.Session.GetString("SanGiuseppeFoto") + "?k=" + DateTime.Now)" style="border-radius:50px;width:50px" />
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profiloButton">
-                                    <li><a class="dropdown-item" href="#">Modifica profilo</a></li>
+                                    <li><a class="dropdown-item" href="/Utenti/ModificaPassword">Modifica profilo</a></li>
                                     <li><a class="dropdown-item" href="/Logout">Logout</a></li>
                                 </ul>
                             </div>

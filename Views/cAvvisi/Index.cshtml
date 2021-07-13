@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SanGiuseppe.Models.Avvisi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section Header {
+    <link href="~/css/logged.css" rel="stylesheet" type="text/css">
+    <link href="~/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="~/css/site.css" rel="stylesheet" type="text/css">
+    <link href="~/css/archivio.css" rel="stylesheet" type="text/css">
+
+<style>
+    a:hover {
+        text-decoration:underline
+    }
+</style>
+}
+
+<form action="/Avvisi/Index" method="POST">
+    <section id="mainSection">
+        <div class="content">
+            <span class="textBase">Archivio documenti</span>
+            <h2>La fraternità: è una vita</h2>
+            <p class="textBase">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam. </p>
+            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp">
+        </div>
+    </section>
+    <section id="documentSection">
+        <div>
+
+            <div id="filtersContainer">
+                <h2>Anno:</h2>
+                <select class="form-control" id="sceltaAnno" name="Anno" asp-items="@(new SelectList(ViewBag.anni,"Anno","Anno"))">
+                    <option></option>
+                </select>&nbsp;
+                <h2>Categoria:</h2>
+                <select class="form-control" id="sceltaCategoria" name="Categoria" asp-items="@(new SelectList(ViewBag.categorie,"Categoria","Categoria"))">
+                    <option></option>
+                </select>&nbsp;
+                <h2>Titolo:</h2>
+                <input type="text" class="form-control" id="sceltaTitolo" name="Testo" />&nbsp;
+                <button id="btnCerca" class="btn btn-info" onclick="this.form.submit()" 
+                        style="color: white; background-color: #6E4E45; border-radius: 20px; margin:0; height:40px">CERCA</button>
+
+            </div>
+
+        </div>
+        <article id="cardsContainer">
+            @{
+                var annoprec = 0;
+            }
+            @foreach (var item in Model)
+            {
+                @if (annoprec != item.Anno)
+                {
+                    annoprec = item.Anno;
+
+                    <div class="cardSelection">
+                        <div class="cardContent">
+                            <span>@item.Anno</span>
+                        </div>
+                    </div>
+
+                }
+
+        <div class="cardCategory @item.Colore">
+            <a href="~/archivio/@item.Link" target="_new" style="color:unset; text-decoration:unset; ">
+                <div class="cardContent">
+
+                    <span>@item.Titolo</span>
+
+                </div>
+            </a>
+                    <div class="cardText">
+
+                    </div>
+                </div>
+
+            }
+
+
+        </article>
+
+    </section>
+</form>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+   
+
+        });
+    </script>
+
+}
+

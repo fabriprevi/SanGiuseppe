@@ -23,6 +23,7 @@ namespace SanGiuseppe.Models
         public virtual DbSet<AnagraficaSospesi> AnagraficaSospesi { get; set; }
         public virtual DbSet<AnagraficaStorico> AnagraficaStorico { get; set; }
         public virtual DbSet<Avvisi> Avvisi { get; set; }
+       public virtual DbSet<AvvisiPermessi> AvvisiPermessi { get; set; }
         public virtual DbSet<CapiGruppetto> CapiGruppetto { get; set; }
         public virtual DbSet<Dizionario> Dizionario { get; set; }
         public virtual DbSet<FondoComune> FondoComune { get; set; }
@@ -40,12 +41,14 @@ namespace SanGiuseppe.Models
         public virtual DbSet<TabellaLingue> TabellaLingue { get; set; }
         public virtual DbSet<TabellaNazioni> TabellaNazioni { get; set; }
         public virtual DbSet<TabellaParametri> TabellaParametri { get; set; }
+        public virtual DbSet<TabellaParametri> TabellaPermessi { get; set; }
         public virtual DbSet<TabellaProfessioni> TabellaProfessioni { get; set; }
         public virtual DbSet<TabellaRegioni> TabellaRegioni { get; set; }
         public virtual DbSet<TabellaValute> TabellaValute { get; set; }
         public virtual DbSet<TabellaZone> TabellaZone { get; set; }
         public virtual DbSet<Traduzioni> Traduzioni { get; set; }
         public virtual DbSet<Utenti> Utenti { get; set; }
+       public virtual DbSet<UtentiPermessi> UtentiPermessi { get; set; }
         public virtual DbSet<Visitor> Visitor { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -489,11 +492,27 @@ namespace SanGiuseppe.Models
 
                 entity.Property(e => e.Data).HasColumnType("datetime");
 
-                entity.Property(e => e.Link).HasColumnType("ntext");
+                entity.Property(e => e.Link).HasMaxLength(255);
 
                 entity.Property(e => e.Titolo).HasMaxLength(255);
 
                 entity.Property(e => e.Zona).HasMaxLength(50);
+
+                entity.Property(a => a.UID).HasDefaultValueSql("(NewID())");
+
+                entity.HasMany(a => a.AvvisiPermessi)
+                 .WithOne(a => a.Avvisi)
+                 .HasForeignKey(a=>a.Idavviso)
+                 .OnDelete(DeleteBehavior.Cascade);
+
+
+
+            });
+            
+            modelBuilder.Entity<AvvisiPermessi>(entity =>
+            {
+
+               
             });
 
             modelBuilder.Entity<CapiGruppetto>(entity =>
@@ -1154,6 +1173,10 @@ namespace SanGiuseppe.Models
                     .HasForeignKey(d => d.Idanagrafica)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Utenti_Anagrafica");
+
+                entity.HasMany(a => a.UtentiPermessi)
+               .WithOne(a => a.Utenti)
+               .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Visitor>(entity =>

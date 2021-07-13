@@ -84,6 +84,7 @@ namespace SanGiuseppe.Controllers
            HttpContext.Response.Cookies.Append("SanGiuseppeNominativo", utente.Nominativo, options);
 
             HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString());
+            HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString());
               HttpContext.Session.SetString("SanGiuseppeNominativo", utente.Nominativo.ToString());
             HttpContext.Session.SetString("SanGiuseppeUIDAnagrafica", utente.UIDAnagrafica.ToString());
             HttpContext.Session.SetString("SanGiuseppeUIDUtente", utente.UIDUtente.ToString());

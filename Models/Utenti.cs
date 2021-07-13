@@ -18,5 +18,6 @@ namespace SanGiuseppe.Models
 
         public Guid UID { get; set; }
         public virtual Anagrafica IdanagraficaNavigation { get; set; }
+        public virtual ICollection<UtentiPermessi> UtentiPermessi { get; set; }
     }
 }

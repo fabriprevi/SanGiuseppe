@@ -1,0 +1,339 @@
+﻿@model IEnumerable<SanGiuseppe.Models.Anagrafica>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroIscrizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanGiuseppe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cognome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sesso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LuogodiNascita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatadiNascita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cittadinanza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazione)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.Cellulare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroIscrizioneFraternità)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gruppo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInizio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codfisc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IndirizzoDomicilio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapDomicilio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CittàDomicilio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvinciaDomicilio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NazioneDomicilio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IndirizzoResidenza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapResidenza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CittàResidenza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvinciaResidenza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NazioneResidenza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Professione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartecipaRitiro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartecipaRitiroData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Albergo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CameraSingola)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RitiroQuota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RitiroSupplentoSingola)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RitiroImporto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RitiroPagamentoImporto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RitiroPagamentoData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RitiroPagamentoIdtransazione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RitiroPagamentoCro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuotaFondoComune)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuotaFondoComuneValuta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EsenteFondoComune)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnnoDiInizio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataLettera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nuovo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Selezionato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InviaEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lingua)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroIscrizione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SanGiuseppe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sesso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LuogodiNascita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatadiNascita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cittadinanza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazione)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Cellulare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroIscrizioneFraternità)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gruppo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInizio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codfisc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndirizzoDomicilio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapDomicilio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CittàDomicilio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProvinciaDomicilio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazioneDomicilio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndirizzoResidenza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapResidenza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CittàResidenza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProvinciaResidenza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazioneResidenza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Professione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartecipaRitiro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartecipaRitiroData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Albergo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Camera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CameraSingola)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RitiroQuota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RitiroSupplentoSingola)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RitiroImporto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RitiroPagamentoImporto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RitiroPagamentoData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RitiroPagamentoIdtransazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RitiroPagamentoCro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuotaFondoComune)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuotaFondoComuneValuta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EsenteFondoComune)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoPagamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnnoDiInizio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLettera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nuovo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Selezionato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InviaEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lingua)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idanagrafica">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idanagrafica">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idanagrafica">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
