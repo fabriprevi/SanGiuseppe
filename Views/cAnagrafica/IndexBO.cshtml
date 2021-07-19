@@ -3,72 +3,81 @@
 @{
     ViewData["Title"] = "Index";
 }
+<main>
+    <div class="container">
+        <section>
+            <h1>Anagrafiche</h1>
+            <div class="card shadow">
+                <div class="card-header">
+
+                    <div class="heading-elements">
+
+                    </div>
+                    <div class="btn-group float-md-left" role="group" aria-label="Button group with nested dropdown">
+                        <a asp-action="Create" class="btn btn-primary">INSERIMENTO</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="table-filter" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
+                        <tr class="cl_basefilter">
+                            <th>Nome campo:</th>
+                            <td>
+                                <select id="Campo1" class="form-control cl_field"
+                                        asp-items="@(new SelectList(ViewBag.Campi,"Campo","Descrizione"))"></select>
+                            </td>
+                            <th>Criterio:</th>
+                            <td>
+                                <select id="Criterio1" class="form-control cl_criteria">
+                                    <option value="Contiene">Contiene</option>
+                                    <option value="<"> < </option>
+                                    <option value=">"> > </option>
+                                    <option value="<="><= </option>
+                                    <option value=">="> >= </option>
+                                    <option value="="> = </option>
+
+                                </select>
+                            </td>
+                            <th>Valore:</th>
+                            <td><input id="Valore1" type="text" class="form-control cl_value" /></td>
+                            <th><button id="btnAddFiltro" class="btn btn-sm btn-primary tr_clone_add"><i class="fas fa-plus"></i></button></th>
+                            <th><button id="btnRemFiltro" class="btn btn-sm btn-primary tr_clone_rem"><i class="fas fa-minus"></i></button></th>
+                        </tr>
+
+                    </table>
+
+                    <table id="anagrafica" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Cognome</th>
+                                <th>Nome</th>
+                                <th>Città</th>
+                                <th>Cellulare</th>
+                                <th>Email</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
 
 
-<div class="card shadow">
-    <div class="card-header">
-        <h1>Anagrafiche</h1>
-        <div class="heading-elements">
-         
-        </div>
-        <div class="btn-group float-md-left" role="group" aria-label="Button group with nested dropdown">
-            <a asp-action="Create" class="btn btn-info btn-sm">INSERIMENTO</a>         
-        </div>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="card-body">
-        <table id="table-filter" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
-            <tr class="cl_basefilter">
-                <th>Nome campo:</th>
-                <td>
-                    <select id="Campo1" class="form-control cl_field"
-                            asp-items="@(new SelectList(ViewBag.Campi,"Campo","Descrizione"))"></select>
-                </td>
-                <th>Criterio:</th>
-                <td>
-                    <select id="Criterio1" class="form-control cl_criteria">
-                        <option value="<"> < </option>
-                        <option value=">"> > </option>
-                        <option value="<="><= </option>
-                        <option value=">="> >= </option>
-                        <option value="="> = </option>
-                        <option value="Contiene">Contiene</option>
-                    </select>
-                </td>
-                <th>Valore:</th>
-                <td><input id="Valore1" type="text" class="form-control cl_value" /></td>
-                <th><button id="btnAddFiltro" class="btn btn-sm btn-primary tr_clone_add"><i class="fas fa-plus"></i></button></th>
-                <th><button id="btnRemFiltro" class="btn btn-sm btn-primary tr_clone_rem"><i class="fas fa-minus"></i></button></th>
-            </tr>
+</main>
+        @section scripts {
 
-        </table>
-
-        <table id="anagrafica" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>Cognome</th>
-                    <th>Nome</th>
-                    <th>Città</th>
-                    <th></th>
-
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-
-
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-</div>
-
-@section scripts {
-
-    <script>
+            <script>
 
      //   $.noConflict();
 
@@ -119,15 +128,17 @@
                     }
                 },
                 "columns": [
-                    { "data": "Cognome", "name": "Cognome", "autoWidth": true},
-                    { "data": "Nome", "name": "Nome", "autoWidth": true},
-                    { "data": "CittàDomicilio", "name": "CittàDomicilio", "autoWidth": true},
+                    { "data": "cognome", "name": "Cognome", "autoWidth": true},
+                    { "data": "nome", "name": "Nome", "autoWidth": true},
+                    { "data": "cittàDomicilio", "name": "CittàDomicilio", "autoWidth": true},
+                 { "data": "cellulare", "name": "Cellulare", "autoWidth": true},
+                 { "data": "email", "name": "Email", "autoWidth": true},
 
                     {
-                        "data": "uid",
+                        "data": "none",
                         "name": "edit",
                         "orderable": false,
-                        "render": function (data, type, row, meta) { return '<a class="btn btn-info" target="_new" href="/anagrafica/Edit/' + data +'"><i class="fas fa-search"></i>&nbsp;DETTAGLIO</button>' }
+                        "render": function (data, type, row, meta) { return '<a class="btn btn-primary" target="_new" href="/anagrafica/EditBO/' + row.uid +'"><i class="fas fa-search"></i>&nbsp;DETTAGLIO</button>' }
                     }
                 ],
                 columnDefs: [
@@ -284,23 +295,23 @@
         oTable = $('#anagrafica').DataTable();
         oTable.draw();
     }
-    </script>
+            </script>
 
-    <style>
-        .container {
-            max-width: 99% !important;
-        }
+            <style>
+                .container {
+                    max-width: 99% !important;
+                }
 
-        .text-wrap {
-            white-space: normal;
-        }
+                .text-wrap {
+                    white-space: normal;
+                }
 
-        .width-400 {
-            width: 400px;
-        }
+                .width-400 {
+                    width: 400px;
+                }
 
-        .tr_clone_rem:first {
-            display: none;
+                .tr_clone_rem:first {
+                    display: none;
+                }
+            </style>
         }
-    </style>
-}

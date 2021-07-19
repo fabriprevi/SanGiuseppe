@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SanGiuseppe.Models;
 
 namespace SanGiuseppe.Migrations
 {
     [DbContext(typeof(SanGiuseppeContext))]
-    partial class SanGiuseppeContextModelSnapshot : ModelSnapshot
+    [Migration("20210716163130_RelazioneUtentiPermessi")]
+    partial class RelazioneUtentiPermessi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2154,16 +2156,6 @@ namespace SanGiuseppe.Migrations
                         .IsFixedLength(true);
 
                     b.ToTable("TabellaParametri");
-                });
-
-            modelBuilder.Entity("SanGiuseppe.Models.TabellaPermessi", b =>
-                {
-                    b.Property<string>("Permesso")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Permesso");
-
-                    b.ToTable("TabellaPermessi");
                 });
 
             modelBuilder.Entity("SanGiuseppe.Models.TabellaProfessioni", b =>

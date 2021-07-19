@@ -26,6 +26,7 @@ namespace SanGiuseppe.Models
        public virtual DbSet<AvvisiPermessi> AvvisiPermessi { get; set; }
         public virtual DbSet<CapiGruppetto> CapiGruppetto { get; set; }
         public virtual DbSet<Dizionario> Dizionario { get; set; }
+        public virtual DbSet<Filtri> Filtri { get; set; }
         public virtual DbSet<FondoComune> FondoComune { get; set; }
         public virtual DbSet<FondoComuneSospesi> FondoComuneSospesi { get; set; }
         public virtual DbSet<FondoComuneStorico> FondoComuneStorico { get; set; }
@@ -41,7 +42,7 @@ namespace SanGiuseppe.Models
         public virtual DbSet<TabellaLingue> TabellaLingue { get; set; }
         public virtual DbSet<TabellaNazioni> TabellaNazioni { get; set; }
         public virtual DbSet<TabellaParametri> TabellaParametri { get; set; }
-        public virtual DbSet<TabellaParametri> TabellaPermessi { get; set; }
+        public virtual DbSet<TabellaPermessi> TabellaPermessi { get; set; }
         public virtual DbSet<TabellaProfessioni> TabellaProfessioni { get; set; }
         public virtual DbSet<TabellaRegioni> TabellaRegioni { get; set; }
         public virtual DbSet<TabellaValute> TabellaValute { get; set; }
@@ -1176,6 +1177,7 @@ namespace SanGiuseppe.Models
 
                 entity.HasMany(a => a.UtentiPermessi)
                .WithOne(a => a.Utenti)
+               .HasForeignKey(a=>a.Idutente)
                .OnDelete(DeleteBehavior.Cascade);
             });
 

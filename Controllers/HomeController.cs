@@ -52,6 +52,7 @@ namespace SanGiuseppe.Controllers
             var utente = _context.Utenti
                 .Select(a => new
                 {
+                    IDUtente = a.Idutente,
                     IDAnagrafica = a.Idanagrafica,
                     Nominativo = a.IdanagraficaNavigation.Cognome + " " + a.IdanagraficaNavigation.Nome,
                     Username = a.Username,
@@ -63,12 +64,16 @@ namespace SanGiuseppe.Controllers
 
                 }).SingleOrDefault(a => a.Username == Username && a.Password == Password);
 
+          
+
             if (utente == null)
             {
                 ViewBag.msg = funzioni.GetWord("Username o password errata");
                 return View();
             }
 
+            var utentebackoffice = _context.UtentiPermessi.Where(up => up.Permesso == "BACKOFFICE" && up.Idutente == utente.IDUtente).FirstOrDefault();
+           
             var sgClaims = new List<Claim>();
             sgClaims.Add(new Claim(ClaimTypes.PrimarySid, utente.IDAnagrafica.ToString()));
             sgClaims.Add(new Claim(ClaimTypes.Name, utente.Nominativo.ToString()));
@@ -90,6 +95,13 @@ namespace SanGiuseppe.Controllers
             HttpContext.Session.SetString("SanGiuseppeUIDUtente", utente.UIDUtente.ToString());
             HttpContext.Session.SetString("SanGiuseppeFoto", utente.Foto.ToString());
 
+            if (utentebackoffice != null)
+            {
+                HttpContext.Session.SetString("SanGiuseppeBackoffice", "True");
+            } else
+            {
+                HttpContext.Session.SetString("SanGiuseppeBackoffice", "False");
+            }
             return Redirect("/Home/IndexLogged");
         }
 

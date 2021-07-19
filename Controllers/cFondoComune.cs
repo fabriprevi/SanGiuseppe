@@ -164,6 +164,94 @@ namespace SanGiuseppe.Controllers
             }
             return View(fondocomune);
         }
+        [Authorize]
+        [HttpGet("/FondoComune/DetailsBO/{UID:Guid}")]
+        public IActionResult DetailsBO(Guid UID)
+        {
+          
+            if (UID == null )
+            {
+                return NotFound();
+            }
+            RiempiViewBag();
+            var fondocomune = _context.FondoComune
+                .Select(a => new dtoFondoComuneResponse
+                {
+                    Id = a.Id,
+                    Idanagrafica = a.Idanagrafica,
+                    Anno = a.Anno,
+                    Quota01 = a.Quota01.Value.ToString("#,###.#0"),
+                    Quota02 = a.Quota02.Value.ToString("#,###.#0"),
+                    Quota03 = a.Quota03.Value.ToString("#,###.#0"),
+                    Quota04 = a.Quota04.Value.ToString("#,###.#0"),
+                    Quota05 = a.Quota05.Value.ToString("#,###.#0"),
+                    Quota06 = a.Quota06.Value.ToString("#,###.#0"),
+                    Quota07 = a.Quota07.Value.ToString("#,###.#0"),
+                    Quota08 = a.Quota08.Value.ToString("#,###.#0"),
+                    Quota09 = a.Quota09.Value.ToString("#,###.#0"),
+                    Quota10 = a.Quota10.Value.ToString("#,###.#0"),
+                    Quota11 = a.Quota11.Value.ToString("#,###.#0"),
+                    Quota12 = a.Quota12.Value.ToString("#,###.#0"),
+                    Importo01 = a.Importo01.Value.ToString("#,###.##"),
+                    Importo02 = a.Importo02.Value.ToString("#,###.##"),
+                    Importo03 = a.Importo03.Value.ToString("#,###.##"),
+                    Importo04 = a.Importo04.Value.ToString("#,###.##"),
+                    Importo05 = a.Importo05.Value.ToString("#,###.##"),
+                    Importo06 = a.Importo06.Value.ToString("#,###.##"),
+                    Importo07 = a.Importo07.Value.ToString("#,###.##"),
+                    Importo08 = a.Importo08.Value.ToString("#,###.##"),
+                    Importo09 = a.Importo09.Value.ToString("#,###.##"),
+                    Importo10 = a.Importo10.Value.ToString("#,###.##"),
+                    Importo11 = a.Importo11.Value.ToString("#,###.##"),
+                    Importo12 = a.Importo12.Value.ToString("#,###.##"),
+                    DataPagamento01 = a.DataPagamento01.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento02 = a.DataPagamento02.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento03 = a.DataPagamento03.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento04 = a.DataPagamento04.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento05 = a.DataPagamento05.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento06 = a.DataPagamento06.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento07 = a.DataPagamento07.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento08 = a.DataPagamento08.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento09 = a.DataPagamento09.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento10 = a.DataPagamento10.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento11 = a.DataPagamento11.Value.ToString("dd/MM/yyyy"),
+                    DataPagamento12 = a.DataPagamento12.Value.ToString("dd/MM/yyyy"),
+                    TipoPagamento01 = a.TipoPagamento01,
+                    TipoPagamento02 = a.TipoPagamento02,
+                    TipoPagamento03 = a.TipoPagamento03,
+                    TipoPagamento04 = a.TipoPagamento04,
+                    TipoPagamento05 = a.TipoPagamento05,
+                    TipoPagamento06 = a.TipoPagamento06,
+                    TipoPagamento07 = a.TipoPagamento07,
+                    TipoPagamento08 = a.TipoPagamento08,
+                    TipoPagamento09 = a.TipoPagamento09,
+                    TipoPagamento10 = a.TipoPagamento10,
+                    TipoPagamento11 = a.TipoPagamento11,
+                    TipoPagamento12 = a.TipoPagamento12,
+                    Valuta01 = a.Valuta01,
+                    Valuta02 = a.Valuta02,
+                    Valuta03 = a.Valuta03,
+                    Valuta04 = a.Valuta04,
+                    Valuta05 = a.Valuta05,
+                    Valuta06 = a.Valuta06,
+                    Valuta07 = a.Valuta07,
+                    Valuta08 = a.Valuta08,
+                    Valuta09 = a.Valuta09,
+                    Valuta10 = a.Valuta10,
+                    Valuta11 = a.Valuta11,
+                    Valuta12 = a.Valuta12,
+                    Note = a.Note,
+                    AnagraficaUID = a.IdanagraficaNavigation.UID,
+                    UID = a.UID
+                })
+                .Where(a => a.AnagraficaUID == UID)
+                .OrderByDescending(a=>a.Anno).ToList();
+            if (fondocomune == null)
+            {
+                return NotFound();
+            }
+            return View(fondocomune);
+        }
 
 
         // GET: cFondoComune/Edit/5

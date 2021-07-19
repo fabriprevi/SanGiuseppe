@@ -583,3 +583,7 @@ margin-right: 0.4rem; }
     padding: 0rem 2rem;
   }
 }
+.form-control {
+    font-weight:600!important;
+
+}

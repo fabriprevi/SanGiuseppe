@@ -12,6 +12,9 @@ using SanGiuseppe.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using SanGiuseppe.helpers;
+using SanGiuseppe.Services;
+using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 
 namespace SanGiuseppe
 {
@@ -28,9 +31,14 @@ namespace SanGiuseppe
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            services.AddDbContext<SanGiuseppeContext>(options =>
-               options.UseSqlServer(
-                   Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<SanGiuseppeContext>(options =>
+            //   options.UseSqlServer(
+            //       Configuration.GetConnectionString("DefaultConnection")));
+            
+            services.AddDbContext<SanGiuseppeContext>(o =>
+                   o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                    .ReplaceService<IQueryTranslationPostprocessorFactory, SqlServer2008QueryTranslationPostprocessorFactory>());
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<Funzioni>();
             services.AddHttpContextAccessor();
@@ -42,7 +50,7 @@ namespace SanGiuseppe
                     config.AccessDeniedPath = "/Login";
 
                 });
-
+            services.AddTransient<Functions>();
             services.AddSession();
 
         }

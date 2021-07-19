@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SanGiuseppe.Models;
 
 namespace SanGiuseppe.Migrations
 {
     [DbContext(typeof(SanGiuseppeContext))]
-    partial class SanGiuseppeContextModelSnapshot : ModelSnapshot
+    [Migration("20210714152654_Filtri")]
+    partial class Filtri
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2156,16 +2158,6 @@ namespace SanGiuseppe.Migrations
                     b.ToTable("TabellaParametri");
                 });
 
-            modelBuilder.Entity("SanGiuseppe.Models.TabellaPermessi", b =>
-                {
-                    b.Property<string>("Permesso")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Permesso");
-
-                    b.ToTable("TabellaPermessi");
-                });
-
             modelBuilder.Entity("SanGiuseppe.Models.TabellaProfessioni", b =>
                 {
                     b.Property<string>("Professione")
@@ -2316,9 +2308,12 @@ namespace SanGiuseppe.Migrations
                     b.Property<string>("Permesso")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UtentiIdutente")
+                        .HasColumnType("int");
+
                     b.HasKey("IdUtentePermesso");
 
-                    b.HasIndex("Idutente");
+                    b.HasIndex("UtentiIdutente");
 
                     b.ToTable("UtentiPermessi");
                 });
@@ -2445,9 +2440,8 @@ namespace SanGiuseppe.Migrations
                 {
                     b.HasOne("SanGiuseppe.Models.Utenti", "Utenti")
                         .WithMany("UtentiPermessi")
-                        .HasForeignKey("Idutente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UtentiIdutente")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Utenti");
                 });

@@ -51,78 +51,7 @@
 </head>
 
 <body class="logged">
-    <header>
-        <nav id="headerMenu" class="navbar navbar-expand-xl navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/Home/IndexLogged"><img src="../../../img/logo.svg" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Home/IndexLogged">Home</a>
-                        </li>
 
-
-                        @if (HttpContextAccessor.HttpContext.Session.GetString("SanGiuseppeBackoffice") == "True")
-                        {
-                            <li class="dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">backoffice</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profiloButton">
-                                    <li><a class="dropdown-item" href="/Anagrafica/IndexBO">Elenco Anagrafiche</a></li>
-                                    <li><a class="dropdown-item" href="/Anagrafica/IndexBOPermesso">Elenco per permesso</a></li>
-                                </ul>
-                            </li>
-
-                           
-                        }
-
-
-
-                        <li class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Dati personali</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profiloButton">
-                                <li><a class="dropdown-item" href="/Anagrafica/Edit">Anagrafica</a></li>
-                                <li><a class="dropdown-item" href="/FondoComune/Details">Fondo comune</a></li>
-                            </ul>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Avvisi/Index">avvisi</a>
-                        </li>
-                        <!-- <li class="nav-item">
-        <a class="nav-link" href="#">bacheca</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">news</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">documenti</a>
-    </li> -->
-                    </ul>
-                    <!--  <form class="d-flex">
-                          <input class="form-control inputBase" type="search" placeholder="CERCA" aria-label="cerca">
-                          <button class="btn btn-outline-success" type="submit">CERCA</button>
-                      </form>-->
-
-                    <div id="profiloBox">
-                        <span class="d-none">Profilo</span>
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="profiloButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="~/Allegati/Foto/@(HttpContextAccessor.HttpContext.Session.GetString("SanGiuseppeFoto") + "?k=" + DateTime.Now)" style="border-radius:50px;width:50px" />
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profiloButton">
-                                <li><a class="dropdown-item" href="/Utenti/ModificaPassword">Modifica profilo</a></li>
-                                <li><a class="dropdown-item" href="/Logout">Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
     <!-- Sales stats -->
     @RenderBody()
 
@@ -157,6 +86,8 @@
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/searchbuilder/1.0.1/js/dataTables.searchBuilder.min.js"></script>"
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
 
 </body>
 </html>

@@ -64,7 +64,7 @@ namespace SanGiuseppe.Models.Dto
         public string Note { get; set; }
         public int? AnnoDiInizio { get; set; }
         public string DataLettera { get; set; }
-        public bool? Nuovo { get; set; }
+        public bool Nuovo { get; set; }
         public bool? Selezionato { get; set; }
         public bool? InviaEmail { get; set; }
         public string Lingua { get; set; }

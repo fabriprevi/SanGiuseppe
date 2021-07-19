@@ -1,0 +1,178 @@
+﻿@model List<SanGiuseppe.Models.Dto.dtoFondoComuneResponse>
+@using SanGiuseppe.helpers;
+@inject Funzioni funzioni
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutSenzaMenu.cshtml";
+}
+
+@section Header {
+    <link href="~/css/logged.css" rel="stylesheet" type="text/css">
+<style>
+    .form-group {
+        padding-bottom:10px;
+    }
+</style>
+}
+<main>
+    <div class="container">
+        <section>
+         
+            <span style="color:red!important; font-weight:bold!important">@ViewBag.msg</span>
+            <div class="accordion" id="accordionExample">
+
+
+
+
+                @foreach (var item in Model)
+                {
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id='@("heading" + item.Anno)'>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target='#@("collapse"+ item.Anno)' aria-expanded="true" aria-controls='@("collapse"+ item.Anno)'>
+                                @item.Anno
+                            </button>
+                        </h2>
+                        <div id='@("collapse"+ item.Anno)' class="accordion-collapse collapse" aria-labelledby="@("heading" + item.Anno)" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                                        <div class="card">
+                                    <div class="card-header">
+                                       
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row  row-cols-2 row-cols-lg-8">
+                                            <div class="col-2" style="font-weight:bold">@funzioni.GetWord("Mese")</div>
+                                            <div class="col-2" style="font-weight:bold">@funzioni.GetWord("Quota")</div>
+                                            <div class="col-2" style="font-weight:bold">@funzioni.GetWord("Importo")</div>
+                                            <div class="col-2" style="font-weight:bold">@funzioni.GetWord("Valuta")</div>
+                                            <div class="col-2" style="font-weight:bold">@funzioni.GetWord("Tipo pagamento")</div>
+                                            <div class="col-2" style="font-weight:bold">@funzioni.GetWord("Data pagamento")</div>
+                                        </div>
+                                        <div class="row  row-cols-2 row-cols-lg-8">
+                                            <div class="col-2">@funzioni.GetWord("Gennaio")</div>
+                                            <div class="col-2">@item.Quota01</div>
+                                            <div class="col-2">@item.Importo01</div>
+                                            <div class="col-2">@item.Valuta01</div>
+                                            <div class="col-2">@item.TipoPagamento01</div>
+                                            <div class="col-2">@item.DataPagamento01</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Febbraio")</div>
+                                            <div class="col-2">@item.Quota02</div>
+                                            <div class="col-2">@item.Importo02</div>
+                                            <div class="col-2">@item.Valuta02</div>
+                                            <div class="col-2">@item.TipoPagamento02</div>
+                                            <div class="col-2">@item.DataPagamento02</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Marzo")</div>
+                                            <div class="col-2">@item.Quota03</div>
+                                            <div class="col-2">@item.Importo03</div>
+                                            <div class="col-2">@item.Valuta03</div>
+                                            <div class="col-2">@item.TipoPagamento03</div>
+                                            <div class="col-2">@item.DataPagamento03</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Aprile")</div>
+                                            <div class="col-2">@item.Quota04</div>
+                                            <div class="col-2">@item.Importo04</div>
+                                            <div class="col-2">@item.Valuta04</div>
+                                            <div class="col-2">@item.TipoPagamento04</div>
+                                            <div class="col-2">@item.DataPagamento04</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Maggio")</div>
+                                            <div class="col-2">@item.Quota05</div>
+                                            <div class="col-2">@item.Importo05</div>
+                                            <div class="col-2">@item.Valuta05</div>
+                                            <div class="col-2">@item.TipoPagamento05</div>
+                                            <div class="col-2">@item.DataPagamento05</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Giugno")</div>
+                                            <div class="col-2">@item.Quota06</div>
+                                            <div class="col-2">@item.Importo06</div>
+                                            <div class="col-2">@item.Valuta06</div>
+                                            <div class="col-2">@item.TipoPagamento06</div>
+                                            <div class="col-2">@item.DataPagamento06</div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Luglio")</div>
+                                            <div class="col-2">@item.Quota07</div>
+                                            <div class="col-2">@item.Importo07</div>
+                                            <div class="col-2">@item.Valuta07</div>
+                                            <div class="col-2">@item.TipoPagamento07</div>
+                                            <div class="col-2">@item.DataPagamento07</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Agosto")</div>
+                                            <div class="col-2">@item.Quota08</div>
+                                            <div class="col-2">@item.Importo08</div>
+                                            <div class="col-2">@item.Valuta08</div>
+                                            <div class="col-2">@item.TipoPagamento08</div>
+                                            <div class="col-2">@item.DataPagamento08</div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Settembre")</div>
+                                            <div class="col-2">@item.Quota09</div>
+                                            <div class="col-2">@item.Importo09</div>
+                                            <div class="col-2">@item.Valuta09</div>
+                                            <div class="col-2">@item.TipoPagamento09</div>
+                                            <div class="col-2">@item.DataPagamento09</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Ottobre")</div>
+                                            <div class="col-2">@item.Quota10</div>
+                                            <div class="col-2">@item.Importo10</div>
+                                            <div class="col-2">@item.Valuta10</div>
+                                            <div class="col-2">@item.TipoPagamento10</div>
+                                            <div class="col-2">@item.DataPagamento10</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Novembre")</div>
+                                            <div class="col-2">@item.Quota11</div>
+                                            <div class="col-2">@item.Importo11</div>
+                                            <div class="col-2">@item.Valuta11</div>
+                                            <div class="col-2">@item.TipoPagamento11</div>
+                                            <div class="col-2">@item.DataPagamento11</div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-2">@funzioni.GetWord("Dicembre")</div>
+                                            <div class="col-2">@item.Quota12</div>
+                                            <div class="col-2">@item.Importo12</div>
+                                            <div class="col-2">@item.Valuta12</div>
+                                            <div class="col-2">@item.TipoPagamento12</div>
+                                            <div class="col-2">@item.DataPagamento12</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="height:1px" />
+                }
+
+
+
+
+            </div>
+
+
+</section>
+    </div>
+</main>
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <style>
+        .row:nth-child(even) {
+            background-color:#f0ecec;
+        }
+
+       
+    </style>
+}
