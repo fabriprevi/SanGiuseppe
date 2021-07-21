@@ -90,7 +90,7 @@ namespace SanGiuseppe.Controllers
 
             HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString());
             HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString());
-              HttpContext.Session.SetString("SanGiuseppeNominativo", utente.Nominativo.ToString());
+            HttpContext.Session.SetString("SanGiuseppeNominativo", utente.Nominativo.ToString());
             HttpContext.Session.SetString("SanGiuseppeUIDAnagrafica", utente.UIDAnagrafica.ToString());
             HttpContext.Session.SetString("SanGiuseppeUIDUtente", utente.UIDUtente.ToString());
             HttpContext.Session.SetString("SanGiuseppeFoto", utente.Foto.ToString());
@@ -126,7 +126,7 @@ namespace SanGiuseppe.Controllers
 
             if (String.IsNullOrEmpty(language))
             {
-                _contextAccessor.HttpContext.Response.Cookies.Append("SanGiuseppeLingua", "it-IT", options);
+                _contextAccessor.HttpContext.Response.Cookies.Append("SanGiuseppeLingua", "ITA", options);
             }
             else
             {

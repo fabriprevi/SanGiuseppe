@@ -21,7 +21,7 @@
             </h1>
             <h2>Riepilogo dei versamenti</h2>
             <span style="color:red!important; font-weight:bold!important">@ViewBag.msg</span>
-            <div class="accordion" id="accordionExample">
+            <div class="accordion accordion-flush" id="accordionExample">
 
 
 
@@ -30,13 +30,13 @@
                 {
                     <div class="accordion-item">
                         <h2 class="accordion-header" id='@("heading" + item.Anno)'>
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target='#@("collapse"+ item.Anno)' aria-expanded="true" aria-controls='@("collapse"+ item.Anno)'>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target='#@("collapse"+ item.Anno)' aria-expanded="false" aria-controls='@("collapse"+ item.Anno)'>
                                 @item.Anno
                             </button>
                         </h2>
                         <div id='@("collapse"+ item.Anno)' class="accordion-collapse collapse" aria-labelledby="@("heading" + item.Anno)" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                                        <div class="card">
+                                  <div class="card">
                                     <div class="card-header">
                                        
                                     </div>
@@ -161,7 +161,7 @@
 
 
             </div>
-
+          
 
 </section>
     </div>
@@ -169,12 +169,22 @@
 
 @section Scripts {
 
+  <script>
+      $(document).ready(function () {
+
+      
+
+      })
+  </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <style>
         .row:nth-child(even) {
             background-color:#f0ecec;
         }
-
-       
+        .accordion-button:not(.collapsed) {
+            color: unset;
+            background-color: white;
+            box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+        }
     </style>
 }

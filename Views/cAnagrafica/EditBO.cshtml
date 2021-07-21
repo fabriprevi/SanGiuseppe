@@ -37,7 +37,7 @@
                 <div class="card-header">
                     <span style="color:red!important; font-weight:bold!important">@ViewBag.msg</span>
                 </div>
-                <div class="body">
+                <div class="card-body">
                    
                   
                         <div class="row mt-2 ml-2 mr-2">
@@ -117,7 +117,16 @@
                                         </select>
 
                                         <span asp-validation-for="Lingua" class="text-danger"></span>
+                                    </div> 
+                                    <div class="col-1">
+                                        <label asp-for="SanGiuseppe" class="control-label">@funzioni.GetWord("San Giuseppe")</label>
                                     </div>
+                                    <div class="col-3">
+                                      <input type="checkbox" id="ckbSanGiuseppe" asp-for="SanGiuseppe" checked="@Model.SanGiuseppe" class="form-control form-check-input" />
+
+                                        <span asp-validation-for="Lingua" class="text-danger"></span>
+                                    </div>
+
                                 </div>
                                 <div class="row mt-2 ml-2 mr-2">
                                     <div class="col-1">
@@ -346,7 +355,7 @@
 
 
                         </div>
-                    </div>
+            </div>
 
             <div class="card">
                 <div class="card-header">
@@ -367,6 +376,7 @@
 
                         </thead>
                         <tfoot>
+                            <tr><th>Inserimento nuovo permesso</th><th></th></tr>
                             <tr>
                                 <th><select id="ddlPermessi" class="form-control" asp-items="@(new SelectList(ViewBag.permessi,"Permesso","Permesso"))"></select></th>
                             <th><button id="btnConfermaPermesso" class="btn btn-primary" onclick="InserisciPermesso()" >CONFERMA</button></th>

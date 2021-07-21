@@ -553,7 +553,7 @@ margin-right: 0.4rem; }
 }
 
 #languageBox {
-  top: 40vh;
+  top: 30vh /*40*/;
 }
 
 .logged > main{

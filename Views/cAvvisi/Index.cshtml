@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<SanGiuseppe.Models.Avvisi>
-
+@using SanGiuseppe.helpers
+@inject Funzioni funzioni
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,20 +10,19 @@
     <link href="~/css/site.css" rel="stylesheet" type="text/css">
     <link href="~/css/archivio.css" rel="stylesheet" type="text/css">
 
-<style>
-    a:hover {
-        text-decoration:underline
-    }
-</style>
+    <style>
+        a:hover {
+            text-decoration: underline
+        }
+    </style>
 }
 
 <form action="/Avvisi/Index" method="POST">
     <section id="mainSection">
         <div class="content">
             <span class="textBase">Archivio documenti</span>
-            <h2>La fraternità: è una vita</h2>
-            <p class="textBase">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam. </p>
-            <input type="email" class="form-control inputBase" id="emailLogin" aria-describedby="emailHelp">
+            <h2>La fraternità è una vita</h2>
+
         </div>
     </section>
     <section id="documentSection">
@@ -33,14 +33,30 @@
                 <select class="form-control" id="sceltaAnno" name="Anno" asp-items="@(new SelectList(ViewBag.anni,"Anno","Anno"))">
                     <option></option>
                 </select>&nbsp;
+                <h2>Lingua:</h2>
+                <select class="form-control" id="sceltaLingua" name="Lingua">
+                    <option></option>
+                    <option value="ITA">ITALIANO</option>
+                    <option value="ING">ENGLISH</option>
+                    <option value="SPA">ESPAÑOL</option>
+                    <option value="POR">PORTUGUÊS</option>
+                    <option value="BRA">BRASILEIRO</option>
+                    <option value="FRA">FRANÇAIS</option>
+                    <option value="RUS">РУССКИЙ</option>
+                    <option value="POL">POLSKIE</option>
+                    <option value="TED">DEUTSCHE</option>
+                </select>&nbsp;
+
                 <h2>Categoria:</h2>
                 <select class="form-control" id="sceltaCategoria" name="Categoria" asp-items="@(new SelectList(ViewBag.categorie,"Categoria","Categoria"))">
                     <option></option>
                 </select>&nbsp;
                 <h2>Titolo:</h2>
                 <input type="text" class="form-control" id="sceltaTitolo" name="Testo" />&nbsp;
-                <button id="btnCerca" class="btn btn-info" onclick="this.form.submit()" 
-                        style="color: white; background-color: #6E4E45; border-radius: 20px; margin:0; height:40px">CERCA</button>
+                <button id="btnCerca" class="btn btn-info" onclick="this.form.submit()"
+                        style="color: white; background-color: #6E4E45; border-radius: 20px; margin:0; height:40px">
+                    CERCA
+                </button>
 
             </div>
 
@@ -63,14 +79,14 @@
 
                 }
 
-        <div class="cardCategory @item.Colore">
-            <a href="~/archivio/@item.Link" target="_new" style="color:unset; text-decoration:unset; ">
-                <div class="cardContent">
+                <div class="cardCategory @item.Colore">
+                    <a href="~/archivio/@item.Link" target="_new" style="color:unset; text-decoration:unset; ">
+                        <div class="cardContent" style="min-width: 26.5rem;">
 
-                    <span>@item.Titolo</span>
+                            <span>@item.Titolo</span>
 
-                </div>
-            </a>
+                        </div>
+                    </a>
                     <div class="cardText">
 
                     </div>
@@ -86,7 +102,7 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-   
+
 
         });
     </script>

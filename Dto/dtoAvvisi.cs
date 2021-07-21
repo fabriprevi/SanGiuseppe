@@ -13,6 +13,8 @@ namespace SanGiuseppe.Models.Dto
       
         public string Categoria { get; set; }
         public string Testo { get; set; }
+
+        public string Lingua { get; set; }
   
     }
 }

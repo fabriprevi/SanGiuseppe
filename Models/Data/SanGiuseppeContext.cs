@@ -515,6 +515,8 @@ namespace SanGiuseppe.Models
 
                
             });
+        
+       
 
             modelBuilder.Entity<CapiGruppetto>(entity =>
             {
@@ -1014,7 +1016,7 @@ namespace SanGiuseppe.Models
 
             modelBuilder.Entity<TabellaGruppi>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Gruppo);
 
                 entity.Property(e => e.Gruppo)
                     .IsRequired()
@@ -1122,7 +1124,7 @@ namespace SanGiuseppe.Models
 
             modelBuilder.Entity<TabellaZone>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Zona);
 
                 entity.Property(e => e.Zona)
                     .IsRequired()

@@ -12,7 +12,7 @@
 
 #bgHome {
   width: 100%;
-  max-width: 71.3rem;
+  max-width: 51.3rem; /* 71 */
   margin: 0 auto;
 }
 
@@ -392,7 +392,7 @@
 
 @media (min-width: 1440px) {  
   #bgHome {
-    max-width: 71rem;
+    max-width: 51rem; /*71*/
   }
   #loginBox {
     padding: 2.8rem 4rem;

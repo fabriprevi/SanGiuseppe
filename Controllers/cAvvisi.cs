@@ -10,8 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SanGiuseppe.helpers;
 using SanGiuseppe.Models;
-using SanGiuseppe.Models;
-
 using Microsoft.Extensions.Configuration;
 using SanGiuseppe.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
@@ -76,9 +74,11 @@ namespace SanGiuseppe.Controllers
                         Link = a.Link.Trim().Replace(" ","%20"),
                         Categoria = a.Categoria,
                         Anno = a.Anno,
-                        Colore = a.Colore
+                        Colore = a.Colore,
+                        Lingua = a.Lingua
 
-                    }).OrderByDescending(a => a.Anno).ToList();
+                    }).Where(a=> a.Lingua == funzioni.ImpostaLingua())
+                    .OrderByDescending(a => a.Anno).ToList();
 
 
                 return View(avvisi);
@@ -108,7 +108,8 @@ namespace SanGiuseppe.Controllers
                         Link = a.Link,
                         Categoria = a.Categoria,
                         Anno = a.Anno,
-                        Colore = a.Colore
+                        Colore = a.Colore,
+                        Lingua = a.Lingua
 
                     });
 
@@ -116,6 +117,14 @@ namespace SanGiuseppe.Controllers
                 {
                     avvisi = avvisi.Where(a => a.Anno == formavvisi.Anno);
                 }           
+                             
+                if (formavvisi.Lingua != null)
+                {
+                    avvisi = avvisi.Where(a => a.Lingua == formavvisi.Lingua);
+                } else
+                {
+                    avvisi = avvisi.Where(a => a.Lingua == funzioni.ImpostaLingua());
+                }          
                 
                 if (formavvisi.Categoria != null)
                 {

@@ -94,7 +94,7 @@
                 processing: true, // for show progress bar
                 serverSide: true, // for process server side
                 filter: true, // this is for disable filter (search box)
-                lengthMenu: [[10, 25, 50, 100,500], [10, 25, 50, 100,500]],
+                lengthMenu: [[10, 25, 50, 100,500,999999], [10, 25, 50, 100,500,"Tutti"]],
                 pagingType: "full_numbers",
                 orderMulti: false, // for disable multiple column at once
                 fixedHeader: true,
@@ -145,8 +145,10 @@
                     { width: "30%", targets: [0,1,2] }
                 ],
             });
+           
             var a = 1;
 
+            
 
 
             var typingTimer;                //timer identifier

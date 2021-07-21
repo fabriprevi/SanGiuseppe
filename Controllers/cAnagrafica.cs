@@ -366,7 +366,7 @@ namespace SanGiuseppe.Controllers
         public async Task<IActionResult> EditBO([FromForm] dtoAnagrafica anagrafica)
         {
 
-
+            var percorsofoto = "";
 
             if (ModelState.IsValid)
             {
@@ -399,6 +399,8 @@ namespace SanGiuseppe.Controllers
                         anagraficadamodificare.ProvinciaResidenza = anagrafica.ProvinciaResidenza;
                         anagraficadamodificare.QuotaFondoComune = anagrafica.QuotaFondoComune;
                         anagraficadamodificare.QuotaFondoComuneValuta = anagrafica.QuotaFondoComuneValuta;
+                        anagraficadamodificare.SanGiuseppe = anagrafica.SanGiuseppe;
+
                         anagraficadamodificare.Sesso = anagrafica.Sesso;
                         anagraficadamodificare.Telefono = anagrafica.Telefono;
 
@@ -425,7 +427,7 @@ namespace SanGiuseppe.Controllers
                 }
 
             }
-            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg";
+            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + anagrafica.UID.ToString() + ".jpg";
             var esisteFoto = System.IO.File.Exists(percorsoFoto);
 
             if (esisteFoto)
@@ -433,12 +435,15 @@ namespace SanGiuseppe.Controllers
                 var lunghezza = new System.IO.FileInfo(percorsoFoto).Length;
                 if (lunghezza > 0)
                 {
-                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg?k=" + DateTime.Now;
+                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + anagrafica.UID.ToString() + ".jpg?k=" + DateTime.Now;
                 }
                 else
                 {
                     anagrafica.PercorsoFoto = "/img/placeholder.png";
                 }
+            } else
+            {
+                anagrafica.PercorsoFoto = "/img/placeholder.png";
             }
             return View(anagrafica);
         }
@@ -584,6 +589,76 @@ namespace SanGiuseppe.Controllers
 
 
                 anagraficaRows = (IQueryable<dtoAnagrafica>)_Functions.Filtri<dtoAnagrafica>(anagraficaRows, request);
+
+
+
+                // ORDER BY
+                // Sort Column Name  
+                var sortColumn = request.Columns[request.Order.First().Column].Name;
+                // Sort Column Direction ( asc ,desc)
+                var sortColumnDirection = request.Order.First().Dir;
+                if (!(string.IsNullOrEmpty(sortColumn) || string.IsNullOrEmpty(sortColumnDirection)))
+                {
+
+                    anagraficaRows = anagraficaRows.OrderBy( sortColumn + " " + sortColumnDirection);
+                }
+
+                // total number of rows count   
+                var recordsTotal = anagraficaRows.Count();
+
+                // paging   
+                var list = anagraficaRows.Skip(request.Start).Take(request.Length).ToList();
+
+
+
+                return Json(new { draw = request.Draw, recordsFiltered = recordsTotal,recordsTotal = recordsTotal,data = list});
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        [Authorize]
+        [HttpGet("/Anagrafica/IndexBOPermesso")]
+
+        public async Task<IActionResult> IndexBOPermesso()
+        {
+            RiempiViewBag();
+            return View();
+        }      // GET: cAnagrafica
+
+
+        [Authorize]
+        [HttpPost("/Anagrafica/LoadDataPermessi/{Permesso}")]
+        public async Task<IActionResult> LoadDataPermessi([FromForm] FiltriRequest request,String? Permesso)
+        {
+            try
+            {
+
+
+
+                var anagraficaRows = _context.UtentiPermessi
+                         .Select(a => new
+                         {
+                             Permesso = a.Permesso,
+                             Cognome = a.Utenti.IdanagraficaNavigation.Cognome,
+                             Nome = a.Utenti.IdanagraficaNavigation.Nome,
+                             Citta = a.Utenti.IdanagraficaNavigation.CittàDomicilio,
+                             Cellulare = a.Utenti.IdanagraficaNavigation.Cellulare,
+                             Email = a.Utenti.IdanagraficaNavigation.Email,
+                             UID = a.Utenti.IdanagraficaNavigation.UID
+
+
+                         });
+
+                if (Permesso != "NESSUNO")
+                {
+                    anagraficaRows = anagraficaRows.Where(a => a.Permesso == Permesso);
+                }
+ 
+
+            
 
 
 

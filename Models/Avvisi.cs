@@ -17,7 +17,7 @@ namespace SanGiuseppe.Models
         public int? Homepage { get; set; }
         public DateTime Data { get; set; }
         public int Anno { get; set; }
-
+        public string Lingua { get; set; }
         public Guid UID { get; set; }
         public string Categoria { get; set; }
        public string Colore { get; set; }
