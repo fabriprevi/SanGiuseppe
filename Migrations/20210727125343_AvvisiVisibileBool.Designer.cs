@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SanGiuseppe.Models;
 
 namespace SanGiuseppe.Migrations
 {
     [DbContext(typeof(SanGiuseppeContext))]
-    partial class SanGiuseppeContextModelSnapshot : ModelSnapshot
+    [Migration("20210727125343_AvvisiVisibileBool")]
+    partial class AvvisiVisibileBool
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,9 +52,6 @@ namespace SanGiuseppe.Migrations
                     b.Property<string>("Cellulare")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("CellularePrefissoInternazionale")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cittadinanza")
                         .HasMaxLength(50)
@@ -207,9 +206,6 @@ namespace SanGiuseppe.Migrations
                     b.Property<string>("Telefono")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TelefonoPrefissoInternazionale")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoPagamento")
                         .HasMaxLength(50)

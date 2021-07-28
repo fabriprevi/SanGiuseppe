@@ -2,6 +2,8 @@
 using System.Web;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
+using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +41,14 @@ namespace SanGiuseppe.Controllers
 
             funzioni = new Funzioni(_context, _contextAccessor);
         }
+
+        [Authorize]
+        [HttpGet("/Avvisi/IndexBO")]
+        public IActionResult IndexBO()
+        {
+            return View();
+        }
+
 
         // GET: cAvvisi
         [Authorize]
@@ -131,9 +141,9 @@ namespace SanGiuseppe.Controllers
                     avvisi = avvisi.Where(a => a.Categoria == formavvisi.Categoria);
                 }
                         
-                if (formavvisi.Testo != null)
+                if (formavvisi.Contenuto != null)
                 {
-                    avvisi = avvisi.Where(a => a.Titolo.Contains(formavvisi.Testo));
+                    avvisi = avvisi.Where(a => a.Titolo.Contains(formavvisi.Contenuto));
                 }
 
                 avvisi = avvisi.OrderByDescending(a => a.Anno);
@@ -144,41 +154,207 @@ namespace SanGiuseppe.Controllers
             return View();
         }
 
-        // GET: cAvvisi/Details/5
-   
-        // GET: cAvvisi/Create
+     
+    
+
+        [Authorize]
+        [HttpPost("/Avvisi/LoadData/")]
+        public async Task<IActionResult> LoadData(Guid UID)
+        {
+            try
+            {
+
+
+                var avvisi = _context.Avvisi
+                        .Select(a => new
+                        {
+                            dataf = a.Data.ToString("dd/MM/yyyy hh:mm"),
+                            data = a.Data,
+                            titolo = a.Titolo,
+                            allegato = a.Link,
+                            uid = a.UID
+
+                        }); ;
+
+                var draw = HttpContext.Request.Form["draw"].FirstOrDefault();
+                // Skiping number of Rows count  
+                var start = Request.Form["start"].FirstOrDefault();
+                // Paging Length 10,20  
+                var length = Request.Form["length"].FirstOrDefault();
+                // Sort Column Name  
+                var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
+                // Sort Column Direction ( asc ,desc)  
+                var sortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
+                // Search Value from (Search box)  
+                var searchValue = Request.Form["search[value]"].FirstOrDefault();
+
+                //Paging Size (10,20,50,100)  
+                int pageSize = length != null ? Convert.ToInt32(length) : 0;
+                int skip = start != null ? Convert.ToInt32(start) : 0;
+
+                if (!(string.IsNullOrEmpty(sortColumn) || string.IsNullOrEmpty(sortColumnDirection)))
+                {
+                    avvisi = avvisi.OrderBy(sortColumn + " " + sortColumnDirection);
+                }
+
+                if (!(string.IsNullOrEmpty(searchValue) || string.IsNullOrEmpty(searchValue)))
+                {
+                    avvisi = avvisi.Where(a => a.titolo.Contains(searchValue));
+                }
+                // total number of rows count   
+                var recordsTotal = avvisi.Count();
+
+                // paging   
+                var data = avvisi.Skip(skip).Take(pageSize).ToList();
+                //Returning Json Data  
+                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+       
+
+        /// //////////////////////////////////// CREAZIONE AVVISI
+      
+        
+        
+        [Authorize]
+        [HttpGet("/Avvisi/Create")]
         public IActionResult Create()
         {
+            RiempiViewBag();
             return View();
         }
 
-        // POST: cAvvisi/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Avvisi avvisi)
+        
+        [Authorize]
+        [HttpPost("/Avvisi/Create")]
+
+        public string Create([FromForm] dtoAvvisi avvisi)
         {
+            var nomefile = "";
             if (ModelState.IsValid)
             {
-                _context.Add(avvisi);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (avvisi.attachment != null)
+                {
+                    if (avvisi.attachment.Length > 0)
+                    {
+
+                        var filePath = Directory.GetCurrentDirectory() + "/wwwroot/allegati/avvisi/" + avvisi.attachment.FileName;
+                        nomefile = avvisi.attachment.FileName; 
+                        using (var stream = System.IO.File.Create(filePath))
+                        {
+                            avvisi.attachment.CopyTo(stream);
+                        }
+                    }
+                }
+
+
+
+                var inserimentoAvviso = new Avvisi();
+                inserimentoAvviso.Ordinamento = avvisi.Ordinamento;
+                inserimentoAvviso.Titolo = avvisi.Titolo;
+                inserimentoAvviso.Contenuto = avvisi.Contenuto;
+                inserimentoAvviso.Link = nomefile;
+                inserimentoAvviso.Visibile = avvisi.Visibile;
+                inserimentoAvviso.Data = avvisi.Data;
+                inserimentoAvviso.Anno = avvisi.Data.Year;
+                inserimentoAvviso.Lingua = avvisi.Lingua;
+                inserimentoAvviso.Categoria = avvisi.Categoria;
+                inserimentoAvviso.Colore = avvisi.Colore;
+
+                _context.Add(inserimentoAvviso);
+                _context.SaveChangesAsync();
+                return "AVVISO INSERITO";
             }
-            return View(avvisi);
+            return "ERROR IN INSERINENTO AVVISO";
         }
 
-        // GET: cAvvisi/Edit/5
-  
+
+
+
+        /// //////////////////////////////////// MODIFICA AVVISI
+
+
+        [Authorize]
+        [HttpGet("/Avvisi/Edit/{UID:Guid}")]
+        public IActionResult Edit(Guid UID)
+        {
+            RiempiViewBag();
+            var avviso = _context.Avvisi.SingleOrDefault(a => a.UID == UID);
+            return View(avviso);
+        }
+       [Authorize]
+       [HttpPost("/Avvisi/Edit/")]
+        public IActionResult Edit([FromForm] dtoAvvisi avvisi)
+        {
+            var nomefile = "";
+            try
+            {
+
+            
+            if (avvisi.attachment != null)
+            {
+                if (avvisi.attachment.Length > 0)
+                {
+
+                    var filePath = Directory.GetCurrentDirectory() + "/wwwroot/allegati/avvisi/" + avvisi.attachment.FileName;
+                    nomefile = avvisi.attachment.FileName;
+                    using (var stream = System.IO.File.Create(filePath))
+                    {
+                        avvisi.attachment.CopyTo(stream);
+                    }
+                }
+            }
+            }
+            catch (Exception ex)
+            {
+                nomefile = "";
+            }
+
+
+
+            var modificaavviso = _context.Avvisi.SingleOrDefault(a => a.UID == avvisi.UID);
+            modificaavviso.Ordinamento = avvisi.Ordinamento;
+            modificaavviso.Titolo = avvisi.Titolo;
+            modificaavviso.Contenuto = avvisi.Contenuto;
+            if (nomefile != "") { modificaavviso.Link = nomefile; }
+
+            modificaavviso.Visibile = avvisi.Visibile;
+            modificaavviso.Data = avvisi.Data;
+            modificaavviso.Anno = avvisi.Data.Year;
+            modificaavviso.Lingua = avvisi.Lingua;
+            modificaavviso.Categoria = avvisi.Categoria;
+            modificaavviso.Colore = avvisi.Colore;
+
+            _context.Update(modificaavviso);
+            _context.SaveChanges();
+            RiempiViewBag();
+            return View(modificaavviso);
+        }
+
         // GET: cAvvisi/Delete/5
         [Authorize]
         [HttpGet("/Avvisi/Delete/{UID:Guid}")]
         public IActionResult Delete(Guid UID)
         {
+            try
+            {
+
+           
             var avvisi = _context.Avvisi.SingleOrDefault(a=>a.UID==UID);
             _context.Avvisi.Remove(avvisi);
              _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return View();
         }
 
      
@@ -197,12 +373,16 @@ namespace SanGiuseppe.Controllers
            
 
             var anni = _context.Avvisi.GroupBy(a => a.Anno)
-                .Select(a => new { Anno = a.Key }).OrderBy(a=>a.Anno).AsEnumerable();
+                .Select(a => new { Anno = a.Key }).OrderBy(a=>a.Anno).ToList();
             ViewBag.anni = anni;     
             
             var categorie = _context.Avvisi.GroupBy(a => a.Categoria)
-                .Select(a => new { Categoria = a.Key }).OrderBy(a=>a.Categoria).AsEnumerable();
-            ViewBag.categorie = categorie;
+                .Select(a => new { Categoria = a.Key }).OrderBy(a=>a.Categoria).ToList();
+            ViewBag.categorie = categorie;            
+            
+            var colori = _context.Avvisi.GroupBy(a => a.Colore)
+                .Select(a => new { Colore = a.Key }).OrderBy(a=>a.Colore).ToList();
+            ViewBag.colori  = colori;
             return "";
         }
     }

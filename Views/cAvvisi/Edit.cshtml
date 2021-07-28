@@ -1,0 +1,233 @@
+﻿@model SanGiuseppe.Models.Avvisi
+
+@{
+    ViewData["Title"] = "Edit";
+ 
+}
+
+<main>
+    <div class="container" style="max-width:90%!Important">
+        <section>
+            <h1>Avvisi</h1>
+            <div class="card shadow">
+                <div class="card-header">
+                </div>
+                <div class="card-body">
+                    <div id="caricamento">
+                        <input type="hidden" value="@Model.UID" id="UID"/>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row mt-3">
+                            <div class="col-2"><label asp-for="Ordinamento" class="control-label"></label></div>
+                            <div class="col-2">
+                                <input asp-for="Ordinamento" id="Ordinamento" class="form-control" />
+                                <span asp-validation-for="Ordinamento" class="text-danger"></span>
+                            </div>
+                            <div class="col-1"><label asp-for="Data" class="control-label"></label></div>
+                            <div class="col-2">
+                                <input asp-for="Data" class="form-control" id="Data" />
+                                <span asp-validation-for="Data" class="text-danger"></span>
+                            </div>
+                            <div class="col-1"><label asp-for="Visibile" class="control-label"></label></div>
+                            <div class="col-1">
+                                <input class="form-check-input" id="Visibile" type="checkbox" name="Visibile" checked="checked" />
+                                <span asp-validation-for="Ordinamento" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2"><label asp-for="Titolo" class="control-label"></label></div>
+                            <div class="col-4">
+                                <input asp-for="Titolo" id="Titolo" class="form-control" />
+                                <span asp-validation-for="Titolo" class="text-danger"></span>
+                            </div>
+                            <div class="col-1 text-right"><label asp-for="Lingua" class="control-label"></label></div>
+                            <div class="col-2">
+                                <select asp-for="Lingua" id="Lingua" class="form-control" style="width:100%"
+                                        asp-items="@(new SelectList(ViewBag.lingua,"Lingua","Lingua"))">
+                                    <option></option>
+                                </select>
+                                <span asp-validation-for="Link" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2"><label asp-for="Contenuto" class="control-label"></label></div>
+                            <div class="col-4">
+                                <textarea asp-for="Contenuto" id="Contenuto" class="form-control" cols="160" rows="6"></textarea>
+                                <span asp-validation-for="Contenuto" class="text-danger"></span>
+                            </div>
+                            <div class="col-5">
+                                <div id="drop_file_zone" ondrop="upload_file(event)" ondragover="file_hover(event)" ondragleave="file_hoverout(event)">
+                                    <div id="drag_upload_file">
+                                        <div id="testoUpload">
+                                            <p>Trascina qui il file</p>
+                                            <p>oppure</p>
+                                            <label for="attachment" class="btn btn-info" id="lblattachment"><i class="fas fa-upload"></i>&nbsp;Scegli il file da caricare</label>
+                                            <input type="file" class="d-none" name="attachment" id="attachment" onchange="file_explorer()" />
+                                        </div>
+                                        <br />
+                                        <span id="fileScelto" style="width:100%"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row mt-3">
+
+
+                            <div class="col-2"><label asp-for="Colore" class="control-label"></label></div>
+                            <div class="col-2">
+                                <select asp-for="Colore" id="Colore" class="form-control" style="width:100%"
+                                        asp-items="@(new SelectList(ViewBag.colori,"Colore","Colore"))">
+                                    <option></option>
+                                </select>
+                                <span asp-validation-for="Colore" class="text-danger"></span>
+                            </div>
+                            <div class="col-1"><label asp-for="Categoria" class="control-label"></label></div>
+                            <div class="col-2">
+                                <select asp-for="Categoria" id="Categoria" class="form-control" style="width:100%"
+                                        asp-items="@(new SelectList(ViewBag.categorie,"Categoria","Categoria"))">
+                                    <option></option>
+                                </select>
+                                <span asp-validation-for="Categoria" class="text-danger"></span>
+                            </div>
+                        </div>
+                     
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-danger" onclick="conferma()" style="display:unset">CONFERMA</button>
+                                <a href="/Avvisi/IndexBO" class="btn btn-info">CHIUDI</a>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div id="esito" style="font-weight:bold; text-align:center;color:red">AVVISO CONFERMATO<br /><br />  <a href="/Avvisi/IndexBO" class="btn btn-info">CHIUDI</a></div>
+                </div>
+             </div>
+         </section>
+     </div>
+</main>
+                 
+
+
+                    @section Scripts {
+                        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                        <style>
+                            #drop_file_zone {
+                                background-color: #EEE;
+                                border: #999 5px dashed;
+                                width: 490px;
+                                height: 155px;
+                                padding: 8px;
+                                font-size: 18px;
+                            }
+
+
+                            #drag_upload_file {
+                                width: 50%;
+                                margin: 0 auto;
+                            }
+
+                                #drag_upload_file p {
+                                    text-align: center;
+                                }
+
+                                #drag_upload_file #selectfile {
+                                    display: none;
+                                }
+                        </style>
+
+                        <script>
+                            $(document).ready(function () {
+                                $("#caricamento").show();
+                                $("#esito").hide();
+
+                            });
+                            var fileobj;
+                            var allegato = {
+                                attachment: ''
+                            }
+                            function file_hover(e) {
+                                e.preventDefault();
+                                document.getElementById("drop_file_zone").style.backgroundColor = "darkgrey";
+                            }
+
+                            function file_hoverout(e) {
+                                e.preventDefault();
+                                document.getElementById("drop_file_zone").style.backgroundColor = "white";
+                            }
+                            function upload_file(e) {
+                                e.preventDefault();
+                                fileobj = e.dataTransfer.files[0];
+                                document.getElementById("lblattachment").style.display = "none"
+                                document.getElementById("testoUpload").innerHTML = fileobj.name;
+
+                            }
+
+
+                            function file_explorer() {
+                                fileobj = document.getElementById('attachment').files[0];
+                                document.getElementById("lblattachment").style.display = "none"
+                                document.getElementById("testoUpload").innerHTML = fileobj.name;
+                            }
+
+                            function conferma() {
+
+                                if ($("#Titolo").val() == "" || $("#Data").val() == "") {
+                                    swal.fire({
+                                        title: 'Attenzione',
+                                        text: "Il campo Titolo e Data sono obbligatori",
+                                        type: 'error'
+
+                                    })
+
+                                } else {
+
+
+
+                                var form_data = new FormData();
+                                var fd = new FormData();
+                                if (fileobj != undefined) {
+                                    fd.append("Attachment", fileobj)
+                                }
+                                    fd.append("Ordinamento", $("#Ordinamento").val())
+                                    fd.append("Data", $("#Data").val())
+                                if ($("#Visibile").is(":checked")) {
+                                    fd.append("Visibile", true)
+                                } else {
+                                    fd.append("Visibile", false)
+                                }
+                                    fd.append("Titolo", $("#Titolo").val())
+                                    fd.append("Contenuto", $("#Contenuto").val())
+                                    fd.append("Lingua", $("#Lingua").val())
+                                    fd.append("Categoria", $("#Categoria").val())
+                                    fd.append("Colore", $("#Colore").val())
+                                    fd.append("UID", $("#UID").val())
+
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '/Avvisi/Edit',
+                                        contentType: false,
+                                        processData: false,
+                                        data: fd,
+                                        success: function (response) {
+                                            $("#caricamento").hide();
+                                            $("#esito").show();
+                                        },
+                                        error: function (response) {
+                                            alert(response.responseText);
+                                            fileobj = null;
+                                            //   document.getElementById("lblattachment").style.display = "display"
+                                            document.getElementById("testoUpload").innerHTML = ""
+                                        }
+                                    });
+                                }
+                            }
+
+
+
+                        </script>
+
+                    }

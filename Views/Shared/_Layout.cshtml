@@ -81,6 +81,7 @@
                                     <li><a class="dropdown-item" href="/TabellaGruppi/Index">Tabella gruppi</a></li>
                                     <li><a class="dropdown-item" href="/TabellaPermessi/Index">Tabella permessi</a></li>
                                     <li><a class="dropdown-item" href="/TabellaZone/Index">Tabella zone</a></li>
+                                   <li><a class="dropdown-item" href="/Avvisi/IndexBO">Gestione Avvisi</a></li>
                                 </ul>
                             </li>
 
@@ -120,7 +121,7 @@
                         <span class="d-none">Profilo</span>
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="profiloButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="~/Allegati/Foto/@(HttpContextAccessor.HttpContext.Session.GetString("SanGiuseppeFoto") + "?k=" + DateTime.Now)" style="border-radius:50px;width:50px" />
+                                <img src="~/Allegati/Foto/@(HttpContextAccessor.HttpContext.Session.GetString("SanGiuseppeFoto") + "?k=" + DateTime.Now)"  onerror="this.onerror=null;this.src='/img/placeholder.png'" style="border-radius:50px;width:50px" />
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profiloButton">
                                 <li><a class="dropdown-item" href="/Utenti/ModificaPassword">Modifica profilo</a></li>

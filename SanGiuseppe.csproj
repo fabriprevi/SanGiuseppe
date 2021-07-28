@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\allegati\foto\" />
+    <Folder Include="wwwroot\allegati\avvisi\" />
     <Folder Include="wwwroot\img\foto\" />
   </ItemGroup>
 

@@ -1,0 +1,144 @@
+﻿@using SanGiuseppe.helpers
+@inject Funzioni funzioni
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<main>
+    <div class="container" style="max-width:90%!Important">
+        <section>
+            <h1>Avvisi</h1>
+            <div class="card shadow">
+                <div class="card-header">
+                    <a href="/Avvisi/Create" class="btn btn-primary" style="width:200px">INSERIMENTO</a>
+                </div>
+                <div class="card-body">
+                    <table border="0" id="avvisi" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Titolo</th>
+                                <th>Allegato</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+        
+        @section Scripts {
+            <script>
+                $(document).ready(function () {
+
+                    var table = $("#avvisi").DataTable({
+
+                        processing: true, // for show progress bar
+                        serverSide: true, // for process server side
+                        filter: true, // this is for disable filter (search box)
+                        lengthMenu: [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]],
+                        pagingType: "full_numbers",
+                        orderMulti: false, // for disable multiple column at once
+                        fixedHeader: true,
+                        ajax: {
+                            url: "/Avvisi/LoadData",
+                            type: "POST",
+                            datatype: "json",
+                            cache: false,
+                            //contentType: "application/json;",
+                            //data: { 'column': field, 'operation': criteria, 'value': value },
+                            async: true
+                        },
+                        language: {
+                            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Italian.json",
+
+                        },
+                        "columns": [
+                            { "data": "dataf", "name": "Data", "autoWidth": true },
+                            { "data": "titolo", "name": "Titolo", "autoWidth": true },
+                            {
+                                "data": "allegato",
+                                "name": "allegato",
+                                "orderable": true,
+                                "render": function (data, type, row, meta) { return '<a  target="_new" href="/allegati/avvisi/' + data + '">' + data + '</a>' }
+                            },
+                              {
+                                "data": "uid",
+                                "name": "edit",
+                                "orderable": false,
+                                "render": function (data, type, row, meta) { return '<a class="btn btn-info" target="_new" href="/Avvisi/Edit/' + data + '"><i class="fas fa-search"></i>&nbsp;DETTAGLIO</a>' }
+                            },
+                              {
+                                "data": "uid",
+                                "name": "delete",
+                                "orderable": false,
+                                "render": function (data, type, row, meta) { return '<button class="btn btn-danger" onclick="EliminaConferma(\'' + data + '\')"><i class="fas fa-trash"></i>&nbsp;ELIMINA</button>' }
+                            }
+                        ],
+                        columnDefs: [
+                            { width: "30%", targets: [0, 1, 2] }
+                        ],
+                    });
+                });
+
+        function EliminaConferma(avviso) {
+                        $("#msg").html("")
+                    swal.fire({
+                    title: 'Attenzione',
+                    text: "Confermi di voler eliminare questo avviso?",
+                    type: 'warning',
+                    showCancelButton: true,
+                    cancelButtonText: 'No',
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sì'
+                    }).then((result) => {
+                    if (result.value) {
+                    Elimina(avviso);
+                    }
+                    else {
+                    return false;
+                        }
+                        aggiornaTabelle();
+                    });
+                    //if (confirm("Elimino il medico sicuro?")) {
+                    //    Delete(UID);
+                    //} else {
+                    //    return false;
+                    //}
+
+                    }
+
+                    function Elimina(avviso) {
+                        var url = '@Url.Content("~/")' + "Avvisi/Delete/" + avviso;
+
+                        $.get(url, function (data) {
+                    if (data == "") {
+                            aggiornaTabelle();
+                    } else {
+                            swal.fire({
+                            title: 'Attenzione',
+                            text: data,
+                            type: 'warning',
+                            showCancelButton: false});
+                    }
+                    })
+
+                        aggiornaTabelle()
+                    }
+
+                    function aggiornaTabelle() {
+
+                    oTable = $('#avvisi').DataTable();
+                    oTable.draw();
+    }
+
+            </script>
+
+        }
+

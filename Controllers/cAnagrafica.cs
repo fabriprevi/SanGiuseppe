@@ -167,7 +167,7 @@ namespace SanGiuseppe.Controllers
             {
                 return NotFound();
             }
-            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg";
+            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeIDAnagrafica").ToString() + "_" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg";
             var esisteFoto = System.IO.File.Exists(percorsoFoto);
 
             if (esisteFoto)
@@ -175,12 +175,15 @@ namespace SanGiuseppe.Controllers
                 var lunghezza = new System.IO.FileInfo(percorsoFoto).Length;
                 if (lunghezza > 0)
                 {
-                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg?k=" + DateTime.Now;
+                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + HttpContext.Session.GetString("SanGiuseppeIDAnagrafica").ToString() + "_" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg?k=" + DateTime.Now;
                 }
                 else
                 {
                     anagrafica.PercorsoFoto = "/img/placeholder.png";
                 }
+            } else
+            {
+                anagrafica.PercorsoFoto = "/img/placeholder.png";
             }
             return View(anagrafica);
         }
@@ -261,7 +264,7 @@ namespace SanGiuseppe.Controllers
             {
                 return NotFound();
             }
-            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + UID.ToString() + ".jpg";
+            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + anagrafica.Idanagrafica.ToString("000000") + "_" + UID.ToString().ToUpper() + ".JPG";
             var esisteFoto = System.IO.File.Exists(percorsoFoto);
 
             if (esisteFoto)
@@ -269,7 +272,7 @@ namespace SanGiuseppe.Controllers
                 var lunghezza = new System.IO.FileInfo(percorsoFoto).Length;
                 if (lunghezza > 0)
                 {
-                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + UID.ToString() + ".jpg?k=" + DateTime.Now;
+                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + anagrafica.Idanagrafica.ToString("000000") + "_" + UID.ToString() + ".jpg?k=" + DateTime.Now;
                 }
                 else
                 {
@@ -343,7 +346,7 @@ namespace SanGiuseppe.Controllers
                 }
              
             }
-            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg";
+            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeIDAnagrafica").ToString() + "_" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg";
             var esisteFoto = System.IO.File.Exists(percorsoFoto);
 
             if (esisteFoto)
@@ -351,7 +354,7 @@ namespace SanGiuseppe.Controllers
                 var lunghezza = new System.IO.FileInfo(percorsoFoto).Length;
                 if (lunghezza > 0)
                 {
-                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg?k=" + DateTime.Now;
+                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + HttpContext.Session.GetString("SanGiuseppeIDAnagrafica").ToString() + "_" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg?k=" + DateTime.Now;
                 }
                 else
                 {
@@ -427,7 +430,7 @@ namespace SanGiuseppe.Controllers
                 }
 
             }
-            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + anagrafica.UID.ToString() + ".jpg";
+            var percorsoFoto = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + anagrafica.Idanagrafica.ToString("000000") + "_" + anagrafica.UID.ToString() + ".jpg";
             var esisteFoto = System.IO.File.Exists(percorsoFoto);
 
             if (esisteFoto)
@@ -435,7 +438,7 @@ namespace SanGiuseppe.Controllers
                 var lunghezza = new System.IO.FileInfo(percorsoFoto).Length;
                 if (lunghezza > 0)
                 {
-                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + anagrafica.UID.ToString() + ".jpg?k=" + DateTime.Now;
+                    anagrafica.PercorsoFoto = "/Allegati/Foto/" + anagrafica.Idanagrafica.ToString("000000") + "_" + anagrafica.UID.ToString() + ".jpg?k=" + DateTime.Now;
                 }
                 else
                 {
@@ -461,18 +464,18 @@ namespace SanGiuseppe.Controllers
 
                    if (foto.foto!=null)
                 {
-                    var esisteFoto = System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg");
+                    var esisteFoto = System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeIDAnagrafica").ToString() + "_" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString().ToUpper() + ".JPG");
 
                     if (esisteFoto)
                     {
-                     System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg");
+                     System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeIDAnagrafica").ToString() + "_" +  HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString().ToUpper() + ".JPG");
 
                     }
 
 
 
                     ViewBag.msg = "Foto caricato";
-                    var filePath = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg" ;
+                    var filePath = Directory.GetCurrentDirectory() + "\\wwwroot\\Allegati\\Foto\\" + HttpContext.Session.GetString("SanGiuseppeIDAnagrafica").ToString() + "_" + HttpContext.Session.GetString("SanGiuseppeUIDAnagrafica").ToString() + ".jpg" ;
                    
                     using (var stream = System.IO.File.Create(filePath))
                     {
@@ -709,7 +712,17 @@ namespace SanGiuseppe.Controllers
             var lingue = _context.TabellaLingue
                 .Select(a => new { a.Lingua})
                 .OrderBy(b => b.Lingua).ToList();
-            ViewBag.lingua = lingue;
+            ViewBag.lingua = lingue;          
+            
+            var gruppi = _context.TabellaGruppi
+                .Select(a => new { a.Gruppo})
+                .OrderBy(b => b.Gruppo).ToList();
+            ViewBag.gruppi = gruppi;
+
+           var zone = _context.TabellaZone
+                .Select(a => new { a.Zona})
+                .OrderBy(b => b.Zona).ToList();
+            ViewBag.zone = zone;
 
             var permessi = _context.TabellaPermessi
         .Select(a => new { a.Permesso })

@@ -26,7 +26,10 @@ namespace SanGiuseppe.Models.Dto
         public string Cittadinanza { get; set; }
         public string Nazione { get; set; }
         public string Provincia { get; set; }
+        public string TelefonoPrefissoInternazionale { get; set; }
         public string Telefono { get; set; }
+
+        public string CellularePrefissoInternazionale { get; set; }
         public string Cellulare { get; set; }
         public string Email { get; set; }
         public string NumeroIscrizioneFraternità { get; set; }

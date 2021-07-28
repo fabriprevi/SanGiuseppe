@@ -53,7 +53,11 @@
                                 <th>Città</th>
                                 <th>Cellulare</th>
                                 <th>Email</th>
-                                <th></th>
+                                <th>Gruppo</th>
+                                <th>Zona</th>
+                                <th>Luogo di nascita</th>
+                                <th>Data di nascita</th>
+                               <th></th>
 
                             </tr>
                         </thead>
@@ -91,6 +95,15 @@
 
             var table = $("#anagrafica").DataTable({
                 dom: 'Blfrtip',
+                buttons: [
+                    'copy', 'csv', {
+                        extend: 'excel',
+                        footer: true,
+                        exportOptions: {
+                            columns: [1, 2, 3, 4, 5,6,7,8]
+                        }
+                    }, 'pdf', 'print'
+                ],
                 processing: true, // for show progress bar
                 serverSide: true, // for process server side
                 filter: true, // this is for disable filter (search box)
@@ -131,8 +144,12 @@
                     { "data": "cognome", "name": "Cognome", "autoWidth": true},
                     { "data": "nome", "name": "Nome", "autoWidth": true},
                     { "data": "cittàDomicilio", "name": "CittàDomicilio", "autoWidth": true},
-                 { "data": "cellulare", "name": "Cellulare", "autoWidth": true},
-                 { "data": "email", "name": "Email", "autoWidth": true},
+                    { "data": "cellulare", "name": "Cellulare", "autoWidth": true},
+                    { "data": "email", "name": "Email", "autoWidth": true},
+                    { "data": "gruppo", "name": "Gruppo", "autoWidth": true},
+                    { "data": "zona", "name": "Zona", "autoWidth": true},
+                    { "data": "luogodiNascita", "name": "LuogoDiNascita", "autoWidth": true },
+                    { "data": "datadiNascita", "name": "DataDiNascita", "autoWidth": true},
 
                     {
                         "data": "none",
@@ -142,7 +159,8 @@
                     }
                 ],
                 columnDefs: [
-                    { width: "30%", targets: [0,1,2] }
+                    { width: "30%", targets: [0, 1, 2] },
+                    { visible:false, targets:[5,6,7,8]}
                 ],
             });
            

@@ -147,12 +147,20 @@
                                     <span asp-validation-for="Lingua" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
+                                    <label asp-for="TelefonoPrefissoInternazionale" class="control-label">@funzioni.GetWord("Prefisso internazionale") </label>
+                                    <input asp-for="TelefonoPrefissoInternazionale" class="form-control" />
+                                    <span asp-validation-for="TelefonoPrefissoInternazionale" class="text-danger"></span>
+                                </div>  <div class="form-group">
                                     <label asp-for="Telefono" class="control-label">@funzioni.GetWord("Telefono") </label>
                                     <input asp-for="Telefono" class="form-control" />
                                     <span asp-validation-for="Telefono" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group">
+                                    <label asp-for="CellularePrefissoInternazionale" class="control-label">@funzioni.GetWord("Prefisso internazionale")</label>
+                                    <input asp-for="CellularePrefissoInternazionale" class="form-control" />
+                                    <span asp-validation-for="CellularePrefissoInternazionale" class="text-danger"></span>
+                                </div>                                <div class="form-group">
                                     <label asp-for="Cellulare" class="control-label">@funzioni.GetWord("Cellulare")</label>
                                     <input asp-for="Cellulare" class="form-control" />
                                     <span asp-validation-for="Cellulare" class="text-danger"></span>

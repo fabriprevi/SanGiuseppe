@@ -59,7 +59,7 @@ namespace SanGiuseppe.Controllers
                     Password = a.Password,
                     UIDAnagrafica = a.IdanagraficaNavigation.UID,
                     UIDUtente = a.UID,
-                    Foto = a.IdanagraficaNavigation.UID.ToString() + ".jpg"
+                    Foto = a.Idanagrafica.ToString("000000") + "_" + a.IdanagraficaNavigation.UID.ToString() + ".jpg"
 
 
                 }).SingleOrDefault(a => a.Username == Username && a.Password == Password);
@@ -88,8 +88,7 @@ namespace SanGiuseppe.Controllers
             HttpContext.Response.Cookies.Append("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString(), options);
            HttpContext.Response.Cookies.Append("SanGiuseppeNominativo", utente.Nominativo, options);
 
-            HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString());
-            HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString());
+            HttpContext.Session.SetString("SanGiuseppeIDAnagrafica", utente.IDAnagrafica.ToString("000000"));
             HttpContext.Session.SetString("SanGiuseppeNominativo", utente.Nominativo.ToString());
             HttpContext.Session.SetString("SanGiuseppeUIDAnagrafica", utente.UIDAnagrafica.ToString());
             HttpContext.Session.SetString("SanGiuseppeUIDUtente", utente.UIDUtente.ToString());

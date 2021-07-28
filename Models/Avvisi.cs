@@ -13,7 +13,7 @@ namespace SanGiuseppe.Models
         public string Titolo { get; set; }
         public string Contenuto { get; set; }
         public string Link { get; set; }
-        public int? Visibile { get; set; }
+        public bool Visibile { get; set; }
         public int? Homepage { get; set; }
         public DateTime Data { get; set; }
         public int Anno { get; set; }

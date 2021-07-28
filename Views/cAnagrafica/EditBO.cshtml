@@ -42,7 +42,9 @@
                   
                         <div class="row mt-2 ml-2 mr-2">
                             <div class="col-6">
+                                <a href='@Model.PercorsoFoto' target="_new_foto" border="0">
                                     <img class="rounded" width="150" id="avatar" src="@Model.PercorsoFoto" alt="avatar">
+                                </a>
                             </div>
                         </div>
                             
@@ -159,18 +161,20 @@
                                 </div>
                                 <div class="row mt-2 ml-2 mr-2">
                                     <div class="col-1">
-                                        <label asp-for="Telefono" class="control-label">@funzioni.GetWord("Telefono") </label>
+                                        <label asp-for="Telefono" class="control-label">@funzioni.GetWord("Telefono (prefisso int. e numero)") </label>
                                     </div>
                                     <div class="col-3">
-                                        <input asp-for="Telefono" class="form-control" />
+                                        <input asp-for="TelefonoPrefissoInternazionale" style="width:80px;display:unset" class="form-control" /> 
+                                        <input asp-for="Telefono" class="form-control" style="display:unset; width:250px" />
                                         <span asp-validation-for="Telefono" class="text-danger"></span>
                                     </div>
 
                                     <div class="col-1">
-                                        <label asp-for="Cellulare" class="control-label">@funzioni.GetWord("Cellulare")</label>
+                                        <label asp-for="Cellulare" class="control-label">@funzioni.GetWord("Cellulare  (prefisso int. e numero)")</label>
                                     </div>
                                     <div class="col-3">
-                                        <input asp-for="Cellulare" class="form-control" />
+                                        <input asp-for="CellularePrefissoInternazionale" style="width:80px;display:unset" class="form-control" />
+                                        <input asp-for="Cellulare" class="form-control" style="display:unset; width:250px" />
                                         <span asp-validation-for="Cellulare" class="text-danger"></span>
                                     </div>
                                     <div class="col-1">
@@ -316,14 +320,20 @@
                                         <label asp-for="Gruppo" class="control-label">@funzioni.GetWord("Gruppo")</label>
                                     </div>
                                     <div class="col-3">
-                                        <input asp-for="Gruppo" class="form-control" />
+                                        <select asp-for="Gruppo" class="form-control" style="width:100%"
+                                                asp-items="@(new SelectList(ViewBag.gruppi,"Gruppo","Gruppo"))">
+                                            <option></option>
+                                        </select>
                                         <span asp-validation-for="Gruppo" class="text-danger"></span>
                                     </div>
                                     <div class="col-1">
                                         <label asp-for="Zona" class="control-label">@funzioni.GetWord("Zona")</label>
                                     </div>
                                     <div class="col-3">
-                                        <input asp-for="Zona" class="form-control" />
+                                        <select asp-for="Zona" class="form-control" style="width:100%"
+                                                asp-items="@(new SelectList(ViewBag.zone,"Zona","Zona"))">
+                                            <option></option>
+                                        </select>
                                         <span asp-validation-for="Zona" class="text-danger"></span>
                                     </div>
 
@@ -379,7 +389,7 @@
                             <tr><th>Inserimento nuovo permesso</th><th></th></tr>
                             <tr>
                                 <th><select id="ddlPermessi" class="form-control" asp-items="@(new SelectList(ViewBag.permessi,"Permesso","Permesso"))"></select></th>
-                            <th><button id="btnConfermaPermesso" class="btn btn-primary" onclick="InserisciPermesso()" >CONFERMA</button></th>
+                            <th><button id="btnConfermaPermesso" class="btn btn-primary" onclick="InserisciPermesso()">@funzioni.GetWord("CONFERMA")</button></th>
                             </tr>
                         </tfoot>
                        
