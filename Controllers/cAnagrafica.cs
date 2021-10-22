@@ -556,8 +556,8 @@ namespace SanGiuseppe.Controllers
                              DatadiNascita = a.DatadiNascita,
                              Cittadinanza = a.Cittadinanza,
                              Nazione = a.Nazione,
-                             Telefono = a.Telefono,
-                             Cellulare = a.Cellulare,
+                             Telefono = a.TelefonoPrefissoInternazionale + ' '+ a.Telefono,
+                             Cellulare = a. CellularePrefissoInternazionale+ ' '+ a.Cellulare,
                              Email = a.Email,
                              NumeroIscrizioneFraternità = a.NumeroIscrizioneFraternità,
                              Gruppo = a.Gruppo,
@@ -583,7 +583,8 @@ namespace SanGiuseppe.Controllers
                              DataLettera = a.DataLettera,
                              Nuovo = a.Nuovo.Value == null ? false: true,
                              Lingua = a.Lingua,
-
+                             DataLuogoDiNascita = a.DatadiNascita + ' ' + a.LuogodiNascita
+                            
 
                          }).AsQueryable();
 
@@ -647,10 +648,13 @@ namespace SanGiuseppe.Controllers
                              Permesso = a.Permesso,
                              Cognome = a.Utenti.IdanagraficaNavigation.Cognome,
                              Nome = a.Utenti.IdanagraficaNavigation.Nome,
-                             Citta = a.Utenti.IdanagraficaNavigation.CittàDomicilio,
-                             Cellulare = a.Utenti.IdanagraficaNavigation.Cellulare,
+                             Citta = a.Utenti.IdanagraficaNavigation.CittàResidenza,
+                             Cellulare = a.Utenti.IdanagraficaNavigation.CellularePrefissoInternazionale +' ' + a.Utenti.IdanagraficaNavigation.Cellulare,
+                             Telefono = a.Utenti.IdanagraficaNavigation.TelefonoPrefissoInternazionale +' ' + a.Utenti.IdanagraficaNavigation.Telefono,
                              Email = a.Utenti.IdanagraficaNavigation.Email,
                              UID = a.Utenti.IdanagraficaNavigation.UID
+
+
 
 
                          });

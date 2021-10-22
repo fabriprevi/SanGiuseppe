@@ -50,19 +50,21 @@
                             <tr>
                                 <th>Cognome</th>
                                 <th>Nome</th>
+                                <th>Gruppo</th>
                                 <th>Città</th>
+                                <th>Cittadinanza</th>
                                 <th>Cellulare</th>
                                 <th>Email</th>
-                                <th>Gruppo</th>
-                                <th>Zona</th>
-                                <th>Luogo di nascita</th>
-                                <th>Data di nascita</th>
-                               <th></th>
+                                <th>Data e luogo <br />di nascita</th>
+                                <th></th>
 
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -96,13 +98,13 @@
             var table = $("#anagrafica").DataTable({
                 dom: 'Blfrtip',
                 buttons: [
-                    'copy', 'csv', {
+                     {
                         extend: 'excel',
                         footer: true,
                         exportOptions: {
-                            columns: [1, 2, 3, 4, 5,6,7,8]
+                            columns: [1, 2, 3, 4, 5,6,7]
                         }
-                    }, 'pdf', 'print'
+                    }
                 ],
                 processing: true, // for show progress bar
                 serverSide: true, // for process server side
@@ -140,16 +142,28 @@
                         valueJoiner: 'e',
                     }
                 },
+                buttons: [
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7]
+
+                        },
+                        action: function (e, dt, button, config) {
+                            avvertimentoExport()
+                            $.fn.dataTable.ext.buttons.excelHtml5.action.call(this, e, dt, button, config);
+                        }
+                    }],
                 "columns": [
-                    { "data": "cognome", "name": "Cognome", "autoWidth": true},
-                    { "data": "nome", "name": "Nome", "autoWidth": true},
-                    { "data": "cittàDomicilio", "name": "CittàDomicilio", "autoWidth": true},
-                    { "data": "cellulare", "name": "Cellulare", "autoWidth": true},
-                    { "data": "email", "name": "Email", "autoWidth": true},
-                    { "data": "gruppo", "name": "Gruppo", "autoWidth": true},
-                    { "data": "zona", "name": "Zona", "autoWidth": true},
-                    { "data": "luogodiNascita", "name": "LuogoDiNascita", "autoWidth": true },
-                    { "data": "datadiNascita", "name": "DataDiNascita", "autoWidth": true},
+                    { "data": "cognome", "name": "Cognome", "autoWidth": true },
+                    { "data": "nome", "name": "Nome", "autoWidth": true },
+                    { "data": "gruppo", "name": "Gruppo", "autoWidth": true, "Visible": false },
+                    { "data": "cittàResidenza", "name": "Citta", "autoWidth": true },
+                    { "data": "cittadinanza", "name": "Cittadinanza", "autoWidth": true, "Visible": false },
+                    { "data": "cellulare", "name": "Cellulare", "autoWidth": true },
+                    { "data": "email", "name": "Email", "autoWidth": true },
+                    { "data": "dataLuogoDiNascita", "name": "DataLuogoDiNascita", "autoWidth": true, "Visible": false },
+
 
                     {
                         "data": "none",
@@ -159,8 +173,8 @@
                     }
                 ],
                 columnDefs: [
-                    { width: "30%", targets: [0, 1, 2] },
-                    { visible:false, targets:[5,6,7,8]}
+                    { width: "20%", targets: [0, 1, 2] },
+                    { visible:false, targets:[2,4,7]}
                 ],
             });
            
@@ -274,7 +288,13 @@
             }
     });
 
-
+                function avvertimentoExport() {
+                    swal.fire({
+                        title: 'Attenzione',
+                        text: "Attenzione la funzione esporta unicamente i dati presenti nella pagina. Selezionare quindi \"Tutte\" nella tendina del numero righe per pagina. ",
+                        icon: 'warning',
+                    })
+                }
 
     function DeleteData(UID) {
 

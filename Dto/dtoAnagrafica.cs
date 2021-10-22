@@ -72,7 +72,7 @@ namespace SanGiuseppe.Models.Dto
         public bool? InviaEmail { get; set; }
         public string Lingua { get; set; }
         public Guid UID { get; set; }
-
+        public string DataLuogoDiNascita { get; set; }
         public string PercorsoFoto { get; set; }
         public virtual Visitor Visitor { get; set; }
         public virtual ICollection<AnagraficaRuoli> AnagraficaRuoli { get; set; }
